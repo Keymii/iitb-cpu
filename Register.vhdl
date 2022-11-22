@@ -1,5 +1,4 @@
 Library IEEE;
-
 use IEEE.std_logic_1164.all;
 
 entity reg is
