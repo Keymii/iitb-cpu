@@ -64,3 +64,5 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VHDL_FILE register_file.vhdl
 set_global_assignment -name VHDL_FILE alu.vhdl
 set_global_assignment -name VHDL_FILE i_alu.vhdl
+set_global_assignment -name VHDL_FILE r_alu.vhdl
+set_global_assignment -name VHDL_FILE addSub16.vhdl

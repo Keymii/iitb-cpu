@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity addSub16 is
+	port (
+		A,B:in std_logic_vector(15 downto 0);
+		C,Z:out std_logic;
+		Sum:out std_logic_vector(15 downto 0);
+	);
+end addSub16;
+architecture struct of addSub16 is
+	signal carry: std_logic_vector(16 downto 0);
+begin
+	carry(0):='0';
+	for i in 0 to 15 loop
+		sum(i) <= A(i) xor B(i) xor C(i);
+		carry(i+1)<= (A(i) and  B(i)) or (C(i) and  B(i)) or (A(i) and  C(i))
+	end loop;
+	C<=carry(16);
+end struct;
+		
