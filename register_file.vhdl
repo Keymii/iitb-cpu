@@ -10,7 +10,7 @@ end register_file;
 architecture Struct of register_file is
 	component reg is
 		port (signal d_write :in  std_logic_vector(15 downto 0) ;
-				signal write_en: in std_logic;
+				signal write_en: in std_logic;                     --Write Enable Line: directly define in CPU entity using opCode
 				signal reset: in std_logic;
 				signal clk: in std_logic;
 				signal d_read: out std_logic_vector(15 downto 0) 
