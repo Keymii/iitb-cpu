@@ -17,31 +17,19 @@ port( Inp: in std_logic_vector(15 downto 0);
 		mD_read: in std_logic_vector(15 downto 0)
 			
 	);
-end entity i_alu;
-architecture tan of i_alu is
-component addSub16 is
-	port (
-		A,B:in std_logic_vector(15 downto 0);
-		C,Z:out std_logic;
-		Sum:out std_logic_vector(15 downto 0);
-	);
-	end component;
-	
+end component i_alu;
 variable ra,rb:std_logic_vector(2 downto 0);
 variable opcode:std_logic_vector(3 downto 0);
-variable imm:std_logic_vector(5 downto 0);
-variable tit:std_logic_vector(15 downto 0);
+variable imm:std_logic_vector(5 down to 0);
 begin
 opcode<=Inp(15 downto 12);
 ra<=Inp(11 downto 9);
 rb<=Inp(8 downto 6);
 Imm<=Inp(5 downto 0);
-padd(15 downto 6)<="0000000000";
-padd(5 downto 0)<=Imm;
-if(opcode="0001") then ---adi
+if(opcode="0001") then
   rfA1<=ra;
   rfA3<=rb;
-  addsub16_1:addsub16 port map(A=>rfD1,B=>padd,Sum=>rfD3,C=>cout,Z=>zout);
+  --rfd3<=rfd1 add/sub "imm "
   
 	
 	
