@@ -116,7 +116,7 @@ begin
 			rfD3<=D3(1);
 			mA_write<=Awrite(1);
 			mA_read<=Aread(1);
-			Dwrite(1)<=mD_write;
+			mD_write<=Dwrite(1);
 			Dread(1)<=mD_read;
 			Cout<=C_flag(1);
 			Zout<=Z_flag(1);
@@ -129,7 +129,7 @@ begin
 			rfD3<=D3(2);
 			mA_write<=Awrite(2);
 			mA_read<=Aread(2);
-			Dwrite(2)<=mD_write;
+			mD_write<=Dwrite(2);
 			Dread(2)<=mD_read;
 			Cout<=C_flag(2);
 			Zout<=Z_flag(2);
