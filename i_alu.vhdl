@@ -15,20 +15,22 @@ port( Inp: in std_logic_vector(15 downto 0);
 		mA_read: out std_logic_vector(15 downto 0); 
 		mD_read: in std_logic_vector(15 downto 0);
 		
-		clock:in std_logic
+		C_ch,Z_ch : out std_logic; --C_changed and Z_changed
+		
+		clock:in std_logic;
 			
 	);
 end entity i_alu;
 
 architecture tan of i_alu is
 
-component addSub16 is
-	port (
-		A,B:in std_logic_vector(15 downto 0);
-		C,Z:out std_logic;
-		Sum:out std_logic_vector(15 downto 0);
-	);
-end component;
+	component addSub16 is
+		port (
+			A,B:in std_logic_vector(15 downto 0);
+			C,Z:out std_logic;
+			Sum:out std_logic_vector(15 downto 0);
+		);
+	end component;
 	
 begin
 
@@ -54,8 +56,12 @@ begin
 			rfA1<=ra;
 			rfA3<=rb;
 			addsub16_1:addsub16 port map(A=>rfD1,B=>padd,Sum=>rfD3,C=>cout,Z=>zout);
+			C_ch<='1';
+			Z_ch<='1';
 
 		elsif(opcode="0101") then ---sw
+			C_ch<='0';
+			Z_ch<='0';
 		   sw_process:process
 			  variable var1:std_logic_vector(15 downto 0);
 			  variable var2:std_logic_vector(15 downto 0);
@@ -73,6 +79,8 @@ begin
 			
 			
 		elsif(opcode="0100") then ---lw
+			C_ch<='0';
+			Z_ch<='1';
 		  lw_process:process
 		    variable var1:std_logic_vector(15 downto 0);
 			 variable var2:std_logic_vector(15 downto 0);
@@ -87,6 +95,9 @@ begin
 		  end process;
 
 		elsif(opcode="1100") then ---beq
+			C_ch<='0';
+			Z_ch<='0';
+			
 			rfA1<=ra;
 			rfA2<=rb;
 			
@@ -101,6 +112,10 @@ begin
 			end process BEQ_process;
 
 		elsif(opcode="1000") then ---jal
+		
+			C_ch<='0';
+			Z_ch<='0';
+			
 --			rfA1<=ra;
 --			JAL_process: process
 --			begin
@@ -126,6 +141,8 @@ begin
 				
 			end process;
 		elsif(opcode="1001") then ---jlr
+			C_ch<='0';
+			Z_ch<='0';
 			JLR_process: process
 				variable var3:std_logic_vector(15 downto 0);
 				variable var2:std_logic_vector(15 downto 0);

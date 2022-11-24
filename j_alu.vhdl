@@ -15,7 +15,6 @@ entity J_ALU is
 		mA_read: out std_logic_vector(15 downto 0); 
 		mD_read: in std_logic_vector(15 downto 0);
 		
-		Cout,Zout : out std_logic;
 		clock: in std_logic;
 				
 	);

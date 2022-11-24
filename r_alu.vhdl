@@ -10,6 +10,8 @@ entity R_ALU is
 		rfD3: out std_logic_vector(15 downto 0);
 		
 		Cout,Zout : out std_logic;
+		
+		C_ch,Z_ch : out std_logic; --C_changed and Z_changed
 		clock: in std_logic;
 		
 	);
@@ -57,6 +59,9 @@ begin
 				rfD3<=adderS;
 				Cout<=adderC;
 				Zout<=adderZ;
+				
+				C_ch<='1';
+				Z_ch<='1';
 			end if;
 		elsif(opcode="0010") then
 			if ((varC and varZ)/='1') then
@@ -73,6 +78,9 @@ begin
 				end loop;
 				
 				Z<=nor_for_Z;
+				
+				C_ch<='0';
+				Z_ch<='1';
 			end if;
 		
 		end if;
