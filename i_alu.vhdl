@@ -47,8 +47,8 @@ begin
 		Imm:=Inp(5 downto 0);
 		padd(15 downto 6):="0000000000";
 		padd(5 downto 0):=Imm;
-		padd(15 downto 9):="0000000";
-		padd(8 downto 0):=Inp(8 downto 0);
+		padd2(15 downto 9):="0000000";
+		padd2(8 downto 0):=Inp(8 downto 0);
 		
 		if(opcode="0001") then ---adi
 			rfA1<=ra;
@@ -92,10 +92,12 @@ begin
 			
 			BEQ_process: process(Inp)
 			begin
+			
 				rfA3<="111";
 				if(rfD1=rfD2) then 
 					rfA2<="111";
 					addsub16_2:addsub16 port map(A=>rfD2,B=>padd,Sum=>rfD3,C=>bin(1),Z=>bin(0));
+					
 			end process BEQ_process;
 
 		elsif(opcode="1000") then ---jal
@@ -113,6 +115,7 @@ begin
 			JAL_process: process
 				variable var1:std_logic_vector(15 downto 0);
 			begin
+			
 				rfA1<="111";
 				rfA3<=ra;
 				var1:=rfD1;
@@ -127,6 +130,7 @@ begin
 				variable var3:std_logic_vector(15 downto 0);
 				variable var2:std_logic_vector(15 downto 0);
 			begin
+			
 				rfA1<="111";
 				rfA3<=ra;
 				var3:=rfD1;
