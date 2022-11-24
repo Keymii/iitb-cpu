@@ -30,15 +30,15 @@ component addSub16 is
 	);
 end component;
 	
-variable ra,rb:std_logic_vector(2 downto 0);
-variable opcode:std_logic_vector(3 downto 0);
-variable Imm:std_logic_vector(5 downto 0);
-variable padd,padd2:std_logic_vector(15 downto 0);
-variable bin:std_logic_vector(1 downto 0);
-
 begin
 
 	i_process:process(clock)
+		variable ra,rb:std_logic_vector(2 downto 0);
+		variable opcode:std_logic_vector(3 downto 0);
+		variable Imm:std_logic_vector(5 downto 0);
+		variable padd,padd2:std_logic_vector(15 downto 0);
+		variable bin:std_logic_vector(1 downto 0);
+
 	begin
 	
 		opcode:=Inp(15 downto 12);
@@ -57,9 +57,11 @@ begin
 
 		elsif(opcode="0101") then ---sw
 		   sw_process:process
-			  rfA2<=rb
-			  variable var1:std_logic_vector(15 downto 0):=rfD2;
+			  variable var1:std_logic_vector(15 downto 0);
 			  variable var2:std_logic_vector(15 downto 0);
+			begin
+			  rfA2<=rb
+			  var1:=rfD2;
 			  addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0));
 			  mA_write<=var2;
 			  rfA1<=ra;
@@ -72,9 +74,11 @@ begin
 			
 		elsif(opcode="0100") then ---lw
 		  lw_process:process
-		    rfA2<=rb;
-		    variable var1:std_logic_vector(15 downto 0):=rfD2;
+		    variable var1:std_logic_vector(15 downto 0);
 			 variable var2:std_logic_vector(15 downto 0);
+		  begin
+		    rfA2<=rb;
+		    var1:=rfD2;
 			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0)
 		    mA_read<=var2;
 		    rfA3<=ra;
@@ -107,10 +111,11 @@ begin
 --			end process JAL_process;
      
 			JAL_process: process
+				variable var1:std_logic_vector(15 downto 0);
 			begin
 				rfA1<="111";
 				rfA3<=ra;
-				variable var1:std_logic_vector(15 downto 0):=rfD1;
+				var1:=rfD1;
 				rfD3<=var1;
 				rfA1<=ra;
 				rfA3<="111";
@@ -119,14 +124,16 @@ begin
 			end process;
 		elsif(opcode="1001") then ---jlr
 			JLR_process: process
+				variable var3:std_logic_vector(15 downto 0);
+				variable var2:std_logic_vector(15 downto 0);
 			begin
 				rfA1<="111";
 				rfA3<=ra;
-				variable var3:std_logic_vector(15 downto 0):=rfD1;
+				var3:=rfD1;
 				rfD3<=var3;
 				rfA1<=rb;
 				rfA3<="111";
-				variable var2:std_logic_vector(15 downto 0):=rfD1;
+				var2:=rfD1;
 				rfD3<=var2;
 				
 				
