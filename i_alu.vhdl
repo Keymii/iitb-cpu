@@ -75,7 +75,7 @@ begin
 		    rfA2<=rb;
 		    variable var1:std_logic_vector(15 downto 0):=rfD2;
 			 variable var2:std_logic_vector(15 downto 0);
-			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0)
+			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0))
 		    mA_read<=var2;
 		    rfA3<=ra;
 		    rfD3<=mD_read;
