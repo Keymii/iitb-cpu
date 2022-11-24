@@ -20,4 +20,20 @@ architecture struct of J_ALU is
 	variable imm: std_logic_vector(8 downto 0):=inp(8 downto 0);
 begin
 
+	j_process:process(clock)
+	begin
+		if(clock ='1' and clock'event) then
+			case opcode is
+				when "0011" =>
+				
+				when "0110" =>
+				
+				when "0111" =>
+				
+				others=>
+				
+			end case;
+		end if;
+	end process;
+
 end struct;
