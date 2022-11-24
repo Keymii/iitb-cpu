@@ -19,7 +19,7 @@ entity J_ALU is
 		clock: in std_logic;
 				
 	);
-end J_ALU;
+end entity J_ALU;
 architecture struct of J_ALU is
 	
 begin
