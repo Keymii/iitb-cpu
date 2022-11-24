@@ -4,8 +4,6 @@ use ieee.std_logic_1164.all;
 entity ALU is
 	port (
 	inp: in std_logic_vector(15 downto 0);
-	pc_in: in std_logic_vector(15 downto 0);
-	pc_out:out std_logic_vector(15 downto 0);
 	
 	rfA1,rfA2,rfA3: out std_logic_vector(2 downto 0);
 	rfD1,rfD2: in std_logic_vector(15 downto 0);
@@ -109,10 +107,10 @@ begin
 			D1(0)<=rfD1;
 			D2(0)<=rfD2;
 			rfD3<=D3(0);
-			if(C_ch='1') then
+			if(C_ch(0)='1') then
 				C_flag(3);<=C_flag(0);
 			end if;
-			if(Z_ch='1') then
+			if(Z_ch(0)='1') then
 				Z_flag(3);<=Z_flag(0);
 			end if;
 		elsif ((opcode="0001")or(opcode="0100")or(opcode="0101")or(opcode="1100")or(opcode="1000")or(opcode="1001")) then
@@ -126,10 +124,10 @@ begin
 			mA_read<=Aread(1);
 			mD_write<=Dwrite(1);
 			Dread(1)<=mD_read;
-			if(C_ch='1') then
+			if(C_ch(1)='1') then
 				C_flag(3);<=C_flag(1);
 			end if;
-			if(Z_ch='1') then
+			if(Z_ch(1)='1') then
 				Z_flag(3);<=Z_flag(1);
 			end if;
 		elsif ((opcode="0011")or(opcode="0110")or(opcode="0111")) then
