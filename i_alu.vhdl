@@ -29,8 +29,13 @@ component addSub16 is
 		Sum:out std_logic_vector(15 downto 0);
 	);
 end component;
+
+ signal adderA,adderB,adderS:std_logic_vector(15 downto 0);
+ signal adderC, adderZ :std_logic;
 	
 begin
+
+ adder : addSub16 port map (A=>adderA, B=>adderB, C=>adderC, Z=>adderZ, Sum=>adderS)
 
 	i_process:process(clock)
 		variable ra,rb:std_logic_vector(2 downto 0);
@@ -53,7 +58,12 @@ begin
 		if(opcode="0001") then ---adi
 			rfA1<=ra;
 			rfA3<=rb;
-			addsub16_1:addsub16 port map(A=>rfD1,B=>padd,Sum=>rfD3,C=>cout,Z=>zout);
+			adderA<=rfD1;
+			adderB<=padd;
+			rfD3<=adderS;
+			cout<=adderC;
+			zout<=adderZ;
+			
 
 		elsif(opcode="0101") then ---sw
 		   sw_process:process
@@ -62,7 +72,11 @@ begin
 			begin
 			  rfA2<=rb
 			  var1:=rfD2;
-			  addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0));
+			  adderA<=var1;
+			  adderB<=padd;
+			  var2<=adderS;
+			  bin(1)<=adderC;
+			  bin(0)<=adderZ;
 			  mA_write<=var2;
 			  rfA1<=ra;
 			  mD_write<=rfD1;
@@ -79,7 +93,11 @@ begin
 		  begin
 		    rfA2<=rb;
 		    var1:=rfD2;
-			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>zout);
+			 adderA<=var1;
+			 adderB<=padd;
+			 var2<=adderS;
+			 bin(1)<=adderC;
+			 zout<=adderZ;
 		    mA_read<=var2;
 		    rfA3<=ra;
 		    rfD3<=mD_read;
@@ -96,8 +114,11 @@ begin
 				rfA3<="111";
 				if(rfD1=rfD2) then 
 					rfA2<="111";
-					addsub16_2:addsub16 port map(A=>rfD2,B=>padd,Sum=>rfD3,C=>bin(1),Z=>bin(0));
-					
+					adderA<=rfD2;
+					adderB<=padd;
+					rfD3<=adderS;
+					bin(1)<=adderc;
+					bin(0)<=adderZ;
 			end process BEQ_process;
 
 		elsif(opcode="1000") then ---jal
@@ -122,8 +143,11 @@ begin
 				rfD3<=var1;
 				rfA1<=ra;
 				rfA3<="111";
-				addsub16_2:addsub16 port map(A=>rfD1,B=>padd2,Sum=>rfD3,C=>bin(1),Z=>bin(0));
-				
+				adderA<=rfD1;
+				adderB<=padd2;
+				rfD3<=adderS;
+				bin(1)<=adderC;
+				bin(0)<=adderZ;
 			end process;
 		elsif(opcode="1001") then ---jlr
 			JLR_process: process
