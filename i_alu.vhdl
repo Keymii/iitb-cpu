@@ -33,7 +33,7 @@ end component;
 variable ra,rb:std_logic_vector(2 downto 0);
 variable opcode:std_logic_vector(3 downto 0);
 variable Imm:std_logic_vector(5 downto 0);
-variable padd:std_logic_vector(15 downto 0);
+variable padd,padd2:std_logic_vector(15 downto 0);
 variable bin:std_logic_vector(1 downto 0);
 
 begin
@@ -47,6 +47,8 @@ begin
 		Imm:=Inp(5 downto 0);
 		padd(15 downto 6):="0000000000";
 		padd(5 downto 0):=Imm;
+		padd(15 downto 9):="0000000";
+		padd(8 downto 0):=Inp(8 downto 0);
 		
 		if(opcode="0001") then ---adi
 			rfA1<=ra;
@@ -54,17 +56,31 @@ begin
 			addsub16_1:addsub16 port map(A=>rfD1,B=>padd,Sum=>rfD3,C=>cout,Z=>zout);
 
 		elsif(opcode="0101") then ---sw
---			sw_process(
---			mA_read<=rb;
---			mA_write<=ra;
---			addsub16_1:addsub16 port map(A=>mD_read,B=>padd,Sum=>mD_write,C=>cout,Z=>zout);
+		   sw_process:process
+			  rfA2<=rb
+			  variable var1:std_logic_vector(15 downto 0):=rfD2;
+			  variable var2:std_logic_vector(15 downto 0);
+			  addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0));
+			  mA_write<=var2;
+			  rfA1<=ra;
+			  mD_write<=rfD1;
+			  rfA2<=rb;
+			  
+			end process;
 
+			
+			
 		elsif(opcode="0100") then ---lw
---			lw_process: process(Inp)
---			rfA1<=rb;
---			rfA3<=rb;
---			addsub16_1:addsub16 port map(A=>rfD1,B=>padd,Sum=>rfD3,C=>cout,Z=>zout);
-
+		  lw_process:process
+		    rfA2<=rb;
+		    variable var1:std_logic_vector(15 downto 0):=rfD2;
+			 variable var2:std_logic_vector(15 downto 0);
+			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0)
+		    mA_read<=var2;
+		    rfA3<=ra;
+		    rfD3<=mD_read;
+			 
+		  end process;
 
 		elsif(opcode="1100") then ---beq
 			rfA1<=ra;
@@ -84,23 +100,38 @@ begin
 --			begin
 --				rfA3<=pc;
 --				rfA2<=pc;
---				addsub16_2:addsub16 port map(A=>rfD2,B=>padd,Sum=>rfD3,C=>bin(1),Z=>bin(0));
+--				addsub16_2:addsub16 port map(A=>rfD2,B=>padd2,Sum=>rfD3,C=>bin(1),Z=>bin(0));
 --				rfA2<=rfA3;
 --				rfA3<=ra;
 --				rfD3<=rfD2
 --			end process JAL_process;
-
+     
 			JAL_process: process
 			begin
 				rfA1<="111";
 				rfA3<=ra;
-				rfD3<=rfD1;
+				variable var1:std_logic_vector(15 downto 0):=rfD1;
+				rfD3<=var1;
 				rfA1<=ra;
 				rfA3<="111";
 				addsub16_2:addsub16 port map(A=>rfD1,B=>padd2,Sum=>rfD3,C=>bin(1),Z=>bin(0));
 				
 			end process;
-			
+		elsif(opcode="1001") then ---jlr
+			JLR_process: process
+			begin
+				rfA1<="111";
+				rfA3<=ra;
+				variable var3:std_logic_vector(15 downto 0):=rfD1;
+				rfD3<=var3;
+				rfA1<=rb;
+				rfA3<="111";
+				variable var2:std_logic_vector(15 downto 0):=rfD1;
+				rfD3<=var2;
+				
+				
+			end process;
+		end if;	
 	  
 	end process;
 end tan;
