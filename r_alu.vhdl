@@ -24,9 +24,15 @@ architecture struct of R_ALU is
 		);
 	end component addSub16;
 	
+	signal adderA,adderB,adderS:std_logic_vector(15 downto 0);
+	signal adderC, adderZ :std_logic;
+	
 	
 	
 begin
+
+	adder : addSub16 port map (A=>adderA, B=>adderB, C=>adderC, Z=>adderZ, Sum=>adderS);
+
 	r_process:process(clock)
 		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
 		variable rA:std_logic_vector(2 downto 0):=inp(11 downto 9);
@@ -43,9 +49,14 @@ begin
 		rfA3<=rC;
 		Cout<=varC;
 		Zout<=varZ;
+		
 		if(opcode="0000") then
 			if ((varC and varZ)/='1') then
-				adder : addSub16 port map (A=>rfD1, B=>rfD2, C=>Cout, Z=>Zout, Sum=>rfD3);
+				adderA<=rfD1;
+				adderB<=rfD2;
+				rfD3<=adderS;
+				Cout<=adderC;
+				Zout<=adderZ;
 			end if;
 		elsif(opcode="0010") then
 			if ((varC and varZ)/='1') then
