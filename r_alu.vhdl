@@ -24,16 +24,20 @@ architecture struct of R_ALU is
 		);
 	end component addSub16;
 	
-	variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
-	variable rA:std_logic_vector(2 downto 0):=inp(11 downto 9);
-	variable rB:std_logic_vector(2 downto 0):=inp(8 downto 6);
-	variable rC:std_logic_vector(2 downto 0):=inp(5 downto 3);
-	variable varC:std_logic:=inp(1);
-	variable varZ:std_logic:=inp(0);
+	
 	
 begin
 	r_process:process(clock)
+		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
+		variable rA:std_logic_vector(2 downto 0):=inp(11 downto 9);
+		variable rB:std_logic_vector(2 downto 0):=inp(8 downto 6);
+		variable rC:std_logic_vector(2 downto 0):=inp(5 downto 3);
+		variable varC:std_logic:=inp(1);
+		variable varZ:std_logic:=inp(0);
+		variable nand16 : std_logic_vector(15 downto 0);
+		variable nor_for_Z: std_logic;
 	begin
+		
 		rfA1<=rA;
 		rfA2<=rB;
 		rfA3<=rC;
@@ -45,14 +49,14 @@ begin
 			end if;
 		elsif(opcode="0010") then
 			if ((varC and varZ)/='1') then
-				variable nand16 : std_logic_vector(15 downto 0);
+				
 				for i in 0 to 15 loop
 					nand16(i):=rfD1(i) nand rfD2(i);
 				end loop;
 				
 				rfD3<=nand16;
 				
-				variable nor_for_Z: std_logic:=nand16(0);
+				nor_for_Z:=nand16(0);
 				for i in 1 to 15 loop
 					nor_for_Z := nor_for_Z nor nand16(i);
 				end loop;

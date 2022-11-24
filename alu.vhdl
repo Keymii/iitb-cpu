@@ -46,9 +46,9 @@ architecture struct of ALU is
 	type rf_address_lines is array (0 to 3 ) of std_logic_vector (2 downto 0);
 	type rf_data_lines is array (0 to 3 ) of std_logic_vector (15 downto 0);
 
-	variable A1,A2,A3 : rf_address_lines;--0-R,1-I,2-J
-	variable D1,D2,D3 : rf_data_lines;
-	Variable C_flag,D_flag : std_logic_vector(2 downto 0);
+	signal A1,A2,A3 : rf_address_lines;--0-R,1-I,2-J
+	signal D1,D2,D3 : rf_data_lines;
+	signal C_flag,D_flag : std_logic_vector(2 downto 0);
 begin
 	-- take inp
 	-- divide in r,i,j alu
