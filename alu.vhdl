@@ -43,8 +43,8 @@ architecture struct of ALU is
 	-- component J_ALU
 	
 	-- signals
-	type rf_address_lines is array (0 to 3 ) of std_logic_vector (2 downto 0);
-	type rf_data_lines is array (0 to 3 ) of std_logic_vector (15 downto 0);
+	type rf_address_lines is array (0 to 2 ) of std_logic_vector (2 downto 0);
+	type rf_data_lines is array (0 to 2 ) of std_logic_vector (15 downto 0);
 
 	signal A1,A2,A3 : rf_address_lines;--0-R,1-I,2-J
 	signal D1,D2,D3 : rf_data_lines;
