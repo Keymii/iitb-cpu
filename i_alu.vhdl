@@ -79,7 +79,7 @@ begin
 		  begin
 		    rfA2<=rb;
 		    var1:=rfD2;
-			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>bin(0)
+			 addsub16_2:addsub16 port map(A=>var1,B=>padd,Sum=>var2,C=>bin(1),Z=>zout);
 		    mA_read<=var2;
 		    rfA3<=ra;
 		    rfD3<=mD_read;
