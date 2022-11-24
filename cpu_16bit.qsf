@@ -68,3 +68,4 @@ set_global_assignment -name VHDL_FILE r_alu.vhdl
 set_global_assignment -name VHDL_FILE addSub16.vhdl
 
 set_global_assignment -name VHDL_FILE j_alu.vhdl
+set_global_assignment -name VHDL_FILE cpu_16bit.vhdl
