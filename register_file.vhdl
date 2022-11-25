@@ -13,15 +13,16 @@ entity register_file is
 end register_file;
 architecture Struct of register_file is
 	component reg is
-		port (signal d_write :in  std_logic_vector(15 downto 0) ;
-				signal write_en: in std_logic;                     --Write Enable Line: directly define in CPU entity using opCode
-				signal reset: in std_logic;
-				signal clk: in std_logic;
-				signal d_read: out std_logic_vector(15 downto 0) 
+		port (d_write :in  std_logic_vector(15 downto 0) ;
+				write_en: in std_logic;                     --Write Enable Line: directly define in CPU entity using opCode
+				reset: in std_logic;
+				clk: in std_logic;
+				d_read: out std_logic_vector(15 downto 0) 
 				);
 	end component reg;
 	type dataLine is array (0 to 7 ) of std_logic_vector (15 downto 0);
 	signal dw,dr : dataLine;
+	signal en7: std_logic;
 begin
 	process(clock)
 	begin
@@ -36,7 +37,7 @@ begin
 			end if;
 		end if;
 	end process;
-	
+	en7<=(Write_en or pc_write_en);
 	R0 : reg port map (d_write=>dw(0) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(0) );
 	R1 : reg port map (d_write=>dw(1) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(1) );
 	R2 : reg port map (d_write=>dw(2) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(2) );
@@ -44,7 +45,7 @@ begin
 	R4 : reg port map (d_write=>dw(4) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(4) );
 	R5 : reg port map (d_write=>dw(5) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(5) );
 	R6 : reg port map (d_write=>dw(6) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(6) );
-	R7 : reg port map (d_write=>dw(7) , write_en=>(Write_en or pc_write_en) , reset=>rst , clk=>clock ,d_read=>dr(7) );
+	R7 : reg port map (d_write=>dw(7) , write_en=>en7 , reset=>rst , clk=>clock ,d_read=>dr(7) );
 	
 	D1<=dr(to_integer(unsigned(A1)));
 	D2<=dr(to_integer(unsigned(A2)));

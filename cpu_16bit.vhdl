@@ -3,8 +3,9 @@ use ieee.std_logic_1164.all;
 
 entity cpu is
 	port (
+		pc_o:out std_logic_vector(15 downto 0);
 		C,Z:out std_logic;
-		
+		inp1:out std_logic_vector(15 downto 0);
 		clock:in std_logic;
 		reset:in std_logic
 	);
@@ -13,6 +14,7 @@ end cpu;
 architecture construct of cpu is
 	component ALU is
 		port (
+		inp: in std_logic_vector(15 downto 0);
 		rfA1,rfA2,rfA3: out std_logic_vector(2 downto 0);
 		rfD1,rfD2: in std_logic_vector(15 downto 0);
 		rfD3: out std_logic_vector(15 downto 0);
@@ -79,6 +81,7 @@ begin
 	);
 	
 	A : ALU port map(
+		inp=>inp,
 		rfA1=>sigA1,
 		rfA2=>sigA2,
 		rfA3=>sigA3, 
@@ -113,10 +116,11 @@ begin
 	
 	
 	write_process:process(clock)
-		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
+		variable opcode:std_logic_vector(3 downto 0);
 	begin
 		if (clock='1' and clock'event) then
-		
+			opcode:=inp(15 downto 12);
+
 			if ((opcode="0101")or(opcode="0111")) then
 				rf_write_en<='0';
 				m_write_en<='1';
@@ -129,10 +133,11 @@ begin
 	end process;
 
 	pc_process:process(clock)
-		variable pc:std_logic_vector(15 downto 0);
+		variable pc:std_logic_vector(15 downto 0):="0000000000000000";
 	begin
 		if (clock='1' and clock'event) then
 			pc := pc_r;
+			pc_o<=pc;
 			sigPC<=pc;
 			inp<=inp_t;
 			adderA<=pc_r;
@@ -141,9 +146,10 @@ begin
 			pc_write_en<='1';
 			pc_w<=pc;
 			pc_write_en<='0';
-			
+			pc_o<=pc;
 		end if;
 	end process;
 	
+	inp1<=inp;
 
 end architecture construct;

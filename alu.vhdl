@@ -94,55 +94,62 @@ begin
 	I : i_alu port map (inp=>inp,rfA1=>A1(1),rfA2=>A2(1),rfA3=>A3(1),rfD1=>D1(1),rfD2=>D2(1),rfD3=>D3(1),mA_read=>Aread(1),mA_write=>Awrite(1),mD_read=>Dread(1),mD_write=>Dwrite(1),Cout=>C_flag(1),Zout=>Z_flag(1),clock=>clock,C_ch=>C_ch(1),Z_ch=>Z_ch(1));
 	J : J_ALU port map (inp=>inp,rfA1=>A1(2),rfA2=>A2(2),rfA3=>A3(2),rfD1=>D1(2),rfD2=>D2(2),rfD3=>D3(2),mA_read=>Aread(2),mA_write=>Awrite(2),mD_read=>Dread(2),mD_write=>Dwrite(2),clock=>clock);
 	
-	Cout<=C_flag(3);
-	Zout<=Z_flag(3);
+	
 	
 	-- pc modification
 	op_proc:process(clock)
-		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
+		variable opcode:std_logic_vector(3 downto 0);
+		variable c_store,z_store:std_logic:='0';
 	begin
-		if ((opcode="0000")or(opcode="0010")) then
-			rfA1<=A1(0);
-			rfA2<=A2(0);
-			rfA3<=A3(0);
-			D1(0)<=rfD1;
-			D2(0)<=rfD2;
-			rfD3<=D3(0);
-			if(C_ch(0)='1') then
-				C_flag(3)<=C_flag(0);
+		if(clock='1' and clock'event) then
+			opcode:=inp(15 downto 12);
+			if ((opcode="0000")or(opcode="0010")) then
+				rfA1<=A1(0);
+				rfA2<=A2(0);
+				rfA3<=A3(0);
+				D1(0)<=rfD1;
+				D2(0)<=rfD2;
+				rfD3<=D3(0);
+				if(C_ch(0)='1') then
+					c_store:=C_flag(0);
+				end if;
+				if(Z_ch(0)='1') then
+					z_store:=Z_flag(0);
+				end if;
+			elsif ((opcode="0001")or(opcode="0100")or(opcode="0101")or(opcode="1100")or(opcode="1000")or(opcode="1001")) then
+				rfA1<=A1(1);
+				rfA2<=A2(1);
+				rfA3<=A3(1);
+				D1(1)<=rfD1;
+				D2(1)<=rfD2;
+				rfD3<=D3(1);
+				mA_write<=Awrite(1);
+				mA_read<=Aread(1);
+				mD_write<=Dwrite(1);
+				Dread(1)<=mD_read;
+				if(C_ch(1)='1') then
+					c_store:=C_flag(1);
+				end if;
+				if(Z_ch(1)='1') then
+					z_store:=Z_flag(1);
+				end if;
+			elsif ((opcode="0011")or(opcode="0110")or(opcode="0111")) then
+				rfA1<=A1(2);
+				rfA2<=A2(2);
+				rfA3<=A3(2);
+				D1(2)<=rfD1;
+				D2(2)<=rfD2;
+				rfD3<=D3(2);
+				mA_write<=Awrite(2);
+				mA_read<=Aread(2);
+				mD_write<=Dwrite(2);
+				Dread(2)<=mD_read;
+			
 			end if;
-			if(Z_ch(0)='1') then
-				Z_flag(3)<=Z_flag(0);
-			end if;
-		elsif ((opcode="0001")or(opcode="0100")or(opcode="0101")or(opcode="1100")or(opcode="1000")or(opcode="1001")) then
-		   rfA1<=A1(1);
-			rfA2<=A2(1);
-			rfA3<=A3(1);
-			D1(1)<=rfD1;
-			D2(1)<=rfD2;
-			rfD3<=D3(1);
-			mA_write<=Awrite(1);
-			mA_read<=Aread(1);
-			mD_write<=Dwrite(1);
-			Dread(1)<=mD_read;
-			if(C_ch(1)='1') then
-				C_flag(3)<=C_flag(1);
-			end if;
-			if(Z_ch(1)='1') then
-				Z_flag(3)<=Z_flag(1);
-			end if;
-		elsif ((opcode="0011")or(opcode="0110")or(opcode="0111")) then
-		   rfA1<=A1(2);
-			rfA2<=A2(2);
-			rfA3<=A3(2);
-			D1(2)<=rfD1;
-			D2(2)<=rfD2;
-			rfD3<=D3(2);
-			mA_write<=Awrite(2);
-			mA_read<=Aread(2);
-			mD_write<=Dwrite(2);
-			Dread(2)<=mD_read;
-		
 		end if;
+		C_flag(3)<=c_store;
+		Z_flag(3)<=z_store;
 	end process;
+	Cout<=C_flag(3);
+	Zout<=Z_flag(3);
 end struct;

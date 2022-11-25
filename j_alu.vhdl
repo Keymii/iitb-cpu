@@ -36,9 +36,9 @@ begin
 	adder : addSub16 port map (A=>adderA, B=>adderB, C=>adderC, Z=>adderZ, Sum=>adderS);
 
 	j_process:process(clock)
-		variable opcode: std_logic_vector(3 downto 0):=inp(15 downto 12);
-		variable rA: std_logic_vector(2 downto 0):= inp(11 downto 9);
-		variable imm: std_logic_vector(8 downto 0):=inp(8 downto 0);
+		variable opcode: std_logic_vector(3 downto 0);
+		variable rA: std_logic_vector(2 downto 0);
+		variable imm: std_logic_vector(8 downto 0);
 		variable imm2: std_logic_vector(15 downto 0);
 		variable var1 : std_logic_vector(15 downto 0);
 		variable var2 : std_logic_vector(15 downto 0);
@@ -48,6 +48,9 @@ begin
 		
 	begin
 		if(clock ='1' and clock'event) then
+			opcode:=inp(15 downto 12);
+			rA:= inp(11 downto 9);
+			imm:=inp(8 downto 0);
 			case opcode is
 				when "0011" => --lhi
 				
@@ -63,7 +66,7 @@ begin
 					rfA1<=rA;
 					memAdd:=rfD1;
 					
-					for i in 0 downto 7 loop
+					for i in 0 to 7 loop
 						case imm(i) is
 							when '1'=>
 								mA_read<=memAdd;
@@ -81,6 +84,8 @@ begin
 								rfA1<=std_logic_vector(to_unsigned(i, rfA3'length));
 								rfA3<=std_logic_vector(to_unsigned(i, rfA3'length));
 								rfD3<=rfD1;
+								
+							when others=> null;
 							
 						end case;
 					end loop;
@@ -108,6 +113,7 @@ begin
 								mA_read<=memAdd;
 								mA_write<=memAdd;
 								mD_write<=mD_read;
+							when others=>null;
 						end case;
 					end loop;
 				

@@ -2,4 +2,76 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 125C Model Setup 'input_vector[1]'
+Slack : -7.928
+TNS   : -2824.228
+
+Type  : Slow 1200mV 125C Model Setup 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : -1.322
+TNS   : -79.638
+
+Type  : Slow 1200mV 125C Model Hold 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : -0.320
+TNS   : -1.480
+
+Type  : Slow 1200mV 125C Model Hold 'input_vector[1]'
+Slack : 0.370
+TNS   : 0.000
+
+Type  : Slow 1200mV 125C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -1067.877
+
+Type  : Slow 1200mV 125C Model Minimum Pulse Width 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : 0.251
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Setup 'input_vector[1]'
+Slack : -6.670
+TNS   : -2324.277
+
+Type  : Slow 1200mV -40C Model Setup 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : -1.016
+TNS   : -61.792
+
+Type  : Slow 1200mV -40C Model Hold 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : -0.077
+TNS   : -0.083
+
+Type  : Slow 1200mV -40C Model Hold 'input_vector[1]'
+Slack : 0.333
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -972.243
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : 0.412
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Setup 'input_vector[1]'
+Slack : -3.236
+TNS   : -1069.171
+
+Type  : Fast 1200mV -40C Model Setup 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : -0.122
+TNS   : -0.537
+
+Type  : Fast 1200mV -40C Model Hold 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : -0.025
+TNS   : -0.025
+
+Type  : Fast 1200mV -40C Model Hold 'input_vector[1]'
+Slack : 0.157
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -786.054
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'cpu:add_instance|ALU:A|rfA3[0]'
+Slack : 0.297
+TNS   : 0.000
+
 ------------------------------------------------------------

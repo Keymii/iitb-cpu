@@ -17,8 +17,9 @@ entity RAM_65536X16 is
 end RAM_65536X16;
 
 architecture Behavioral of RAM_65536X16 is
-type ram_array is array (0 to 65535 ) of std_logic_vector (15 downto 0);
+type ram_array is array (0 to 32 ) of std_logic_vector (15 downto 0);
 signal ram_data: ram_array :=(
+	"0000010100001010","0000010100001001","0000010000001010",
 	
 	others => "0000000000000000"
    

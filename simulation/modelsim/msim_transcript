@@ -1,32 +1,220 @@
 # Reading pref.tcl
-# do cpu_16bit_run_msim_gate_vhdl.do
-# if {[file exists gate_work]} {
-# 	vdel -lib gate_work -all
+# ERROR: No extended dataflow license exists
+# do cpu_16bit_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
 # }
-# vlib gate_work
-# vmap work gate_work
+# vlib rtl_work
+# vmap work rtl_work
 # Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work gate_work 
+# vmap work rtl_work 
 # Copying D:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {cpu_16bit.vho}
+# vcom -93 -work work {D:/iitb-cpu/DUT.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 06:49:50 on Nov 25,2022
-# vcom -reportprogress 300 -93 -work work cpu_16bit.vho 
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/DUT.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package VITAL_Timing
-# -- Loading package VITAL_Primitives
-# -- Loading package fiftyfivenm_atom_pack
-# -- Loading package fiftyfivenm_components
-# -- Compiling entity hard_block
-# -- Compiling architecture structure of hard_block
-# -- Loading package dffeas_pack
-# -- Loading package altera_primitives_components
+# -- Compiling entity DUT
+# -- Compiling architecture DutWrap of DUT
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/iitb-cpu/RAM_65536X16.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/RAM_65536X16.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity RAM_65536X16
+# -- Compiling architecture Behavioral of RAM_65536X16
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/iitb-cpu/Register.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/Register.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg
+# -- Compiling architecture sim of reg
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/iitb-cpu/register_file.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/register_file.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity register_file
+# -- Compiling architecture Struct of register_file
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/iitb-cpu/addSub16.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/addSub16.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity addSub16
+# -- Compiling architecture struct of addSub16
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/iitb-cpu/cpu_16bit.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/cpu_16bit.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
 # -- Compiling entity cpu
-# -- Compiling architecture structure of cpu
-# End time: 06:49:51 on Nov 25,2022, Elapsed time: 0:00:01
+# -- Compiling architecture construct of cpu
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/iitb-cpu/alu_rij.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/alu_rij.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ALU
+# -- Compiling architecture struct of ALU
+# ** Warning: D:/iitb-cpu/alu_rij.vhdl(43): (vcom-1013) Initial value of "varC" depends on value of signal "inp".
+# ** Warning: D:/iitb-cpu/alu_rij.vhdl(44): (vcom-1013) Initial value of "varZ" depends on value of signal "inp".
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# 
+# vcom -93 -work work {D:/iitb-cpu/Testbench.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:42:28 on Nov 25,2022
+# vcom -reportprogress 300 -93 -work work D:/iitb-cpu/Testbench.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Testbench
+# -- Compiling architecture Behave of Testbench
+# End time: 21:42:28 on Nov 25,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  Testbench
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" Testbench 
+# Start time: 21:42:28 on Nov 25,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.testbench(behave)
+# Loading work.dut(dutwrap)
+# Loading work.cpu(construct)
+# Loading work.addsub16(struct)
+# Loading ieee.numeric_std(body)
+# Loading work.ram_65536x16(behavioral)
+# Loading work.alu(struct)
+# Loading work.register_file(struct)
+# Loading work.reg(sim)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/ram
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/ram
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 19 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 19 ns  Iteration: 0  Instance: /testbench
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 19 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 19 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 19 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 38 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 38 ns  Iteration: 0  Instance: /testbench
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 38 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 57 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 57 ns  Iteration: 0  Instance: /testbench
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 57 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 76 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 76 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 95 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 95 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 114 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 114 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 133 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 133 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 152 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 152 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 171 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 171 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 190 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 190 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 209 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 209 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 228 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 228 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 247 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 247 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 266 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 266 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 285 ns  Iteration: 0  Instance: /testbench
+# ** Error: (vsim-3549) TEXTIO procedure READ(BIT_VECTOR) : Wrong BIT_VECTOR length. Expected 34, found 2.
+#    Time: 285 ns  Iteration: 0  Instance: /testbench
+# ** Note: SUCCESS, all tests passed.
+#    Time: 304 ns  Iteration: 0  Instance: /testbench
+# End time: 21:47:03 on Nov 25,2022, Elapsed time: 0:04:35
+# Errors: 32, Warnings: 11

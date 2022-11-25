@@ -36,53 +36,58 @@ begin
 	adder : addSub16 port map (A=>adderA, B=>adderB, C=>adderC, Z=>adderZ, Sum=>adderS);
 
 	r_process:process(clock)
-		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
-		variable rA:std_logic_vector(2 downto 0):=inp(11 downto 9);
-		variable rB:std_logic_vector(2 downto 0):=inp(8 downto 6);
-		variable rC:std_logic_vector(2 downto 0):=inp(5 downto 3);
-		variable varC:std_logic:=inp(1);
-		variable varZ:std_logic:=inp(0);
+		variable opcode:std_logic_vector(3 downto 0);
+		variable rA:std_logic_vector(2 downto 0);
+		variable rB:std_logic_vector(2 downto 0);
+		variable rC:std_logic_vector(2 downto 0);
+		constant varC:std_logic:=inp(1);
+		constant varZ:std_logic:=inp(0);
 		variable nand16 : std_logic_vector(15 downto 0);
 		variable nor_for_Z: std_logic;
 	begin
-		
-		rfA1<=rA;
-		rfA2<=rB;
-		rfA3<=rC;
-		Cout<=varC;
-		Zout<=varZ;
-		
-		if(opcode="0000") then
-			if ((varC and varZ)/='1') then
-				adderA<=rfD1;
-				adderB<=rfD2;
-				rfD3<=adderS;
-				Cout<=adderC;
-				Zout<=adderZ;
-				
-				C_ch<='1';
-				Z_ch<='1';
+		if(clock='1' and clock'event) then
+			opcode:=inp(15 downto 12);
+			rA:=inp(11 downto 9);
+			rB:=inp(8 downto 6);
+			rC:=inp(5 downto 3);
+			rfA1<=rA;
+			rfA2<=rB;
+			rfA3<=rC;
+			Cout<=varC;
+			Zout<=varZ;
+			
+			if(opcode="0000") then
+				if ((varC and varZ)/='1') then
+					adderA<=rfD1;
+					adderB<=rfD2;
+					rfD3<=adderS;
+					Cout<=adderC;
+					Zout<=adderZ;
+					
+					C_ch<='1';
+					Z_ch<='1';
+				end if;
+			elsif(opcode="0010") then
+				if ((varC and varZ)/='1') then
+					
+					for i in 0 to 15 loop
+						nand16(i):=rfD1(i) nand rfD2(i);
+					end loop;
+					
+					rfD3<=nand16;
+					
+					nor_for_Z:=nand16(0);
+					for i in 1 to 15 loop
+						nor_for_Z := nor_for_Z nor nand16(i);
+					end loop;
+					
+					Zout<=nor_for_Z;
+					
+					C_ch<='0';
+					Z_ch<='1';
+				end if;
+			
 			end if;
-		elsif(opcode="0010") then
-			if ((varC and varZ)/='1') then
-				
-				for i in 0 to 15 loop
-					nand16(i):=rfD1(i) nand rfD2(i);
-				end loop;
-				
-				rfD3<=nand16;
-				
-				nor_for_Z:=nand16(0);
-				for i in 1 to 15 loop
-					nor_for_Z := nor_for_Z nor nand16(i);
-				end loop;
-				
-				Zout<=nor_for_Z;
-				
-				C_ch<='0';
-				Z_ch<='1';
-			end if;
-		
 		end if;
 	end process;
 	
