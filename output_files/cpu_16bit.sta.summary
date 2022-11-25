@@ -1,0 +1,173 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'inp[12]'
+Slack : -15.600
+TNS   : -1254.766
+
+Type  : Slow 1200mV 85C Model Setup 'inp[0]'
+Slack : -12.648
+TNS   : -209.681
+
+Type  : Slow 1200mV 85C Model Setup 'ALU:A|rfA3[0]'
+Slack : -5.488
+TNS   : -556.868
+
+Type  : Slow 1200mV 85C Model Setup 'clock'
+Slack : -2.855
+TNS   : -265.416
+
+Type  : Slow 1200mV 85C Model Hold 'inp[12]'
+Slack : 0.409
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'inp[0]'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.431
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ALU:A|rfA3[0]'
+Slack : 2.606
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'inp[12]'
+Slack : -2.707
+TNS   : -6.737
+
+Type  : Slow 1200mV 85C Model Removal 'inp[12]'
+Slack : 1.195
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -221.589
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'inp[12]'
+Slack : -3.000
+TNS   : -111.988
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'inp[0]'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ALU:A|rfA3[0]'
+Slack : 0.117
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'inp[12]'
+Slack : -15.082
+TNS   : -1204.459
+
+Type  : Slow 1200mV 0C Model Setup 'inp[0]'
+Slack : -12.218
+TNS   : -197.078
+
+Type  : Slow 1200mV 0C Model Setup 'ALU:A|rfA3[0]'
+Slack : -5.266
+TNS   : -524.443
+
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -2.494
+TNS   : -241.974
+
+Type  : Slow 1200mV 0C Model Hold 'inp[0]'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'inp[12]'
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.521
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ALU:A|rfA3[0]'
+Slack : 2.603
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'inp[12]'
+Slack : -2.509
+TNS   : -6.114
+
+Type  : Slow 1200mV 0C Model Removal 'inp[12]'
+Slack : 1.198
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -221.589
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'inp[12]'
+Slack : -3.000
+TNS   : -108.422
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'inp[0]'
+Slack : -3.000
+TNS   : -3.020
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ALU:A|rfA3[0]'
+Slack : -0.179
+TNS   : -2.895
+
+Type  : Fast 1200mV 0C Model Setup 'inp[12]'
+Slack : -5.131
+TNS   : -427.709
+
+Type  : Fast 1200mV 0C Model Setup 'inp[0]'
+Slack : -3.955
+TNS   : -59.413
+
+Type  : Fast 1200mV 0C Model Setup 'ALU:A|rfA3[0]'
+Slack : -1.926
+TNS   : -162.024
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : -1.056
+TNS   : -52.085
+
+Type  : Fast 1200mV 0C Model Hold 'clock'
+Slack : -0.064
+TNS   : -0.064
+
+Type  : Fast 1200mV 0C Model Hold 'inp[12]'
+Slack : 0.138
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'inp[0]'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ALU:A|rfA3[0]'
+Slack : 1.097
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'inp[12]'
+Slack : -1.217
+TNS   : -3.111
+
+Type  : Fast 1200mV 0C Model Removal 'inp[12]'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -154.319
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'inp[12]'
+Slack : -3.000
+TNS   : -28.214
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'inp[0]'
+Slack : -3.000
+TNS   : -7.573
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ALU:A|rfA3[0]'
+Slack : 0.271
+TNS   : 0.000
+
+------------------------------------------------------------

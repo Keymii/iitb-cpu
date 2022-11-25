@@ -13,10 +13,10 @@ entity ALU is
 	mD_write: out std_logic_vector(15 downto 0);
 	
 	mA_read: out std_logic_vector(15 downto 0); 
-	mD_read: in std_logic_vector(15 downto 0)
+	mD_read: in std_logic_vector(15 downto 0);
 	
 	clock: in std_logic;
-	Cout,Zout : out std_logic;
+	Cout,Zout : out std_logic
 	
 	);
 end ALU;
@@ -34,7 +34,7 @@ architecture struct of ALU is
 			C_ch,Z_ch : out std_logic;
 			
 			Cout,Zout : out std_logic;
-			clock: in std_logic;
+			clock: in std_logic
 			
 		);
 	end component R_ALU;
@@ -74,7 +74,7 @@ architecture struct of ALU is
 			mA_read: out std_logic_vector(15 downto 0); 
 			mD_read: in std_logic_vector(15 downto 0);
 			
-			clock: in std_logic;
+			clock: in std_logic
 					
 		);
 	end component J_ALU;
@@ -99,6 +99,7 @@ begin
 	
 	-- pc modification
 	op_proc:process(clock)
+		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
 	begin
 		if ((opcode="0000")or(opcode="0010")) then
 			rfA1<=A1(0);
@@ -108,10 +109,10 @@ begin
 			D2(0)<=rfD2;
 			rfD3<=D3(0);
 			if(C_ch(0)='1') then
-				C_flag(3);<=C_flag(0);
+				C_flag(3)<=C_flag(0);
 			end if;
 			if(Z_ch(0)='1') then
-				Z_flag(3);<=Z_flag(0);
+				Z_flag(3)<=Z_flag(0);
 			end if;
 		elsif ((opcode="0001")or(opcode="0100")or(opcode="0101")or(opcode="1100")or(opcode="1000")or(opcode="1001")) then
 		   rfA1<=A1(1);
@@ -125,10 +126,10 @@ begin
 			mD_write<=Dwrite(1);
 			Dread(1)<=mD_read;
 			if(C_ch(1)='1') then
-				C_flag(3);<=C_flag(1);
+				C_flag(3)<=C_flag(1);
 			end if;
 			if(Z_ch(1)='1') then
-				Z_flag(3);<=Z_flag(1);
+				Z_flag(3)<=Z_flag(1);
 			end if;
 		elsif ((opcode="0011")or(opcode="0110")or(opcode="0111")) then
 		   rfA1<=A1(2);

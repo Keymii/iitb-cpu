@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity register_file is
 	port (A1,A2,A3: in std_logic_vector(2 downto 0);

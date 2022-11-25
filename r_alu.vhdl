@@ -12,7 +12,7 @@ entity R_ALU is
 		Cout,Zout : out std_logic;
 		
 		C_ch,Z_ch : out std_logic; --C_changed and Z_changed
-		clock: in std_logic;
+		clock: in std_logic
 		
 	);
 end R_ALU;
@@ -22,7 +22,7 @@ architecture struct of R_ALU is
 		port (
 			A,B:in std_logic_vector(15 downto 0);
 			C,Z:out std_logic;
-			Sum:out std_logic_vector(15 downto 0);
+			Sum:out std_logic_vector(15 downto 0)
 		);
 	end component addSub16;
 	
@@ -77,7 +77,7 @@ begin
 					nor_for_Z := nor_for_Z nor nand16(i);
 				end loop;
 				
-				Z<=nor_for_Z;
+				Zout<=nor_for_Z;
 				
 				C_ch<='0';
 				Z_ch<='1';

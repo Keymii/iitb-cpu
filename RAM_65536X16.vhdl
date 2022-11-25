@@ -18,14 +18,14 @@ architecture Behavioral of RAM_65536X16 is
 type ram_array is array (0 to 65535 ) of std_logic_vector (15 downto 0);
 signal ram_data: ram_array :=(
 	
-	others => ’0000000000000000’
+	others => "0000000000000000"
    
 	); 
 
 begin
 	clk_process:process(clock)
 	begin
-		if(clock=1 and clock'event) then
+		if(clock='1' and clock'event) then
 			if(write_en='1') then 
 			ram_data(to_integer(unsigned(A_write))) <= D_write;
 			end if;

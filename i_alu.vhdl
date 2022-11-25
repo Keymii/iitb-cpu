@@ -17,7 +17,7 @@ port( Inp: in std_logic_vector(15 downto 0);
 		
 		C_ch,Z_ch : out std_logic; --C_changed and Z_changed
 		
-		clock:in std_logic;
+		clock:in std_logic
 			
 	);
 end entity i_alu;
@@ -28,7 +28,7 @@ architecture tan of i_alu is
 		port (
 			A,B:in std_logic_vector(15 downto 0);
 			C,Z:out std_logic;
-			Sum:out std_logic_vector(15 downto 0);
+			Sum:out std_logic_vector(15 downto 0)
 		);
 	end component;
 
@@ -37,7 +37,7 @@ architecture tan of i_alu is
 	
 begin
 
- adder : addSub16 port map (A=>adderA, B=>adderB, C=>adderC, Z=>adderZ, Sum=>adderS)
+ adder : addSub16 port map (A=>adderA, B=>adderB, C=>adderC, Z=>adderZ, Sum=>adderS);
 
 	i_process:process(clock)
 		variable ra,rb:std_logic_vector(2 downto 0);
@@ -45,6 +45,8 @@ begin
 		variable Imm:std_logic_vector(5 downto 0);
 		variable padd,padd2:std_logic_vector(15 downto 0);
 		variable bin:std_logic_vector(1 downto 0);
+	   variable var1:std_logic_vector(15 downto 0);
+		variable var2:std_logic_vector(15 downto 0);
 
 	begin
 	
@@ -72,45 +74,32 @@ begin
 		elsif(opcode="0101") then ---sw
 			C_ch<='0';
 			Z_ch<='0';
-		   sw_process:process
-			  variable var1:std_logic_vector(15 downto 0);
-			  variable var2:std_logic_vector(15 downto 0);
-			begin
-			  rfA2<=rb
-			  var1:=rfD2;
-			  adderA<=var1;
-			  adderB<=padd;
-			  var2<=adderS;
-			  bin(1)<=adderC;
-			  bin(0)<=adderZ;
-			  mA_write<=var2;
-			  rfA1<=ra;
-			  mD_write<=rfD1;
-			  rfA2<=rb;
-			  
-			end process;
 
-			
-			
+			rfA2<=rb;
+			var1:=rfD2;
+			adderA<=var1;
+			adderB<=padd;
+			var2:=adderS;
+			bin(1):=adderC;
+			bin(0):=adderZ;
+			mA_write<=var2;
+			rfA1<=ra;
+			mD_write<=rfD1;
+			rfA2<=rb;
+
 		elsif(opcode="0100") then ---lw
-			C_ch<='0';
-			Z_ch<='1';
-		  lw_process:process
-		    variable var1:std_logic_vector(15 downto 0);
-			 variable var2:std_logic_vector(15 downto 0);
-		  begin
+			 C_ch<='0';
+			 Z_ch<='1';
 		    rfA2<=rb;
 		    var1:=rfD2;
 			 adderA<=var1;
 			 adderB<=padd;
-			 var2<=adderS;
-			 bin(1)<=adderC;
+			 var2:=adderS;
+			 bin(1):=adderC;
 			 zout<=adderZ;
 		    mA_read<=var2;
 		    rfA3<=ra;
 		    rfD3<=mD_read;
-			 
-		  end process;
 
 		elsif(opcode="1100") then ---beq
 			C_ch<='0';
@@ -119,18 +108,15 @@ begin
 			rfA1<=ra;
 			rfA2<=rb;
 			
-			BEQ_process: process(Inp)
-			begin
-			
-				rfA3<="111";
-				if(rfD1=rfD2) then 
-					rfA2<="111";
-					adderA<=rfD2;
-					adderB<=padd;
-					rfD3<=adderS;
-					bin(1)<=adderc;
-					bin(0)<=adderZ;
-			end process BEQ_process;
+			rfA3<="111";
+			if(rfD1=rfD2) then 
+				rfA2<="111";
+				adderA<=rfD2;
+				adderB<=padd;
+				rfD3<=adderS;
+				bin(1):=adderc;
+				bin(0):=adderZ;
+			end if;
 
 		elsif(opcode="1000") then ---jal
 		
@@ -147,10 +133,6 @@ begin
 --				rfA3<=ra;
 --				rfD3<=rfD2
 --			end process JAL_process;
-     
-			JAL_process: process
-				variable var1:std_logic_vector(15 downto 0);
-			begin
 			
 				rfA1<="111";
 				rfA3<=ra;
@@ -161,30 +143,25 @@ begin
 				adderA<=rfD1;
 				adderB<=padd2;
 				rfD3<=adderS;
-				bin(1)<=adderC;
-				bin(0)<=adderZ;
-			end process;
+				bin(1):=adderC;
+				bin(0):=adderZ;
+
 		elsif(opcode="1001") then ---jlr
 			C_ch<='0';
 			Z_ch<='0';
-			JLR_process: process
-				variable var3:std_logic_vector(15 downto 0);
-				variable var2:std_logic_vector(15 downto 0);
-			begin
 			
-				rfA1<="111";
-				rfA3<=ra;
-				var3:=rfD1;
-				rfD3<=var3;
-				rfA1<=rb;
-				rfA3<="111";
-				var2:=rfD1;
-				rfD3<=var2;
+			rfA1<="111";
+			rfA3<=ra;
+			var1:=rfD1;
+			rfD3<=var1;
+			rfA1<=rb;
+			rfA3<="111";
+			var2:=rfD1;
+			rfD3<=var2;
 				
 				
-			end process;
 		end if;	
-	  
+		
 	end process;
 end tan;
 	

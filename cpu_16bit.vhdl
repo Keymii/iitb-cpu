@@ -14,7 +14,7 @@ entity cpu is
 		C,Z:out std_logic;
 		
 		clock:in std_logic;
-		reset:in std_logic;
+		reset:in std_logic
 	);
 end cpu;
 
@@ -31,10 +31,10 @@ architecture construct of cpu is
 		mD_write: out std_logic_vector(15 downto 0);
 		
 		mA_read: out std_logic_vector(15 downto 0); 
-		mD_read: in std_logic_vector(15 downto 0)
+		mD_read: in std_logic_vector(15 downto 0);
 		
 		clock: in std_logic;
-		Cout,Zout : out std_logic;
+		Cout,Zout : out std_logic
 		
 		);
 	end component ALU;
@@ -83,15 +83,15 @@ begin
 				clock=>clock
 			);
 				
-	rf_write_process:process(clock):
+	rf_write_process:process(clock)
 		variable opcode:std_logic_vector(3 downto 0):=inp(15 downto 12);
 	begin
 		if (clock='1' and clock'event) then
 		
 			if ((opcode="0101")or(opcode="0111")) then
-				rf_write_en='0';
+				rf_write_en<='0';
 			else
-				rf_write_en='1';
+				rf_write_en<='1';
 			end if;
 		
 		end if;
