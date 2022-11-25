@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_16bit
-Fri Nov 25 05:40:20 2022
+Fri Nov 25 08:00:36 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,16 +13,17 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. Registers Removed During Synthesis
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "ALU:A|J_ALU:J|addSub16:adder"
- 13. Port Connectivity Checks: "ALU:A|i_alu:I|addSub16:adder"
- 14. Port Connectivity Checks: "ALU:A"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 11. Port Connectivity Checks: "ALU:A|J_ALU:J|addSub16:adder"
+ 12. Port Connectivity Checks: "ALU:A|i_alu:I|addSub16:adder"
+ 13. Port Connectivity Checks: "ALU:A"
+ 14. Port Connectivity Checks: "RAM_65536X16:ram"
+ 15. Port Connectivity Checks: "addSub16:adder"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -49,16 +50,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 25 05:40:20 2022       ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 25 08:00:36 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_16bit                                   ;
 ; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 891                                         ;
-;     Total combinational functions  ; 876                                         ;
-;     Dedicated logic registers      ; 147                                         ;
-; Total registers                    ; 147                                         ;
-; Total pins                         ; 84                                          ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 4                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -162,13 +163,11 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 12          ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processors 3-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -177,6 +176,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+--------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path   ; Library ;
 +----------------------------------+-----------------+-----------------+--------------------------------+---------+
+; RAM_65536X16.vhdl                ; yes             ; User VHDL File  ; D:/iitb-cpu/RAM_65536X16.vhdl  ;         ;
 ; Register.vhdl                    ; yes             ; User VHDL File  ; D:/iitb-cpu/Register.vhdl      ;         ;
 ; register_file.vhdl               ; yes             ; User VHDL File  ; D:/iitb-cpu/register_file.vhdl ;         ;
 ; alu.vhdl                         ; yes             ; User VHDL File  ; D:/iitb-cpu/alu.vhdl           ;         ;
@@ -188,182 +188,136 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+--------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 891         ;
-;                                             ;             ;
-; Total combinational functions               ; 876         ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 307         ;
-;     -- 3 input functions                    ; 414         ;
-;     -- <=2 input functions                  ; 155         ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 876         ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 147         ;
-;     -- Dedicated logic registers            ; 147         ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 84          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 147         ;
-; Total fan-out                               ; 3306        ;
-; Average fan-out                             ; 2.78        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+;                                             ;          ;
+; Total combinational functions               ; 0        ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 0        ;
+;     -- 3 input functions                    ; 0        ;
+;     -- <=2 input functions                  ; 0        ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 0        ;
+;     -- arithmetic mode                      ; 0        ;
+;                                             ;          ;
+; Total registers                             ; 0        ;
+;     -- Dedicated logic registers            ; 0        ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 4        ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; C~output ;
+; Maximum fan-out                             ; 1        ;
+; Total fan-out                               ; 4        ;
+; Average fan-out                             ; 0.50     ;
++---------------------------------------------+----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+---------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name               ; Entity Name   ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+---------------+--------------+
-; |cpu                       ; 876 (1)             ; 147 (1)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 84   ; 0            ; 0          ; |cpu                              ; cpu           ; work         ;
-;    |ALU:A|                 ; 450 (160)           ; 18 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|ALU:A                        ; ALU           ; work         ;
-;       |J_ALU:J|            ; 10 (10)             ; 18 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|ALU:A|J_ALU:J                ; J_ALU         ; work         ;
-;       |R_ALU:R|            ; 119 (82)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|ALU:A|R_ALU:R                ; R_ALU         ; work         ;
-;          |addSub16:adder|  ; 37 (37)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|ALU:A|R_ALU:R|addSub16:adder ; addSub16      ; work         ;
-;       |i_alu:I|            ; 161 (127)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|ALU:A|i_alu:I                ; i_alu         ; work         ;
-;          |addSub16:adder|  ; 34 (34)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|ALU:A|i_alu:I|addSub16:adder ; addSub16      ; work         ;
-;    |register_file:rf|      ; 425 (296)           ; 128 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf             ; register_file ; work         ;
-;       |reg:R0|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R0      ; reg           ; work         ;
-;       |reg:R1|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R1      ; reg           ; work         ;
-;       |reg:R2|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R2      ; reg           ; work         ;
-;       |reg:R3|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R3      ; reg           ; work         ;
-;       |reg:R4|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R4      ; reg           ; work         ;
-;       |reg:R5|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R5      ; reg           ; work         ;
-;       |reg:R6|             ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R6      ; reg           ; work         ;
-;       |reg:R7|             ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|register_file:rf|reg:R7      ; reg           ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+---------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |cpu                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 4    ; 0            ; 0          ; |cpu                ; cpu         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                      ;
-+------------------------------------------------------+--------------------------+------------------------+
-; Latch Name                                           ; Latch Enable Signal      ; Free of Timing Hazards ;
-+------------------------------------------------------+--------------------------+------------------------+
-; ALU:A|C_flag[3]                                      ; ALU:A|C_flag[3]          ; yes                    ;
-; ALU:A|Z_flag[3]                                      ; ALU:A|Z_flag[3]          ; yes                    ;
-; ALU:A|i_alu:I|cout                                   ; ALU:A|Equal0             ; yes                    ;
-; ALU:A|R_ALU:R|adderA[14]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[12]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[10]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[8]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[6]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[4]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[2]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[0]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[0]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[1]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[1]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[2]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[3]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[3]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[4]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[5]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[5]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[6]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[7]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[7]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[8]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[9]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[9]                              ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[10]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[11]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[11]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[12]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[13]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[13]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[14]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderA[15]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|R_ALU:R|adderB[15]                             ; ALU:A|R_ALU:R|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|C_ch                                   ; GND                      ; yes                    ;
-; ALU:A|R_ALU:R|C_ch                                   ; ALU:A|R_ALU:R|rfD3[14]   ; yes                    ;
-; ALU:A|i_alu:I|zout                                   ; ALU:A|i_alu:I|zout       ; yes                    ;
-; ALU:A|D2[0][15]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][15]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][14]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][14]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][13]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][13]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][12]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][12]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][11]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][11]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][10]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][10]                                      ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][9]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][9]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][8]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][8]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][7]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][7]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][6]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][6]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][5]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][5]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][4]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][4]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][3]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][3]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][2]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][2]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][0]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][0]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D2[0][1]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|D1[0][1]                                       ; ALU:A|op_proc            ; yes                    ;
-; ALU:A|i_alu:I|Z_ch                                   ; GND                      ; yes                    ;
-; ALU:A|i_alu:I|adderA[15]                             ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[14]                             ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[13]                             ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[12]                             ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[11]                             ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[10]                             ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[9]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[8]                              ; ALU:A|i_alu:I|adderB[15] ; yes                    ;
-; ALU:A|i_alu:I|adderA[8]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[6]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[4]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[2]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[0]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[0]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[1]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[1]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[2]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[3]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[3]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[4]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderA[5]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[5]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[6]                              ; ALU:A|i_alu:I|adderB[15] ; yes                    ;
-; ALU:A|i_alu:I|adderA[7]                              ; ALU:A|i_alu:I|adderB[0]  ; yes                    ;
-; ALU:A|i_alu:I|adderB[7]                              ; ALU:A|i_alu:I|adderB[15] ; yes                    ;
-; ALU:A|rfA2[1]                                        ; ALU:A|rfA1[2]            ; yes                    ;
-; ALU:A|rfA2[0]                                        ; ALU:A|rfA1[2]            ; yes                    ;
-; ALU:A|rfA2[2]                                        ; ALU:A|rfA1[2]            ; yes                    ;
-; ALU:A|rfA1[1]                                        ; ALU:A|rfA1[2]            ; yes                    ;
-; Number of user-specified and inferred latches = 322  ;                          ;                        ;
-+------------------------------------------------------+--------------------------+------------------------+
-Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; adderB[1..15]                           ; Stuck at GND due to stuck port data_in ;
+; adderB[0]                               ; Stuck at VCC due to stuck port data_in ;
+; pc_write_en                             ; Stuck at GND due to stuck port data_in ;
+; ALU:A|J_ALU:J|adderB[0..14]             ; Lost fanout                            ;
+; ALU:A|J_ALU:J|mA_read[0..15]            ; Lost fanout                            ;
+; ALU:A|J_ALU:J|adderB[15]                ; Lost fanout                            ;
+; ALU:A|J_ALU:J|adderA[0..15]             ; Lost fanout                            ;
+; ALU:A|J_ALU:J|mD_write[0..15]           ; Lost fanout                            ;
+; ALU:A|J_ALU:J|mA_write[0..15]           ; Lost fanout                            ;
+; adderA[15]                              ; Merged with sigPC[15]                  ;
+; adderA[14]                              ; Merged with sigPC[14]                  ;
+; adderA[13]                              ; Merged with sigPC[13]                  ;
+; adderA[12]                              ; Merged with sigPC[12]                  ;
+; adderA[11]                              ; Merged with sigPC[11]                  ;
+; adderA[10]                              ; Merged with sigPC[10]                  ;
+; adderA[9]                               ; Merged with sigPC[9]                   ;
+; adderA[8]                               ; Merged with sigPC[8]                   ;
+; adderA[7]                               ; Merged with sigPC[7]                   ;
+; adderA[6]                               ; Merged with sigPC[6]                   ;
+; adderA[5]                               ; Merged with sigPC[5]                   ;
+; adderA[4]                               ; Merged with sigPC[4]                   ;
+; adderA[3]                               ; Merged with sigPC[3]                   ;
+; adderA[2]                               ; Merged with sigPC[2]                   ;
+; adderA[1]                               ; Merged with sigPC[1]                   ;
+; adderA[0]                               ; Merged with sigPC[0]                   ;
+; ALU:A|J_ALU:J|rfD3[12]                  ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA3[0]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfD3[2,4,6,10,14]         ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA1[1]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA3[2]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA1[2]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfD3[1,7,9,11]            ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA1[0]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfD3[3,13,15]             ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA2[1]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA3[1]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfD3[5]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA2[2]                   ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfD3[0,8]                 ; Merged with ALU:A|J_ALU:J|rfA2[0]      ;
+; ALU:A|J_ALU:J|rfA2[0]                   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R6|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R5|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R4|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R3|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R2|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R1|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; register_file:rf|reg:R0|d_read[0..15]   ; Stuck at GND due to stuck port data_in ;
+; rf_write_en                             ; Lost fanout                            ;
+; sigPC[0..15]                            ; Lost fanout                            ;
+; inp[12..15]                             ; Lost fanout                            ;
+; pc_w[10..15]                            ; Lost fanout                            ;
+; m_write_en                              ; Lost fanout                            ;
+; pc_w[0..9]                              ; Lost fanout                            ;
+; register_file:rf|reg:R7|d_read[0..15]   ; Lost fanout                            ;
+; Total Number of Removed Registers = 304 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; ALU:A|J_ALU:J|rfD3[1..6]              ; Merged with ALU:A|J_ALU:J|rfD3[0]      ;
-; ALU:A|J_ALU:J|rfD3[0]                 ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 7 ;                                        ;
-+---------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                         ;
++------------------------------------+---------------------------+----------------------------------------------------------------------------------------------------+
+; Register name                      ; Reason for Removal        ; Registers Removed due to This Register                                                             ;
++------------------------------------+---------------------------+----------------------------------------------------------------------------------------------------+
+; pc_write_en                        ; Stuck at GND              ; rf_write_en, inp[15], inp[14], inp[13], inp[12], pc_w[15], pc_w[14], pc_w[13], pc_w[12], pc_w[11], ;
+;                                    ; due to stuck port data_in ; pc_w[10], pc_w[9], pc_w[8], pc_w[7], pc_w[6], pc_w[5], pc_w[4], pc_w[3], pc_w[2], pc_w[1], pc_w[0] ;
+; register_file:rf|reg:R0|d_read[14] ; Stuck at GND              ; register_file:rf|reg:R0|d_read[15]                                                                 ;
+;                                    ; due to stuck port data_in ;                                                                                                    ;
+; sigPC[15]                          ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[15]                                                                 ;
+; sigPC[14]                          ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[14]                                                                 ;
+; sigPC[13]                          ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[13]                                                                 ;
+; sigPC[12]                          ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[12]                                                                 ;
+; sigPC[11]                          ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[11]                                                                 ;
+; sigPC[10]                          ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[10]                                                                 ;
+; sigPC[9]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[9]                                                                  ;
+; sigPC[8]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[8]                                                                  ;
+; sigPC[7]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[7]                                                                  ;
+; sigPC[6]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[6]                                                                  ;
+; sigPC[5]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[5]                                                                  ;
+; sigPC[4]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[4]                                                                  ;
+; sigPC[3]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[3]                                                                  ;
+; sigPC[2]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[2]                                                                  ;
+; sigPC[1]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[1]                                                                  ;
+; sigPC[0]                           ; Lost Fanouts              ; register_file:rf|reg:R7|d_read[0]                                                                  ;
++------------------------------------+---------------------------+----------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -371,30 +325,14 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 147   ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 146   ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 3:1                ; 128 bits  ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |cpu|register_file:rf|reg:R7|d_read[15] ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; Yes        ; |cpu|ALU:A|J_ALU:J|rfA2[1]              ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |cpu|ALU:A|i_alu:I|rfA3[0]              ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:A|rfD3[1]                      ;
-; 3:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:A|rfA3[2]                      ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |cpu|register_file:rf|Mux29             ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |cpu|register_file:rf|Mux7              ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:A|i_alu:I|rfD3[15]             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -416,15 +354,32 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------+-------+----------+----------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:A"                                                                                  ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; ma_write ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; md_write ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ma_read  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:A"                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; inp  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RAM_65536X16:ram"                                                                                 ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; instruction[11..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "addSub16:adder"                                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; c    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; z    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -432,19 +387,13 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 84                          ;
-; cycloneiii_ff         ; 147                         ;
-;     ENA               ; 146                         ;
-;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 877                         ;
-;     normal            ; 877                         ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 155                         ;
-;         3 data inputs ; 414                         ;
-;         4 data inputs ; 307                         ;
+; boundary_port         ; 4                           ;
+; cycloneiii_lcell_comb ; 2                           ;
+;     normal            ; 2                           ;
+;         0 data inputs ; 2                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 4.10                        ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -453,7 +402,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -463,18 +412,18 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Nov 25 05:40:11 2022
+    Info: Processing started: Fri Nov 25 08:00:29 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_16bit -c cpu_16bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file ram_65536x16.vhdl
-    Info (12022): Found design unit 1: RAM_65536X16-Behavioral File: D:/iitb-cpu/RAM_65536X16.vhdl Line: 17
+    Info (12022): Found design unit 1: RAM_65536X16-Behavioral File: D:/iitb-cpu/RAM_65536X16.vhdl Line: 19
     Info (12023): Found entity 1: RAM_65536X16 File: D:/iitb-cpu/RAM_65536X16.vhdl Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file register.vhdl
     Info (12022): Found design unit 1: reg-sim File: D:/iitb-cpu/Register.vhdl Line: 13
     Info (12023): Found entity 1: reg File: D:/iitb-cpu/Register.vhdl Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file register_file.vhdl
-    Info (12022): Found design unit 1: register_file-Struct File: D:/iitb-cpu/register_file.vhdl Line: 11
+    Info (12022): Found design unit 1: register_file-Struct File: D:/iitb-cpu/register_file.vhdl Line: 14
     Info (12023): Found entity 1: register_file File: D:/iitb-cpu/register_file.vhdl Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file alu.vhdl
     Info (12022): Found design unit 1: ALU-struct File: D:/iitb-cpu/alu.vhdl Line: 24
@@ -492,19 +441,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file j_alu.v
     Info (12022): Found design unit 1: J_ALU-struct File: D:/iitb-cpu/j_alu.vhdl Line: 23
     Info (12023): Found entity 1: J_ALU File: D:/iitb-cpu/j_alu.vhdl Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file cpu_16bit.vhdl
-    Info (12022): Found design unit 1: cpu-construct File: D:/iitb-cpu/cpu_16bit.vhdl Line: 21
+    Info (12022): Found design unit 1: cpu-construct File: D:/iitb-cpu/cpu_16bit.vhdl Line: 13
     Info (12023): Found entity 1: cpu File: D:/iitb-cpu/cpu_16bit.vhdl Line: 4
 Info (12127): Elaborating entity "cpu" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at cpu_16bit.vhdl(8): used implicit default value for signal "mA_write" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-Warning (10541): VHDL Signal Declaration warning at cpu_16bit.vhdl(9): used implicit default value for signal "mD_write" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-Warning (10541): VHDL Signal Declaration warning at cpu_16bit.vhdl(11): used implicit default value for signal "mA_read" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(50): object "sigmAw" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 50
-Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(50): object "sigmAr" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 50
-Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(50): object "sigmDw" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 50
-Warning (10541): VHDL Signal Declaration warning at cpu_16bit.vhdl(50): used implicit default value for signal "sigmDr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/cpu_16bit.vhdl Line: 50
-Warning (10542): VHDL Variable Declaration warning at cpu_16bit.vhdl(87): used initial value expression for variable "opcode" because variable was never assigned a value File: D:/iitb-cpu/cpu_16bit.vhdl Line: 87
-Warning (10492): VHDL Process Statement warning at cpu_16bit.vhdl(87): signal "inp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/cpu_16bit.vhdl Line: 87
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:A" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 53
+Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(61): object "adderC" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 61
+Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(61): object "adderZ" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 61
+Warning (10542): VHDL Variable Declaration warning at cpu_16bit.vhdl(116): used initial value expression for variable "opcode" because variable was never assigned a value File: D:/iitb-cpu/cpu_16bit.vhdl Line: 116
+Warning (10492): VHDL Process Statement warning at cpu_16bit.vhdl(116): signal "inp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/cpu_16bit.vhdl Line: 116
+Info (12128): Elaborating entity "addSub16" for hierarchy "addSub16:adder" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 67
+Warning (10492): VHDL Process Statement warning at addSub16.vhdl(19): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 19
+Warning (10492): VHDL Process Statement warning at addSub16.vhdl(20): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 20
+Info (12128): Elaborating entity "RAM_65536X16" for hierarchy "RAM_65536X16:ram" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 70
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:A" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 81
 Warning (10542): VHDL Variable Declaration warning at alu.vhdl(102): used initial value expression for variable "opcode" because variable was never assigned a value File: D:/iitb-cpu/alu.vhdl Line: 102
 Warning (10492): VHDL Process Statement warning at alu.vhdl(102): signal "inp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/alu.vhdl Line: 102
 Warning (10492): VHDL Process Statement warning at alu.vhdl(105): signal "A1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/alu.vhdl Line: 105
@@ -831,9 +779,6 @@ Info (10041): Inferred latch for "adderA[12]" at r_alu.vhdl(38) File: D:/iitb-cp
 Info (10041): Inferred latch for "adderA[13]" at r_alu.vhdl(38) File: D:/iitb-cpu/r_alu.vhdl Line: 38
 Info (10041): Inferred latch for "adderA[14]" at r_alu.vhdl(38) File: D:/iitb-cpu/r_alu.vhdl Line: 38
 Info (10041): Inferred latch for "adderA[15]" at r_alu.vhdl(38) File: D:/iitb-cpu/r_alu.vhdl Line: 38
-Info (12128): Elaborating entity "addSub16" for hierarchy "ALU:A|R_ALU:R|addSub16:adder" File: D:/iitb-cpu/r_alu.vhdl Line: 36
-Warning (10492): VHDL Process Statement warning at addSub16.vhdl(19): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 19
-Warning (10492): VHDL Process Statement warning at addSub16.vhdl(20): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 20
 Info (12128): Elaborating entity "i_alu" for hierarchy "ALU:A|i_alu:I" File: D:/iitb-cpu/alu.vhdl Line: 94
 Warning (10036): Verilog HDL or VHDL warning at i_alu.vhdl(47): object "bin" assigned a value but never read File: D:/iitb-cpu/i_alu.vhdl Line: 47
 Warning (10492): VHDL Process Statement warning at i_alu.vhdl(53): signal "Inp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/i_alu.vhdl Line: 53
@@ -1000,392 +945,485 @@ Warning (10492): VHDL Process Statement warning at j_alu.vhdl(40): signal "inp" 
 Warning (10542): VHDL Variable Declaration warning at j_alu.vhdl(41): used initial value expression for variable "imm" because variable was never assigned a value File: D:/iitb-cpu/j_alu.vhdl Line: 41
 Warning (10492): VHDL Process Statement warning at j_alu.vhdl(41): signal "inp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/j_alu.vhdl Line: 41
 Warning (10445): VHDL Subtype or Type Declaration warning at j_alu.vhdl(66): subtype or type has null range File: D:/iitb-cpu/j_alu.vhdl Line: 66
-Info (12128): Elaborating entity "register_file" for hierarchy "register_file:rf" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 74
-Info (10041): Inferred latch for "dw[0][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[0][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[1][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[2][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[3][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[4][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[5][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[6][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][0]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][1]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][2]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][3]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][4]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][5]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][6]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][7]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][8]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][9]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][10]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][11]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][12]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][13]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][14]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (10041): Inferred latch for "dw[7][15]" at register_file.vhdl(23) File: D:/iitb-cpu/register_file.vhdl Line: 23
-Info (12128): Elaborating entity "reg" for hierarchy "register_file:rf|reg:R0" File: D:/iitb-cpu/register_file.vhdl Line: 25
-Warning (13012): Latch ALU:A|C_flag[3] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|Z_flag[3] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|R_ALU:R|C_ch has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|adderA[15] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][15] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[14] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][14] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[13] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][13] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[12] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][12] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[11] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][11] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[10] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][10] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[9] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][9] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderB[8] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|adderA[8] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][8] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[6] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][6] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[4] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][4] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[2] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][2] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[0] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][0] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[1] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][1] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[3] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][3] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderA[5] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][5] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderB[6] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|adderA[7] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][7] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|i_alu:I|adderB[7] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA2[1] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA2[0] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA2[2] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA1[1] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA1[0] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA1[2] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA2[1] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA2[0] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA2[2] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA1[1] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA1[0] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA1[2] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[15] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA3[0] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA3[1] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfA3[2] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[14] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[13] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[12] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[11] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[10] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[9] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[8] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[7] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[6] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[5] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[4] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[3] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[2] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[0] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|rfD3[1] has unsafe behavior File: D:/iitb-cpu/alu.vhdl Line: 101
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[12] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[15] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][15] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[15] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA3[0] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA3[1] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfA3[2] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[14] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][14] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[14] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[13] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][13] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[13] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[12] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][12] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[12] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[11] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][11] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[11] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[10] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][10] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[10] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[9] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][9] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[9] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[8] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][8] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[8] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[7] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][7] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[7] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[6] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][6] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[6] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[5] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][5] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[5] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[4] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][4] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[4] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[3] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][3] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[3] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[2] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][2] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[2] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[0] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][0] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[0] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
-Warning (13012): Latch ALU:A|i_alu:I|rfD3[1] has unsafe behavior File: D:/iitb-cpu/i_alu.vhdl Line: 42
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ALU:A|D1[1][1] File: D:/iitb-cpu/alu.vhdl Line: 101
-Warning (13012): Latch ALU:A|R_ALU:R|rfD3[1] has unsafe behavior File: D:/iitb-cpu/r_alu.vhdl Line: 38
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal inp[15] File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
+Info (12128): Elaborating entity "register_file" for hierarchy "register_file:rf" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 97
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(28): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 28
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(29): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 29
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(29): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 29
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(30): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 30
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(31): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 31
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(32): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 32
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(33): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 33
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(35): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 35
+Warning (10631): VHDL Process Statement warning at register_file.vhdl(26): inferring latch(es) for signal or variable "dw", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[7][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[6][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[5][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[4][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[3][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[2][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[1][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][0]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][1]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][2]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][3]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][4]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][5]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][6]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][7]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][8]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][9]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][10]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][11]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][12]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][13]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][14]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (10041): Inferred latch for "dw[0][15]" at register_file.vhdl(26) File: D:/iitb-cpu/register_file.vhdl Line: 26
+Info (12128): Elaborating entity "reg" for hierarchy "register_file:rf|reg:R0" File: D:/iitb-cpu/register_file.vhdl Line: 40
+Warning (14025): LATCH primitive "ALU:A|Dread[1][1]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][2]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][3]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][4]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][5]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][6]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][7]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][8]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][9]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][10]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][11]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][12]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][13]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][14]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|Dread[1][15]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][0]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][1]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][2]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][3]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][4]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][5]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][6]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][7]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][8]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][9]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][10]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][11]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][12]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][13]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][14]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D2[1][15]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][0]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][1]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][2]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][3]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][4]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][5]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][6]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][7]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][8]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][9]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][10]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][11]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][12]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][13]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][14]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|D1[1][15]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|cout" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 6
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[0]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[1]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[2]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[3]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[4]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[5]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[6]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[7]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[8]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[9]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[10]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[11]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[12]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[13]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[14]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|i_alu:I|adderA[15]" is permanently disabled File: D:/iitb-cpu/i_alu.vhdl Line: 42
+Warning (14025): LATCH primitive "ALU:A|mD_write[0]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[1]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[2]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[3]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[4]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[5]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[6]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[7]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[8]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[9]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[10]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[11]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[12]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[13]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[14]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mD_write[15]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[0]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[1]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[2]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[3]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[4]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[5]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[6]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[7]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[8]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[9]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[10]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[11]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[12]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[13]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[14]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_read[15]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[0]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[1]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[2]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[3]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[4]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[5]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[6]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[7]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[8]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[9]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[10]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[11]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[12]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[13]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[14]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "ALU:A|mA_write[15]" is permanently disabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14025): LATCH primitive "register_file:rf|dw[6][1]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][2]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][3]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][4]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][5]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][6]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][7]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][8]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][9]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][10]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][11]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][12]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][13]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][14]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][15]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][1]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][2]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][3]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][4]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][5]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][6]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][7]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][8]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][9]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][10]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][11]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][12]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][13]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][14]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][15]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][1]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][2]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][3]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][4]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][5]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][6]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][7]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][8]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][9]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][10]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][11]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][12]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][13]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][14]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][15]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][1]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][2]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][3]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][4]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][5]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][6]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][7]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][8]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][9]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][10]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][11]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][12]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][13]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][14]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][15]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][1]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][2]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][3]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][4]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][5]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][6]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][7]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][8]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][9]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][10]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][11]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][12]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][13]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][14]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][15]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][1]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][2]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][3]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][4]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][5]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][6]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][7]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][8]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][9]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][10]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][11]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][12]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][13]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][14]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][15]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][1]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][2]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][3]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][4]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][5]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][6]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][7]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][8]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][9]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][10]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][11]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][12]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][13]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][14]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][15]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[6][0]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[5][0]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[4][0]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[3][0]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[2][0]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14025): LATCH primitive "register_file:rf|dw[1][0]" is permanently disabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "register_file:rf|dw[0][0]" is permanently enabled File: D:/iitb-cpu/register_file.vhdl Line: 26
+Warning (14026): LATCH primitive "ALU:A|Z_flag[3]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|C_flag[3]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[0]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[1]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[2]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[3]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[4]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[5]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[6]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[7]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[8]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[9]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[10]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[11]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[12]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[13]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[14]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|rfD3[15]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][0]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][1]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][2]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][3]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][4]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][5]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][6]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][7]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][8]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][9]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][10]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][11]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][12]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][13]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][14]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D2[0][15]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][0]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][1]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][2]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][3]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][4]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][5]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][6]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][7]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][8]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][9]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][10]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][11]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][12]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][13]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][14]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|D1[0][15]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[10]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[9]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[8]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[7]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[6]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[5]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[4]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[3]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[2]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[1]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[0]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[12]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[13]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[14]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[15]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[0]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[1]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[2]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[3]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[4]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[5]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[6]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[7]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[8]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[9]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[10]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[11]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[12]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[13]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[14]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderB[15]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[0]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[1]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[2]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[3]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[4]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[5]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[6]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[7]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[8]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[9]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[10]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[11]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[12]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[13]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[14]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|adderA[15]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|R_ALU:R|rfD3[11]" is permanently enabled File: D:/iitb-cpu/r_alu.vhdl Line: 38
+Warning (14026): LATCH primitive "ALU:A|Z_flag[3]" is permanently enabled File: D:/iitb-cpu/alu.vhdl Line: 101
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "mA_write[0]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[1]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[2]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[3]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[4]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[5]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[6]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[7]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[8]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[9]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[10]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[11]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[12]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[13]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[14]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mA_write[15]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
-    Warning (13410): Pin "mD_write[0]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[1]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[2]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[3]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[4]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[5]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[6]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[7]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[8]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[9]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[10]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[11]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[12]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[13]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[14]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mD_write[15]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
-    Warning (13410): Pin "mA_read[0]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[1]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[2]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[3]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[4]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[5]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[6]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[7]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[8]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[9]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[10]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[11]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[12]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[13]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[14]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-    Warning (13410): Pin "mA_read[15]" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 11
-Info (286030): Timing-Driven Synthesis is running
+    Warning (13410): Pin "C" is stuck at GND File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
+    Warning (13410): Pin "Z" is stuck at VCC File: D:/iitb-cpu/cpu_16bit.vhdl Line: 6
+Info (17049): 134 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 16 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "mD_read[0]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[1]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[2]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[3]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[4]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[5]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[6]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[7]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[8]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[9]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[10]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[11]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[12]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[13]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[14]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-    Warning (15610): No output dependent on input pin "mD_read[15]" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 12
-Info (21057): Implemented 976 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 34 input pins
-    Info (21059): Implemented 50 output pins
-    Info (21061): Implemented 892 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 384 warnings
-    Info: Peak virtual memory: 4851 megabytes
-    Info: Processing ended: Fri Nov 25 05:40:20 2022
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:17
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 8
+    Warning (15610): No output dependent on input pin "reset" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 9
+Info (21057): Implemented 4 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 2 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 473 warnings
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Fri Nov 25 08:00:36 2022
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
 
 

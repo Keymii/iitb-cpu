@@ -6,7 +6,10 @@ entity register_file is
 	port (A1,A2,A3: in std_logic_vector(2 downto 0);
 			D1,D2: out std_logic_vector(15 downto 0);
 			D3: in std_logic_vector(15 downto 0);
-			Write_en,rst,clock: in std_logic);
+			Write_en,rst,clock: in std_logic;
+			pc_write:in std_logic_vector(15 downto 0);
+			pc_read:out std_logic_vector(15 downto 0);
+			pc_write_en:std_logic);
 end register_file;
 architecture Struct of register_file is
 	component reg is
@@ -20,7 +23,19 @@ architecture Struct of register_file is
 	type dataLine is array (0 to 7 ) of std_logic_vector (15 downto 0);
 	signal dw,dr : dataLine;
 begin
-	dw(to_integer(unsigned(A3)))<=D3;
+	process(clock)
+	begin
+		if(A3/="111") then
+			dw(to_integer(unsigned(A3)))<=D3;
+			dw(7)<=pc_write;
+		elsif(A3="111")then
+			if(pc_write_en='1')then
+				dw(7)<=pc_write;
+			else
+				dw(7)<=D3;
+			end if;
+		end if;
+	end process;
 	
 	R0 : reg port map (d_write=>dw(0) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(0) );
 	R1 : reg port map (d_write=>dw(1) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(1) );
@@ -29,9 +44,11 @@ begin
 	R4 : reg port map (d_write=>dw(4) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(4) );
 	R5 : reg port map (d_write=>dw(5) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(5) );
 	R6 : reg port map (d_write=>dw(6) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(6) );
-	R7 : reg port map (d_write=>dw(7) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(7) );
+	R7 : reg port map (d_write=>dw(7) , write_en=>(Write_en or pc_write_en) , reset=>rst , clk=>clock ,d_read=>dr(7) );
 	
 	D1<=dr(to_integer(unsigned(A1)));
 	D2<=dr(to_integer(unsigned(A2)));
-
+	
+	pc_read<=dr(7);
+	
 end Struct;
