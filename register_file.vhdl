@@ -28,7 +28,10 @@ begin
 	begin
 		if(A3/="111") then
 			dw(to_integer(unsigned(A3)))<=D3;
-			dw(7)<=pc_write;
+			
+			if(pc_write_en='1')then
+				dw(7)<=pc_write;
+			end if;
 		elsif(A3="111")then
 			if(pc_write_en='1')then
 				dw(7)<=pc_write;

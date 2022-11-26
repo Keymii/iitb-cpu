@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+USE ieee.numeric_std.ALL;
 
 entity cpu is
 	port (
@@ -12,6 +13,7 @@ entity cpu is
 end cpu;
 
 architecture construct of cpu is
+	shared variable pc:std_logic_vector(15 downto 0):="0000000000000000";
 	component ALU is
 		port (
 		inp: in std_logic_vector(15 downto 0);
@@ -133,23 +135,21 @@ begin
 	end process;
 
 	pc_process:process(clock)
-		variable pc:std_logic_vector(15 downto 0):="0000000000000000";
+		
 	begin
 		if (clock='1' and clock'event) then
 			pc := pc_r;
-			pc_o<=pc;
 			sigPC<=pc;
 			inp<=inp_t;
-			adderA<=pc_r;
-			adderB<="0000000000000001";
-			pc:=adderS;
+			pc:=std_logic_vector(to_unsigned(to_integer(unsigned(pc))+1,16));
 			pc_write_en<='1';
 			pc_w<=pc;
-			pc_write_en<='0';
-			pc_o<=pc;
+			
+			
 		end if;
+		
 	end process;
-	
+	pc_o<=pc;
 	inp1<=inp;
 
 end architecture construct;

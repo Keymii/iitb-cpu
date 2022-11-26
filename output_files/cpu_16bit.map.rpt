@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_16bit
-Fri Nov 25 21:42:15 2022
+Sat Nov 26 21:54:04 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -47,15 +47,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 25 21:42:15 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sat Nov 26 21:54:04 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_16bit                                   ;
 ; Top-level Entity Name              ; DUT                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,860                                       ;
-;     Total combinational functions  ; 1,300                                       ;
-;     Dedicated logic registers      ; 903                                         ;
-; Total registers                    ; 903                                         ;
+; Total logic elements               ; 1,858                                       ;
+;     Total combinational functions  ; 1,307                                       ;
+;     Dedicated logic registers      ; 765                                         ;
+; Total registers                    ; 765                                         ;
 ; Total pins                         ; 36                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -166,9 +166,9 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
 ;     Processor 8            ;   0.0%      ;
@@ -196,20 +196,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Estimated Total logic elements              ; 1,860                 ;
+; Estimated Total logic elements              ; 1,858                 ;
 ;                                             ;                       ;
-; Total combinational functions               ; 1300                  ;
+; Total combinational functions               ; 1307                  ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 917                   ;
-;     -- 3 input functions                    ; 231                   ;
-;     -- <=2 input functions                  ; 152                   ;
+;     -- 4 input functions                    ; 894                   ;
+;     -- 3 input functions                    ; 267                   ;
+;     -- <=2 input functions                  ; 146                   ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 1300                  ;
-;     -- arithmetic mode                      ; 0                     ;
+;     -- normal mode                          ; 1292                  ;
+;     -- arithmetic mode                      ; 15                    ;
 ;                                             ;                       ;
-; Total registers                             ; 903                   ;
-;     -- Dedicated logic registers            ; 903                   ;
+; Total registers                             ; 765                   ;
+;     -- Dedicated logic registers            ; 765                   ;
 ;     -- I/O registers                        ; 0                     ;
 ;                                             ;                       ;
 ; I/O pins                                    ; 36                    ;
@@ -217,9 +217,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                     ;
 ;                                             ;                       ;
 ; Maximum fan-out node                        ; input_vector[1]~input ;
-; Maximum fan-out                             ; 903                   ;
-; Total fan-out                               ; 7424                  ;
-; Average fan-out                             ; 3.26                  ;
+; Maximum fan-out                             ; 765                   ;
+; Total fan-out                               ; 7024                  ;
+; Average fan-out                             ; 3.28                  ;
 +---------------------------------------------+-----------------------+
 
 
@@ -228,20 +228,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
-; |DUT                       ; 1300 (0)            ; 903 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |DUT                                          ; DUT           ; work         ;
-;    |cpu:add_instance|      ; 1300 (3)            ; 903 (66)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance                         ; cpu           ; work         ;
-;       |ALU:A|              ; 101 (101)           ; 53 (53)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|ALU:A                   ; ALU           ; work         ;
-;       |RAM_65536X16:ram|   ; 760 (760)           ; 528 (528)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|RAM_65536X16:ram        ; RAM_65536X16  ; work         ;
-;       |addSub16:adder|     ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|addSub16:adder          ; addSub16      ; work         ;
-;       |register_file:rf|   ; 417 (289)           ; 256 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf        ; register_file ; work         ;
-;          |reg:R0|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R0 ; reg           ; work         ;
-;          |reg:R1|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R1 ; reg           ; work         ;
-;          |reg:R2|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R2 ; reg           ; work         ;
-;          |reg:R3|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R3 ; reg           ; work         ;
-;          |reg:R4|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R4 ; reg           ; work         ;
-;          |reg:R5|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R5 ; reg           ; work         ;
-;          |reg:R6|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R6 ; reg           ; work         ;
-;          |reg:R7|          ; 16 (16)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R7 ; reg           ; work         ;
+; |DUT                       ; 1307 (0)            ; 765 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |DUT                                          ; DUT           ; work         ;
+;    |cpu:add_instance|      ; 1307 (17)           ; 765 (56)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance                         ; cpu           ; work         ;
+;       |ALU:A|              ; 94 (94)             ; 53 (53)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|ALU:A                   ; ALU           ; work         ;
+;       |RAM_65536X16:ram|   ; 761 (761)           ; 528 (528)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|RAM_65536X16:ram        ; RAM_65536X16  ; work         ;
+;       |register_file:rf|   ; 435 (305)           ; 128 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf        ; register_file ; work         ;
+;          |reg:R0|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R0 ; reg           ; work         ;
+;          |reg:R1|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R1 ; reg           ; work         ;
+;          |reg:R2|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R2 ; reg           ; work         ;
+;          |reg:R3|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R3 ; reg           ; work         ;
+;          |reg:R4|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R4 ; reg           ; work         ;
+;          |reg:R5|          ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R5 ; reg           ; work         ;
+;          |reg:R6|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R6 ; reg           ; work         ;
+;          |reg:R7|          ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R7 ; reg           ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -251,6 +250,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------+--------------------------------------------+------------------------+
 ; Latch Name                                           ; Latch Enable Signal                        ; Free of Timing Hazards ;
 +------------------------------------------------------+--------------------------------------------+------------------------+
+; cpu:add_instance|register_file:rf|dw[7][0]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][1]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][2]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][3]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][4]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][5]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][6]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][7]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][8]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][9]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][10]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][11]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][12]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][13]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][14]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][15]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -335,45 +350,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[2][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[1][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[0][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[3][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[5][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[6][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[4][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[2][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[1][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[0][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[3][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[5][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[6][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[4][13]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[2][14]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[1][14]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
-; Number of user-specified and inferred latches = 112  ;                                            ;                        ;
+; Number of user-specified and inferred latches = 128  ;                                            ;                        ;
 +------------------------------------------------------+--------------------------------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; cpu:add_instance|adderB[1..15]         ; Stuck at GND due to stuck port data_in ;
-; cpu:add_instance|adderB[0]             ; Stuck at VCC due to stuck port data_in ;
-; cpu:add_instance|pc_write_en           ; Stuck at GND due to stuck port data_in ;
-; cpu:add_instance|ALU:A|Cout            ; Stuck at GND due to stuck port data_in ;
-; cpu:add_instance|ALU:A|Zout            ; Stuck at GND due to stuck port data_in ;
-; cpu:add_instance|sigPC[5]              ; Merged with cpu:add_instance|adderA[5] ;
-; cpu:add_instance|sigPC[4]              ; Merged with cpu:add_instance|adderA[4] ;
-; cpu:add_instance|sigPC[3]              ; Merged with cpu:add_instance|adderA[3] ;
-; cpu:add_instance|sigPC[2]              ; Merged with cpu:add_instance|adderA[2] ;
-; cpu:add_instance|sigPC[1]              ; Merged with cpu:add_instance|adderA[1] ;
-; cpu:add_instance|sigPC[0]              ; Merged with cpu:add_instance|adderA[0] ;
-; Total Number of Removed Registers = 25 ;                                        ;
-+----------------------------------------+----------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; cpu:add_instance|ALU:A|Cout           ; Stuck at GND due to stuck port data_in ;
+; cpu:add_instance|ALU:A|Zout           ; Stuck at GND due to stuck port data_in ;
+; cpu:add_instance|sigPC[0]             ; Merged with cpu:add_instance|pc_w[0]   ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -381,30 +372,32 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 903   ;
+; Total registers                              ; 765   ;
 ; Number of registers using Synchronous Clear  ; 7     ;
 ; Number of registers using Synchronous Load   ; 32    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 828   ;
+; Number of registers using Clock Enable       ; 700   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|mD_write[2]      ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 9 LEs                ; 21 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA3[0]          ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[0]          ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[12]         ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA2[2]          ;
-; 12:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA1[2]          ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux31 ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux15 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 112 bits  ; 224 LEs       ; 112 LEs              ; 112 LEs                ; Yes        ; |DUT|cpu:add_instance|register_file:rf|reg:R5|store[13] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DUT|cpu:add_instance|register_file:rf|reg:R7|store[14] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|mD_write[4]                 ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 9 LEs                ; 21 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA3[2]                     ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[5]                     ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[15]                    ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA2[0]                     ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA1[0]                     ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux31            ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux7             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -414,6 +407,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; c    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; z    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sum  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -423,21 +417,23 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 36                          ;
-; cycloneiii_ff         ; 903                         ;
-;     ENA               ; 796                         ;
+; cycloneiii_ff         ; 765                         ;
+;     ENA               ; 668                         ;
 ;     ENA SCLR SLD      ; 7                           ;
 ;     ENA SLD           ; 25                          ;
-;     plain             ; 75                          ;
-; cycloneiii_lcell_comb ; 1301                        ;
-;     normal            ; 1301                        ;
+;     plain             ; 65                          ;
+; cycloneiii_lcell_comb ; 1308                        ;
+;     arith             ; 15                          ;
+;         2 data inputs ; 15                          ;
+;     normal            ; 1293                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 14                          ;
-;         2 data inputs ; 138                         ;
-;         3 data inputs ; 231                         ;
-;         4 data inputs ; 917                         ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 118                         ;
+;         3 data inputs ; 267                         ;
+;         4 data inputs ; 894                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 4.61                        ;
+; Average LUT depth     ; 4.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -446,7 +442,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -456,7 +452,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Nov 25 21:42:05 2022
+    Info: Processing started: Sat Nov 26 21:53:47 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_16bit -c cpu_16bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -479,35 +475,37 @@ Info (12021): Found 2 design units, including 1 entities, in source file addsub1
     Info (12022): Found design unit 1: addSub16-struct File: D:/iitb-cpu/addSub16.vhdl Line: 11
     Info (12023): Found entity 1: addSub16 File: D:/iitb-cpu/addSub16.vhdl Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file cpu_16bit.vhdl
-    Info (12022): Found design unit 1: cpu-construct File: D:/iitb-cpu/cpu_16bit.vhdl Line: 14
-    Info (12023): Found entity 1: cpu File: D:/iitb-cpu/cpu_16bit.vhdl Line: 4
+    Info (12022): Found design unit 1: cpu-construct File: D:/iitb-cpu/cpu_16bit.vhdl Line: 15
+    Info (12023): Found entity 1: cpu File: D:/iitb-cpu/cpu_16bit.vhdl Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file alu_rij.vhdl
     Info (12022): Found design unit 1: ALU-struct File: D:/iitb-cpu/alu_rij.vhdl Line: 25
     Info (12023): Found entity 1: ALU File: D:/iitb-cpu/alu_rij.vhdl Line: 5
 Info (12127): Elaborating entity "DUT" for the top level hierarchy
-Info (12128): Elaborating entity "cpu" for hierarchy "cpu:add_instance" File: D:/iitb-cpu/DUT.vhdl Line: 27
-Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(63): object "adderC" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 63
-Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(63): object "adderZ" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 63
-Info (12128): Elaborating entity "addSub16" for hierarchy "cpu:add_instance|addSub16:adder" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
-Warning (10492): VHDL Process Statement warning at addSub16.vhdl(19): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 19
-Warning (10492): VHDL Process Statement warning at addSub16.vhdl(20): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 20
-Info (12128): Elaborating entity "RAM_65536X16" for hierarchy "cpu:add_instance|RAM_65536X16:ram" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 72
-Info (12128): Elaborating entity "ALU" for hierarchy "cpu:add_instance|ALU:A" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 83
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:add_instance" File: D:/iitb-cpu/DUT.vhdl Line: 26
+Warning (10541): VHDL Signal Declaration warning at cpu_16bit.vhdl(64): used implicit default value for signal "adderA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/cpu_16bit.vhdl Line: 64
+Warning (10541): VHDL Signal Declaration warning at cpu_16bit.vhdl(64): used implicit default value for signal "adderB" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/cpu_16bit.vhdl Line: 64
+Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(64): object "adderS" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 64
+Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(65): object "adderC" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 65
+Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(65): object "adderZ" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 65
+Info (12128): Elaborating entity "addSub16" for hierarchy "cpu:add_instance|addSub16:adder" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 71
+Info (12128): Elaborating entity "RAM_65536X16" for hierarchy "cpu:add_instance|RAM_65536X16:ram" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 74
+Info (12128): Elaborating entity "ALU" for hierarchy "cpu:add_instance|ALU:A" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 85
 Warning (10036): Verilog HDL or VHDL warning at alu_rij.vhdl(34): object "adderA" assigned a value but never read File: D:/iitb-cpu/alu_rij.vhdl Line: 34
 Warning (10036): Verilog HDL or VHDL warning at alu_rij.vhdl(34): object "adderB" assigned a value but never read File: D:/iitb-cpu/alu_rij.vhdl Line: 34
 Warning (10541): VHDL Signal Declaration warning at alu_rij.vhdl(34): used implicit default value for signal "adderS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/alu_rij.vhdl Line: 34
 Warning (10541): VHDL Signal Declaration warning at alu_rij.vhdl(35): used implicit default value for signal "adderC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/alu_rij.vhdl Line: 35
 Warning (10541): VHDL Signal Declaration warning at alu_rij.vhdl(35): used implicit default value for signal "adderZ" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/alu_rij.vhdl Line: 35
-Warning (10036): Verilog HDL or VHDL warning at alu_rij.vhdl(50): object "bin" assigned a value but never read File: D:/iitb-cpu/alu_rij.vhdl Line: 50
-Info (12128): Elaborating entity "register_file" for hierarchy "cpu:add_instance|register_file:rf" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 100
+Warning (10036): Verilog HDL or VHDL warning at alu_rij.vhdl(49): object "bin" assigned a value but never read File: D:/iitb-cpu/alu_rij.vhdl Line: 49
+Info (12128): Elaborating entity "register_file" for hierarchy "cpu:add_instance|register_file:rf" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 102
 Warning (10492): VHDL Process Statement warning at register_file.vhdl(29): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 29
 Warning (10492): VHDL Process Statement warning at register_file.vhdl(30): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 30
 Warning (10492): VHDL Process Statement warning at register_file.vhdl(30): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 30
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(31): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 31
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(32): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 32
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(33): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 33
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(34): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 34
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(36): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 36
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(32): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 32
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(33): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 33
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(35): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 35
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(36): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 36
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(37): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 37
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(39): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 39
 Warning (10631): VHDL Process Statement warning at register_file.vhdl(27): inferring latch(es) for signal or variable "dw", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[7][0]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[7][1]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
@@ -637,25 +635,57 @@ Info (10041): Inferred latch for "dw[0][12]" at register_file.vhdl(27) File: D:/
 Info (10041): Inferred latch for "dw[0][13]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[0][14]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[0][15]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
-Info (12128): Elaborating entity "reg" for hierarchy "cpu:add_instance|register_file:rf|reg:R0" File: D:/iitb-cpu/register_file.vhdl Line: 41
+Info (12128): Elaborating entity "reg" for hierarchy "cpu:add_instance|register_file:rf|reg:R0" File: D:/iitb-cpu/register_file.vhdl Line: 44
 Warning (113028): 31 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: D:/iitb-cpu/db/cpu_16bit.ram0_RAM_65536X16_27907a55.hdl.mif Line: 1
     Warning (113027): Addresses ranging from 33 to 63 are not initialized File: D:/iitb-cpu/db/cpu_16bit.ram0_RAM_65536X16_27907a55.hdl.mif Line: 1
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "cpu:add_instance|RAM_65536X16:ram|ram_data" is uninferred because MIF is not supported for the selected family File: D:/iitb-cpu/RAM_65536X16.vhdl Line: 21
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][0] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][1] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][2] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][3] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][4] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][5] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][6] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][7] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][8] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][9] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][10] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][11] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][12] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][13] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][14] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][15] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "output_vector[0]" is stuck at GND File: D:/iitb-cpu/DUT.vhdl Line: 9
     Warning (13410): Pin "output_vector[1]" is stuck at GND File: D:/iitb-cpu/DUT.vhdl Line: 9
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2031 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1918 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 34 output pins
-    Info (21061): Implemented 1995 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4842 megabytes
-    Info: Processing ended: Fri Nov 25 21:42:15 2022
-    Info: Elapsed time: 00:00:10
+    Info (21061): Implemented 1882 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 59 warnings
+    Info: Peak virtual memory: 4841 megabytes
+    Info: Processing ended: Sat Nov 26 21:54:04 2022
+    Info: Elapsed time: 00:00:17
     Info: Total CPU time (on all processors): 00:00:20
 
 

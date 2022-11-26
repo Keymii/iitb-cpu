@@ -33,29 +33,31 @@ architecture struct of ALU is
 	
 	signal adderA,adderB,adderS:std_logic_vector(15 downto 0);
 	signal adderC, adderZ :std_logic;
+	
+	shared variable C_store,Z_store:std_logic:='0';
+	shared variable opcode:std_logic_vector(3 downto 0);
+	shared variable rA:std_logic_vector(2 downto 0);
+	shared variable rB:std_logic_vector(2 downto 0);
+	shared variable rC:std_logic_vector(2 downto 0);
+	constant varC:std_logic:=inp(1);
+	constant varZ:std_logic:=inp(0);
+	shared variable nand16 : std_logic_vector(15 downto 0);
+	shared variable nor_for_Z: std_logic;
+
+	shared variable Imm:std_logic_vector(5 downto 0);
+	shared variable padd,padd2:std_logic_vector(15 downto 0);
+	shared variable bin:std_logic_vector(1 downto 0);
+	shared variable var1:std_logic_vector(15 downto 0);
+	shared variable var2:std_logic_vector(15 downto 0);
+
+	shared variable immj: std_logic_vector(8 downto 0);
+	shared variable imm2j: std_logic_vector(15 downto 0);
+	shared variable memAdd : std_logic_vector(15 downto 0);
+	shared variable loadData : std_logic_vector(15 downto 0);
+	shared variable storeData : std_logic_vector(15 downto 0);
 begin
 	r_process:process(clock,inp)
-		variable C_store,Z_store:std_logic:='0';
-		variable opcode:std_logic_vector(3 downto 0);
-		variable rA:std_logic_vector(2 downto 0);
-		variable rB:std_logic_vector(2 downto 0);
-		variable rC:std_logic_vector(2 downto 0);
-		constant varC:std_logic:=inp(1);
-		constant varZ:std_logic:=inp(0);
-		variable nand16 : std_logic_vector(15 downto 0);
-		variable nor_for_Z: std_logic;
-	
-		variable Imm:std_logic_vector(5 downto 0);
-		variable padd,padd2:std_logic_vector(15 downto 0);
-		variable bin:std_logic_vector(1 downto 0);
-	   variable var1:std_logic_vector(15 downto 0);
-		variable var2:std_logic_vector(15 downto 0);
-
-		variable immj: std_logic_vector(8 downto 0);
-		variable imm2j: std_logic_vector(15 downto 0);
-		variable memAdd : std_logic_vector(15 downto 0);
-		variable loadData : std_logic_vector(15 downto 0);
-		variable storeData : std_logic_vector(15 downto 0);
+		
 	begin
 		if(clock='1' and clock'event) then
 			opcode:=inp(15 downto 12);
