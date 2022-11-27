@@ -24,31 +24,22 @@ architecture Struct of register_file is
 	signal dw,dr : dataLine;
 	signal en7: std_logic;
 begin
-	process(clock)
+	process(clock) 
 	begin
-		if(A3/="111") then
-			dw(to_integer(unsigned(A3)))<=D3;
-			
-			if(pc_write_en='1')then
-				dw(7)<=pc_write;
-			end if;
-		elsif(A3="111")then
-			if(pc_write_en='1')then
-				dw(7)<=pc_write;
-			else
-				dw(7)<=D3;
-			end if;
+		dw(to_integer(unsigned(A3)))<=D3;
+		if(pc_write_en='1')then
+			dw(7)<=pc_write;
 		end if;
 	end process;
 	en7<=(Write_en or pc_write_en);
-	R0 : reg port map (d_write=>dw(0) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(0) );
-	R1 : reg port map (d_write=>dw(1) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(1) );
-	R2 : reg port map (d_write=>dw(2) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(2) );
-	R3 : reg port map (d_write=>dw(3) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(3) );
-	R4 : reg port map (d_write=>dw(4) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(4) );
-	R5 : reg port map (d_write=>dw(5) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(5) );
-	R6 : reg port map (d_write=>dw(6) , write_en=>Write_en , reset=>rst , clk=>clock ,d_read=>dr(6) );
-	R7 : reg port map (d_write=>dw(7) , write_en=>en7 , reset=>rst , clk=>clock ,d_read=>dr(7) );
+	R0 : reg port map (d_write=>dw(0) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(0) );
+	R1 : reg port map (d_write=>dw(1) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(1) );
+	R2 : reg port map (d_write=>dw(2) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(2) );
+	R3 : reg port map (d_write=>dw(3) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(3) );
+	R4 : reg port map (d_write=>dw(4) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(4) );
+	R5 : reg port map (d_write=>dw(5) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(5) );
+	R6 : reg port map (d_write=>dw(6) , write_en=>Write_en , reset=>'0' , clk=>clock ,d_read=>dr(6) );
+	R7 : reg port map (d_write=>dw(7) , write_en=>en7 , reset=>'0' , clk=>clock ,d_read=>dr(7) );
 	
 	D1<=dr(to_integer(unsigned(A1)));
 	D2<=dr(to_integer(unsigned(A2)));

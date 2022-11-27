@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_16bit
-Sat Nov 26 21:54:04 2022
+Sun Nov 27 20:41:49 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -16,11 +16,21 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   8. User-Specified and Inferred Latches
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "cpu:add_instance|addSub16:adder"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R7"
+ 14. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R6"
+ 15. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R5"
+ 16. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R4"
+ 17. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R3"
+ 18. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R2"
+ 19. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R1"
+ 20. Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R0"
+ 21. Port Connectivity Checks: "cpu:add_instance|register_file:rf"
+ 22. Port Connectivity Checks: "cpu:add_instance|addSub16:adder"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -47,15 +57,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 26 21:54:04 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 27 20:41:49 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_16bit                                   ;
 ; Top-level Entity Name              ; DUT                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,858                                       ;
-;     Total combinational functions  ; 1,307                                       ;
-;     Dedicated logic registers      ; 765                                         ;
-; Total registers                    ; 765                                         ;
+; Total logic elements               ; 1,728                                       ;
+;     Total combinational functions  ; 1,183                                       ;
+;     Dedicated logic registers      ; 759                                         ;
+; Total registers                    ; 759                                         ;
 ; Total pins                         ; 36                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -160,19 +170,18 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-12        ;   0.0%      ;
+;     Processors 8-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -196,20 +205,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Estimated Total logic elements              ; 1,858                 ;
+; Estimated Total logic elements              ; 1,728                 ;
 ;                                             ;                       ;
-; Total combinational functions               ; 1307                  ;
+; Total combinational functions               ; 1183                  ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 894                   ;
-;     -- 3 input functions                    ; 267                   ;
-;     -- <=2 input functions                  ; 146                   ;
+;     -- 4 input functions                    ; 902                   ;
+;     -- 3 input functions                    ; 249                   ;
+;     -- <=2 input functions                  ; 32                    ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 1292                  ;
-;     -- arithmetic mode                      ; 15                    ;
+;     -- normal mode                          ; 1169                  ;
+;     -- arithmetic mode                      ; 14                    ;
 ;                                             ;                       ;
-; Total registers                             ; 765                   ;
-;     -- Dedicated logic registers            ; 765                   ;
+; Total registers                             ; 759                   ;
+;     -- Dedicated logic registers            ; 759                   ;
 ;     -- I/O registers                        ; 0                     ;
 ;                                             ;                       ;
 ; I/O pins                                    ; 36                    ;
@@ -217,9 +226,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                     ;
 ;                                             ;                       ;
 ; Maximum fan-out node                        ; input_vector[1]~input ;
-; Maximum fan-out                             ; 765                   ;
-; Total fan-out                               ; 7024                  ;
-; Average fan-out                             ; 3.28                  ;
+; Maximum fan-out                             ; 759                   ;
+; Total fan-out                               ; 6761                  ;
+; Average fan-out                             ; 3.36                  ;
 +---------------------------------------------+-----------------------+
 
 
@@ -228,19 +237,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
-; |DUT                       ; 1307 (0)            ; 765 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |DUT                                          ; DUT           ; work         ;
-;    |cpu:add_instance|      ; 1307 (17)           ; 765 (56)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance                         ; cpu           ; work         ;
-;       |ALU:A|              ; 94 (94)             ; 53 (53)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|ALU:A                   ; ALU           ; work         ;
+; |DUT                       ; 1183 (0)            ; 759 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |DUT                                          ; DUT           ; work         ;
+;    |cpu:add_instance|      ; 1183 (17)           ; 759 (50)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance                         ; cpu           ; work         ;
+;       |ALU:A|              ; 99 (99)             ; 53 (53)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|ALU:A                   ; ALU           ; work         ;
 ;       |RAM_65536X16:ram|   ; 761 (761)           ; 528 (528)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|RAM_65536X16:ram        ; RAM_65536X16  ; work         ;
-;       |register_file:rf|   ; 435 (305)           ; 128 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf        ; register_file ; work         ;
-;          |reg:R0|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R0 ; reg           ; work         ;
-;          |reg:R1|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R1 ; reg           ; work         ;
-;          |reg:R2|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R2 ; reg           ; work         ;
-;          |reg:R3|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R3 ; reg           ; work         ;
-;          |reg:R4|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R4 ; reg           ; work         ;
-;          |reg:R5|          ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R5 ; reg           ; work         ;
-;          |reg:R6|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R6 ; reg           ; work         ;
-;          |reg:R7|          ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R7 ; reg           ; work         ;
+;       |register_file:rf|   ; 306 (306)           ; 128 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf        ; register_file ; work         ;
+;          |reg:R0|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R0 ; reg           ; work         ;
+;          |reg:R1|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R1 ; reg           ; work         ;
+;          |reg:R2|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R2 ; reg           ; work         ;
+;          |reg:R3|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R3 ; reg           ; work         ;
+;          |reg:R4|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R4 ; reg           ; work         ;
+;          |reg:R5|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R5 ; reg           ; work         ;
+;          |reg:R6|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R6 ; reg           ; work         ;
+;          |reg:R7|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R7 ; reg           ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -250,22 +259,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------+--------------------------------------------+------------------------+
 ; Latch Name                                           ; Latch Enable Signal                        ; Free of Timing Hazards ;
 +------------------------------------------------------+--------------------------------------------+------------------------+
-; cpu:add_instance|register_file:rf|dw[7][0]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][1]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][2]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][3]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][4]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][5]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][6]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][7]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][8]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][9]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][10]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][11]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][12]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][13]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][14]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
-; cpu:add_instance|register_file:rf|dw[7][15]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -273,6 +266,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][0]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][0]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][4]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][4]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][4]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -280,6 +274,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][4]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][4]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][4]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][4]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][3]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][3]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][3]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -287,6 +282,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][3]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][3]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][3]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][3]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][5]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][5]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][5]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -294,6 +290,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][5]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][5]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][5]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][5]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][1]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][1]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][1]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -301,6 +298,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][1]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][1]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][1]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][1]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][2]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][2]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][2]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -308,6 +306,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][2]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][2]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][2]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][2]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][6]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][6]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][6]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -315,6 +314,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][6]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][6]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][6]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][6]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][7]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][7]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][7]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -322,6 +322,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][7]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][7]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][7]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][7]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][8]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][8]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][8]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -329,6 +330,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][8]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][8]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][8]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][8]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][9]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][9]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][9]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -336,6 +338,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][9]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][9]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][9]           ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][9]           ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][10]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][10]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][10]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -343,6 +346,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][10]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][10]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][10]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][10]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[2][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[1][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[0][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
@@ -350,21 +354,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cpu:add_instance|register_file:rf|dw[5][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[6][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; cpu:add_instance|register_file:rf|dw[4][11]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[7][11]          ; cpu:add_instance|register_file:rf|dw[7][1] ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[2][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[1][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[0][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
+; cpu:add_instance|register_file:rf|dw[3][12]          ; cpu:add_instance|register_file:rf|Decoder0 ; yes                    ;
 ; Number of user-specified and inferred latches = 128  ;                                            ;                        ;
 +------------------------------------------------------+--------------------------------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; cpu:add_instance|ALU:A|Cout           ; Stuck at GND due to stuck port data_in ;
-; cpu:add_instance|ALU:A|Zout           ; Stuck at GND due to stuck port data_in ;
-; cpu:add_instance|sigPC[0]             ; Merged with cpu:add_instance|pc_w[0]   ;
-; Total Number of Removed Registers = 3 ;                                        ;
-+---------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                            ;
++---------------------------------------+---------------------------------------+
+; Register name                         ; Reason for Removal                    ;
++---------------------------------------+---------------------------------------+
+; cpu:add_instance|pc_w[5]              ; Merged with cpu:add_instance|sigPC[5] ;
+; cpu:add_instance|pc_w[4]              ; Merged with cpu:add_instance|sigPC[4] ;
+; cpu:add_instance|pc_w[3]              ; Merged with cpu:add_instance|sigPC[3] ;
+; cpu:add_instance|pc_w[2]              ; Merged with cpu:add_instance|sigPC[2] ;
+; cpu:add_instance|pc_w[1]              ; Merged with cpu:add_instance|sigPC[1] ;
+; cpu:add_instance|pc_w[0]              ; Merged with cpu:add_instance|sigPC[0] ;
+; cpu:add_instance|pc[0]                ; Merged with cpu:add_instance|sigPC[0] ;
+; Total Number of Removed Registers = 7 ;                                       ;
++---------------------------------------+---------------------------------------+
 
 
 +------------------------------------------------------+
@@ -372,7 +385,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 765   ;
+; Total registers                              ; 759   ;
 ; Number of registers using Synchronous Clear  ; 7     ;
 ; Number of registers using Synchronous Load   ; 32    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -382,22 +395,111 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 112 bits  ; 224 LEs       ; 112 LEs              ; 112 LEs                ; Yes        ; |DUT|cpu:add_instance|register_file:rf|reg:R5|store[13] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DUT|cpu:add_instance|register_file:rf|reg:R7|store[14] ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|mD_write[4]                 ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 9 LEs                ; 21 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA3[2]                     ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[5]                     ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[15]                    ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA2[0]                     ;
-; 12:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA1[0]                     ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux31            ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux7             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; cpu:add_instance|sigPC[0]              ; 124     ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|mD_write[0]      ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 9 LEs                ; 21 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA3[0]          ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[3]          ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfD3[8]          ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA2[2]          ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |DUT|cpu:add_instance|ALU:A|rfA1[2]          ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux31 ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DUT|cpu:add_instance|register_file:rf|Mux15 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R7" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R6" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R5" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R4" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R3" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R2" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R1" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf|reg:R0" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:add_instance|register_file:rf"                                                     ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; pc_read ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -417,23 +519,24 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 36                          ;
-; cycloneiii_ff         ; 765                         ;
+; cycloneiii_ff         ; 759                         ;
 ;     ENA               ; 668                         ;
 ;     ENA SCLR SLD      ; 7                           ;
 ;     ENA SLD           ; 25                          ;
-;     plain             ; 65                          ;
-; cycloneiii_lcell_comb ; 1308                        ;
-;     arith             ; 15                          ;
-;         2 data inputs ; 15                          ;
-;     normal            ; 1293                        ;
+;     plain             ; 59                          ;
+; cycloneiii_lcell_comb ; 1184                        ;
+;     arith             ; 14                          ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 1170                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 13                          ;
-;         2 data inputs ; 118                         ;
-;         3 data inputs ; 267                         ;
-;         4 data inputs ; 894                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 248                         ;
+;         4 data inputs ; 902                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 4.87                        ;
+; Average LUT depth     ; 5.10                        ;
 +-----------------------+-----------------------------+
 
 
@@ -442,7 +545,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -452,7 +555,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Nov 26 21:53:47 2022
+    Info: Processing started: Sun Nov 27 20:41:29 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_16bit -c cpu_16bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -488,6 +591,8 @@ Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(64): object "adde
 Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(65): object "adderC" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 65
 Warning (10036): Verilog HDL or VHDL warning at cpu_16bit.vhdl(65): object "adderZ" assigned a value but never read File: D:/iitb-cpu/cpu_16bit.vhdl Line: 65
 Info (12128): Elaborating entity "addSub16" for hierarchy "cpu:add_instance|addSub16:adder" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 71
+Warning (10492): VHDL Process Statement warning at addSub16.vhdl(19): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 19
+Warning (10492): VHDL Process Statement warning at addSub16.vhdl(20): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/addSub16.vhdl Line: 20
 Info (12128): Elaborating entity "RAM_65536X16" for hierarchy "cpu:add_instance|RAM_65536X16:ram" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 74
 Info (12128): Elaborating entity "ALU" for hierarchy "cpu:add_instance|ALU:A" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 85
 Warning (10036): Verilog HDL or VHDL warning at alu_rij.vhdl(34): object "adderA" assigned a value but never read File: D:/iitb-cpu/alu_rij.vhdl Line: 34
@@ -497,15 +602,10 @@ Warning (10541): VHDL Signal Declaration warning at alu_rij.vhdl(35): used impli
 Warning (10541): VHDL Signal Declaration warning at alu_rij.vhdl(35): used implicit default value for signal "adderZ" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/iitb-cpu/alu_rij.vhdl Line: 35
 Warning (10036): Verilog HDL or VHDL warning at alu_rij.vhdl(49): object "bin" assigned a value but never read File: D:/iitb-cpu/alu_rij.vhdl Line: 49
 Info (12128): Elaborating entity "register_file" for hierarchy "cpu:add_instance|register_file:rf" File: D:/iitb-cpu/cpu_16bit.vhdl Line: 102
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(29): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 29
 Warning (10492): VHDL Process Statement warning at register_file.vhdl(29): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 29
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(30): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 30
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(30): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 30
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(32): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 32
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(33): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 33
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(35): signal "A3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 35
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(36): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 36
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(37): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 37
-Warning (10492): VHDL Process Statement warning at register_file.vhdl(39): signal "D3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 39
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(30): signal "pc_write_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 30
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(31): signal "pc_write" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/register_file.vhdl Line: 31
 Warning (10631): VHDL Process Statement warning at register_file.vhdl(27): inferring latch(es) for signal or variable "dw", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[7][0]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[7][1]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
@@ -635,22 +735,22 @@ Info (10041): Inferred latch for "dw[0][12]" at register_file.vhdl(27) File: D:/
 Info (10041): Inferred latch for "dw[0][13]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[0][14]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
 Info (10041): Inferred latch for "dw[0][15]" at register_file.vhdl(27) File: D:/iitb-cpu/register_file.vhdl Line: 27
-Info (12128): Elaborating entity "reg" for hierarchy "cpu:add_instance|register_file:rf|reg:R0" File: D:/iitb-cpu/register_file.vhdl Line: 44
+Info (12128): Elaborating entity "reg" for hierarchy "cpu:add_instance|register_file:rf|reg:R0" File: D:/iitb-cpu/register_file.vhdl Line: 35
 Warning (113028): 31 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: D:/iitb-cpu/db/cpu_16bit.ram0_RAM_65536X16_27907a55.hdl.mif Line: 1
     Warning (113027): Addresses ranging from 33 to 63 are not initialized File: D:/iitb-cpu/db/cpu_16bit.ram0_RAM_65536X16_27907a55.hdl.mif Line: 1
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "cpu:add_instance|RAM_65536X16:ram|ram_data" is uninferred because MIF is not supported for the selected family File: D:/iitb-cpu/RAM_65536X16.vhdl Line: 21
 Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][0] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
-Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][1] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
-Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][2] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][4] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
 Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][3] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
-Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][4] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
 Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][5] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][1] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][2] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
 Warning (13012): Latch cpu:add_instance|register_file:rf|dw[7][6] has unsafe behavior File: D:/iitb-cpu/register_file.vhdl Line: 27
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
@@ -678,14 +778,16 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1918 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "input_vector[0]" File: D:/iitb-cpu/DUT.vhdl Line: 8
+Info (21057): Implemented 1900 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 34 output pins
-    Info (21061): Implemented 1882 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 59 warnings
-    Info: Peak virtual memory: 4841 megabytes
-    Info: Processing ended: Sat Nov 26 21:54:04 2022
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:20
+    Info (21061): Implemented 1864 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
+    Info: Peak virtual memory: 4846 megabytes
+    Info: Processing ended: Sun Nov 27 20:41:49 2022
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:41
 
 

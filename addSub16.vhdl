@@ -9,15 +9,15 @@ entity addSub16 is
 	);
 end addSub16;
 architecture struct of addSub16 is
-	shared variable carry: std_logic_vector(16 downto 0):="00000000000000000";
-	shared variable sumSig: std_logic_vector(15 downto 0);
+	signal carry: std_logic_vector(16 downto 0):="00000000000000000";
+	signal sumSig: std_logic_vector(15 downto 0);
 begin
 	
 	add_proc:process(A,B)
 	begin
 		for i in 0 to 15 loop
-			sumSig(i) := A(i) xor B(i) xor carry(i);
-			carry(i+1):= (A(i) and  B(i)) or (carry(i) and  B(i)) or (A(i) and  carry(i));
+			sumSig(i) <= A(i) xor B(i) xor carry(i);
+			carry(i+1)<= (A(i) and  B(i)) or (carry(i) and  B(i)) or (A(i) and  carry(i));
 		end loop;
 	end process;
 	C<=carry(16);

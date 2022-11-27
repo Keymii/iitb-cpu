@@ -56,8 +56,10 @@ architecture struct of ALU is
 	shared variable loadData : std_logic_vector(15 downto 0);
 	shared variable storeData : std_logic_vector(15 downto 0);
 begin
+	Cout<=C_store;
+	Zout<=Z_store;
 	r_process:process(clock,inp)
-		
+
 	begin
 		if(clock='1' and clock'event) then
 			opcode:=inp(15 downto 12);
@@ -71,9 +73,9 @@ begin
 			Z_store:=varZ;
 			
 			Imm:=inp(5 downto 0);
-			padd(15 downto 6):="0000000000";
+			padd(15 downto 6):=(others=>Imm(5));
 			padd(5 downto 0):=Imm;
-			padd2(15 downto 9):="0000000";
+			padd2(15 downto 9):=(others=>Inp(8));
 			padd2(8 downto 0):=Inp(8 downto 0);
 			
 			immj:=inp(8 downto 0);
@@ -269,10 +271,7 @@ begin
 						when others=>null;
 					end case;
 				end loop;
-			end if;	
-			Cout<=C_store;
-			Zout<=Z_store;
-			
+			end if;				
 		end if;
 	end process;
 end struct;

@@ -3,75 +3,75 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 125C Model Setup 'input_vector[1]'
-Slack : -7.928
-TNS   : -2824.228
+Slack : -5.955
+TNS   : -2524.653
 
 Type  : Slow 1200mV 125C Model Setup 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : -1.322
-TNS   : -79.638
+Slack : -1.539
+TNS   : -116.394
 
 Type  : Slow 1200mV 125C Model Hold 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : -0.320
-TNS   : -1.480
+Slack : -0.476
+TNS   : -5.806
 
 Type  : Slow 1200mV 125C Model Hold 'input_vector[1]'
-Slack : 0.370
+Slack : 0.400
 TNS   : 0.000
 
 Type  : Slow 1200mV 125C Model Minimum Pulse Width 'input_vector[1]'
 Slack : -3.000
-TNS   : -1067.877
+TNS   : -1076.295
 
 Type  : Slow 1200mV 125C Model Minimum Pulse Width 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : 0.251
+Slack : 0.183
 TNS   : 0.000
 
 Type  : Slow 1200mV -40C Model Setup 'input_vector[1]'
-Slack : -6.670
-TNS   : -2324.277
+Slack : -4.994
+TNS   : -2073.659
 
 Type  : Slow 1200mV -40C Model Setup 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : -1.016
-TNS   : -61.792
+Slack : -1.276
+TNS   : -91.609
 
 Type  : Slow 1200mV -40C Model Hold 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : -0.077
-TNS   : -0.083
+Slack : -0.258
+TNS   : -2.089
 
 Type  : Slow 1200mV -40C Model Hold 'input_vector[1]'
-Slack : 0.333
+Slack : 0.359
 TNS   : 0.000
 
 Type  : Slow 1200mV -40C Model Minimum Pulse Width 'input_vector[1]'
 Slack : -3.000
-TNS   : -972.243
+TNS   : -979.905
 
 Type  : Slow 1200mV -40C Model Minimum Pulse Width 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : 0.412
+Slack : 0.354
 TNS   : 0.000
 
 Type  : Fast 1200mV -40C Model Setup 'input_vector[1]'
-Slack : -3.236
-TNS   : -1069.171
+Slack : -2.219
+TNS   : -781.235
 
 Type  : Fast 1200mV -40C Model Setup 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : -0.122
-TNS   : -0.537
+Slack : -0.397
+TNS   : -4.681
 
 Type  : Fast 1200mV -40C Model Hold 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : -0.025
-TNS   : -0.025
+Slack : -0.083
+TNS   : -0.533
 
 Type  : Fast 1200mV -40C Model Hold 'input_vector[1]'
-Slack : 0.157
+Slack : 0.164
 TNS   : 0.000
 
 Type  : Fast 1200mV -40C Model Minimum Pulse Width 'input_vector[1]'
 Slack : -3.000
-TNS   : -786.054
+TNS   : -790.213
 
 Type  : Fast 1200mV -40C Model Minimum Pulse Width 'cpu:add_instance|ALU:A|rfA3[0]'
-Slack : 0.297
+Slack : 0.286
 TNS   : 0.000
 
 ------------------------------------------------------------

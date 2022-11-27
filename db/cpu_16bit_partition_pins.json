@@ -134,10 +134,6 @@
 				{
 					"name" : "input_vector[1]",
 					"strict" : false
-				},
-				{
-					"name" : "input_vector[0]",
-					"strict" : false
 				}
 			]
 		}

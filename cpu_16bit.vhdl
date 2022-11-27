@@ -13,7 +13,7 @@ entity cpu is
 end cpu;
 
 architecture construct of cpu is
-	shared variable pc:std_logic_vector(15 downto 0):="0000000000000000";
+	signal pc:std_logic_vector(15 downto 0):="0000000000000000";
 	component ALU is
 		port (
 		inp: in std_logic_vector(15 downto 0);
@@ -135,13 +135,15 @@ begin
 	end process;
 
 	pc_process:process(clock)
-		
 	begin
-		if (clock='1' and clock'event) then
-			pc := pc_r;
+		
+		if (clock='1') then
+			pc<=pc_r;
+			pc_write_en<='0';
+			
 			sigPC<=pc;
 			inp<=inp_t;
-			pc:=std_logic_vector(to_unsigned(to_integer(unsigned(pc))+1,16));
+			pc<=std_logic_vector(to_unsigned(to_integer(unsigned(pc))+1,16));
 			pc_write_en<='1';
 			pc_w<=pc;
 			

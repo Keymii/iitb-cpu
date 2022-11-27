@@ -11,7 +11,7 @@ port ( d_write :in  std_logic_vector(15 downto 0) ;
  );
 end reg;
 architecture sim of reg is
-shared variable store:std_logic_vector(15 downto 0):="0000000000000000";
+signal store:std_logic_vector(15 downto 0):="0000000000000000";
  begin
 
 process(clk) is
@@ -19,9 +19,9 @@ process(clk) is
 begin
 	if(clk='1' and clk'event)then
 		if(write_en='1') then  
-			store:=d_write;
+			store<=d_write;
 		elsif(reset='1') then
-			store:="0000000000000000"; 
+			store<="0000000000000000"; 
 		end if;
 	end if;
 end process;

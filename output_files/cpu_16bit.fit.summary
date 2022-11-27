@@ -1,15 +1,15 @@
-Fitter Status : Successful - Fri Nov 25 21:16:33 2022
+Fitter Status : Successful - Sun Nov 27 01:22:49 2022
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : cpu_16bit
 Top-level Entity Name : DUT
 Family : MAX 10
 Device : 10M02DCU324A6G
 Timing Models : Final
-Total logic elements : 1,463 / 2,304 ( 63 % )
-    Total combinational functions : 1,279 / 2,304 ( 56 % )
-    Dedicated logic registers : 759 / 2,304 ( 33 % )
-Total registers : 759
-Total pins : 20 / 160 ( 13 % )
+Total logic elements : 1,548 / 2,304 ( 67 % )
+    Total combinational functions : 1,309 / 2,304 ( 57 % )
+    Dedicated logic registers : 765 / 2,304 ( 33 % )
+Total registers : 765
+Total pins : 36 / 160 ( 23 % )
 Total virtual pins : 0
 Total memory bits : 0 / 110,592 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 32 ( 0 % )

@@ -1,5 +1,5 @@
 Fitter report for cpu_16bit
-Fri Nov 25 21:16:33 2022
+Sun Nov 27 01:22:49 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -68,18 +68,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Fri Nov 25 21:16:33 2022       ;
+; Fitter Status                      ; Successful - Sun Nov 27 01:22:49 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu_16bit                                   ;
 ; Top-level Entity Name              ; DUT                                         ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M02DCU324A6G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,463 / 2,304 ( 63 % )                      ;
-;     Total combinational functions  ; 1,279 / 2,304 ( 56 % )                      ;
-;     Dedicated logic registers      ; 759 / 2,304 ( 33 % )                        ;
-; Total registers                    ; 759                                         ;
-; Total pins                         ; 20 / 160 ( 13 % )                           ;
+; Total logic elements               ; 1,548 / 2,304 ( 67 % )                      ;
+;     Total combinational functions  ; 1,309 / 2,304 ( 57 % )                      ;
+;     Dedicated logic registers      ; 765 / 2,304 ( 33 % )                        ;
+; Total registers                    ; 765                                         ;
+; Total pins                         ; 36 / 160 ( 23 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 110,592 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 32 ( 0 % )                              ;
@@ -154,19 +154,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.60        ;
+; Average used               ; 1.70        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   5.7%      ;
-;     Processor 3            ;   5.6%      ;
-;     Processor 4            ;   5.6%      ;
-;     Processor 5            ;   5.5%      ;
-;     Processor 6            ;   5.5%      ;
-;     Processor 7            ;   5.5%      ;
-;     Processor 8            ;   5.4%      ;
-;     Processors 9-12        ;   5.3%      ;
+;     Processor 2            ;   7.3%      ;
+;     Processor 3            ;   6.6%      ;
+;     Processor 4            ;   6.5%      ;
+;     Processor 5            ;   6.4%      ;
+;     Processor 6            ;   6.3%      ;
+;     Processor 7            ;   6.3%      ;
+;     Processor 8            ;   6.2%      ;
+;     Processors 9-12        ;   6.1%      ;
 +----------------------------+-------------+
 
 
@@ -176,8 +176,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 2103 ) ; 0.00 % ( 0 / 2103 )        ; 0.00 % ( 0 / 2103 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 2103 ) ; 0.00 % ( 0 / 2103 )        ; 0.00 % ( 0 / 2103 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 2171 ) ; 0.00 % ( 0 / 2171 )        ; 0.00 % ( 0 / 2171 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 2171 ) ; 0.00 % ( 0 / 2171 )        ; 0.00 % ( 0 / 2171 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -200,7 +200,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 2087 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 2155 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -216,29 +216,29 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 1,463 / 2,304 ( 63 % ) ;
-;     -- Combinational with no register       ; 704                    ;
-;     -- Register only                        ; 184                    ;
-;     -- Combinational with a register        ; 575                    ;
+; Total logic elements                        ; 1,548 / 2,304 ( 67 % ) ;
+;     -- Combinational with no register       ; 783                    ;
+;     -- Register only                        ; 239                    ;
+;     -- Combinational with a register        ; 526                    ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 902                    ;
-;     -- 3 input functions                    ; 240                    ;
-;     -- <=2 input functions                  ; 137                    ;
-;     -- Register only                        ; 184                    ;
+;     -- 4 input functions                    ; 894                    ;
+;     -- 3 input functions                    ; 267                    ;
+;     -- <=2 input functions                  ; 148                    ;
+;     -- Register only                        ; 239                    ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 1279                   ;
-;     -- arithmetic mode                      ; 0                      ;
+;     -- normal mode                          ; 1294                   ;
+;     -- arithmetic mode                      ; 15                     ;
 ;                                             ;                        ;
-; Total registers*                            ; 759 / 3,077 ( 25 % )   ;
-;     -- Dedicated logic registers            ; 759 / 2,304 ( 33 % )   ;
+; Total registers*                            ; 765 / 3,077 ( 25 % )   ;
+;     -- Dedicated logic registers            ; 765 / 2,304 ( 33 % )   ;
 ;     -- I/O registers                        ; 0 / 773 ( 0 % )        ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 113 / 144 ( 78 % )     ;
+; Total LABs:  partially or completely used   ; 119 / 144 ( 83 % )     ;
 ; Virtual pins                                ; 0                      ;
-; I/O pins                                    ; 20 / 160 ( 13 % )      ;
-;     -- Clock pins                           ; 1 / 4 ( 25 % )         ;
+; I/O pins                                    ; 36 / 160 ( 23 % )      ;
+;     -- Clock pins                           ; 2 / 4 ( 50 % )         ;
 ;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )        ;
 ;                                             ;                        ;
 ; M9Ks                                        ; 0 / 12 ( 0 % )         ;
@@ -247,18 +247,18 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; Total block memory implementation bits      ; 0 / 110,592 ( 0 % )    ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 32 ( 0 % )         ;
 ; PLLs                                        ; 0 / 2 ( 0 % )          ;
-; Global signals                              ; 8                      ;
-;     -- Global clocks                        ; 8 / 10 ( 80 % )        ;
+; Global signals                              ; 9                      ;
+;     -- Global clocks                        ; 9 / 10 ( 90 % )        ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )          ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )          ;
 ; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 15.9% / 15.1% / 17.2%  ;
-; Peak interconnect usage (total/H/V)         ; 30.5% / 27.8% / 34.6%  ;
-; Maximum fan-out                             ; 757                    ;
-; Highest non-global fan-out                  ; 129                    ;
-; Total fan-out                               ; 7129                   ;
-; Average fan-out                             ; 3.12                   ;
+; Average interconnect usage (total/H/V)      ; 16.1% / 15.3% / 17.3%  ;
+; Peak interconnect usage (total/H/V)         ; 32.3% / 31.5% / 33.7%  ;
+; Maximum fan-out                             ; 762                    ;
+; Highest non-global fan-out                  ; 130                    ;
+; Total fan-out                               ; 7282                   ;
+; Average fan-out                             ; 3.02                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -271,33 +271,33 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 1463 / 2304 ( 63 % ) ; 0 / 2304 ( 0 % )               ;
-;     -- Combinational with no register       ; 704                  ; 0                              ;
-;     -- Register only                        ; 184                  ; 0                              ;
-;     -- Combinational with a register        ; 575                  ; 0                              ;
+; Total logic elements                        ; 1548 / 2304 ( 67 % ) ; 0 / 2304 ( 0 % )               ;
+;     -- Combinational with no register       ; 783                  ; 0                              ;
+;     -- Register only                        ; 239                  ; 0                              ;
+;     -- Combinational with a register        ; 526                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 902                  ; 0                              ;
-;     -- 3 input functions                    ; 240                  ; 0                              ;
-;     -- <=2 input functions                  ; 137                  ; 0                              ;
-;     -- Register only                        ; 184                  ; 0                              ;
+;     -- 4 input functions                    ; 894                  ; 0                              ;
+;     -- 3 input functions                    ; 267                  ; 0                              ;
+;     -- <=2 input functions                  ; 148                  ; 0                              ;
+;     -- Register only                        ; 239                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 1279                 ; 0                              ;
-;     -- arithmetic mode                      ; 0                    ; 0                              ;
+;     -- normal mode                          ; 1294                 ; 0                              ;
+;     -- arithmetic mode                      ; 15                   ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 759                  ; 0                              ;
-;     -- Dedicated logic registers            ; 759 / 2304 ( 33 % )  ; 0 / 2304 ( 0 % )               ;
+; Total registers                             ; 765                  ; 0                              ;
+;     -- Dedicated logic registers            ; 765 / 2304 ( 33 % )  ; 0 / 2304 ( 0 % )               ;
 ;     -- I/O registers                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 113 / 144 ( 78 % )   ; 0 / 144 ( 0 % )                ;
+; Total LABs:  partially or completely used   ; 119 / 144 ( 83 % )   ; 0 / 144 ( 0 % )                ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 20                   ; 0                              ;
+; I/O pins                                    ; 36                   ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 32 ( 0 % )       ; 0 / 32 ( 0 % )                 ;
 ; Total memory bits                           ; 0                    ; 0                              ;
 ; Total RAM block bits                        ; 0                    ; 0                              ;
-; Clock control block                         ; 8 / 12 ( 66 % )      ; 0 / 12 ( 0 % )                 ;
+; Clock control block                         ; 9 / 12 ( 75 % )      ; 0 / 12 ( 0 % )                 ;
 ; User Flash Memory                           ; 1 / 1 ( 100 % )      ; 0 / 1 ( 0 % )                  ;
 ;                                             ;                      ;                                ;
 ; Connections                                 ;                      ;                                ;
@@ -307,8 +307,8 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 7121                 ; 8                              ;
-;     -- Registered Connections               ; 3759                 ; 0                              ;
+;     -- Total Connections                    ; 7274                 ; 8                              ;
+;     -- Registered Connections               ; 3772                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -316,7 +316,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ;                                             ;                      ;                                ;
 ; Partition Interface                         ;                      ;                                ;
 ;     -- Input Ports                          ; 2                    ; 0                              ;
-;     -- Output Ports                         ; 18                   ; 0                              ;
+;     -- Output Ports                         ; 34                   ; 0                              ;
 ;     -- Bidir Ports                          ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Registered Ports                            ;                      ;                                ;
@@ -340,8 +340,8 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 +-----------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name            ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-----------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; input_vector[0] ; J6    ; 1B       ; 10           ; 11           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; input_vector[1] ; K8    ; 2        ; 0            ; 4            ; 14           ; 759                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; input_vector[0] ; G15   ; 6        ; 18           ; 11           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; input_vector[1] ; K8    ; 2        ; 0            ; 4            ; 14           ; 765                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
 +-----------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -350,24 +350,40 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 +-------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name              ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +-------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
-; output_vector[0]  ; B7    ; 8        ; 14           ; 17           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[10] ; E18   ; 6        ; 18           ; 10           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[11] ; F18   ; 6        ; 18           ; 10           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[12] ; H12   ; 6        ; 18           ; 10           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[13] ; K3    ; 1B       ; 10           ; 10           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[14] ; G15   ; 6        ; 18           ; 11           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[15] ; H18   ; 6        ; 18           ; 9            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[16] ; F16   ; 6        ; 18           ; 11           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[17] ; G16   ; 6        ; 18           ; 11           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[1]  ; B8    ; 8        ; 16           ; 17           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[2]  ; K2    ; 1B       ; 10           ; 11           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[3]  ; A9    ; 8        ; 18           ; 15           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[4]  ; C18   ; 6        ; 18           ; 13           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[5]  ; H11   ; 6        ; 18           ; 10           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[6]  ; G17   ; 6        ; 18           ; 9            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[7]  ; L16   ; 5        ; 18           ; 4            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[8]  ; G11   ; 6        ; 18           ; 13           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; output_vector[9]  ; F15   ; 6        ; 18           ; 11           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[0]  ; M9    ; 3        ; 16           ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[10] ; L15   ; 5        ; 18           ; 4            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[11] ; R18   ; 5        ; 18           ; 5            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[12] ; L18   ; 6        ; 18           ; 6            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[13] ; P18   ; 5        ; 18           ; 5            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[14] ; L2    ; 1B       ; 10           ; 10           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[15] ; K3    ; 1B       ; 10           ; 10           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[16] ; C4    ; 8        ; 6            ; 7            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[17] ; K18   ; 6        ; 18           ; 8            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[18] ; J18   ; 6        ; 18           ; 8            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[19] ; G18   ; 6        ; 18           ; 9            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[1]  ; V2    ; 3        ; 1            ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[20] ; G11   ; 6        ; 18           ; 13           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[21] ; E16   ; 6        ; 18           ; 12           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[22] ; H11   ; 6        ; 18           ; 10           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[23] ; H17   ; 6        ; 18           ; 9            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[24] ; H18   ; 6        ; 18           ; 9            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[25] ; F15   ; 6        ; 18           ; 11           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[26] ; H12   ; 6        ; 18           ; 10           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[27] ; D16   ; 6        ; 18           ; 12           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[28] ; E17   ; 6        ; 18           ; 12           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[29] ; F18   ; 6        ; 18           ; 10           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[2]  ; J2    ; 1B       ; 10           ; 12           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[30] ; F16   ; 6        ; 18           ; 11           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[31] ; E18   ; 6        ; 18           ; 10           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[32] ; L17   ; 6        ; 18           ; 8            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[33] ; G17   ; 6        ; 18           ; 9            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[3]  ; D15   ; 6        ; 18           ; 14           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[4]  ; J1    ; 1B       ; 10           ; 12           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[5]  ; C5    ; 8        ; 6            ; 7            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[6]  ; K17   ; 6        ; 18           ; 8            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[7]  ; J6    ; 1B       ; 10           ; 11           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[8]  ; M17   ; 6        ; 18           ; 6            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; output_vector[9]  ; K4    ; 1B       ; 10           ; 10           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 +-------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -380,9 +396,9 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; J8       ; DIFFIO_RX_L7p, DIFFOUT_L7p, TCK, Low_Speed         ; Reserved as secondary function ; ~ALTERA_TCK~        ; Dual Purpose Pin ;
 ; H3       ; DIFFIO_RX_L8n, DIFFOUT_L8n, TDI, Low_Speed         ; Reserved as secondary function ; ~ALTERA_TDI~        ; Dual Purpose Pin ;
 ; H4       ; DIFFIO_RX_L8p, DIFFOUT_L8p, TDO, Low_Speed         ; Reserved as secondary function ; ~ALTERA_TDO~        ; Dual Purpose Pin ;
-; B8       ; DIFFIO_RX_T3n, DIFFOUT_T3n, DEV_CLRn, Low_Speed    ; Use as regular IO              ; output_vector[1]    ; Dual Purpose Pin ;
 ; G9       ; CONFIG_SEL, Low_Speed                              ; Reserved as secondary function ; ~ALTERA_CONFIG_SEL~ ; Dual Purpose Pin ;
 ; H9       ; nCONFIG, Low_Speed                                 ; Reserved as secondary function ; ~ALTERA_nCONFIG~    ; Dual Purpose Pin ;
+; C4       ; DIFFIO_RX_T9n, DIFFOUT_T9n, CRC_ERROR, Low_Speed   ; Use as regular IO              ; output_vector[16]   ; Dual Purpose Pin ;
 ; G8       ; DIFFIO_RX_T11p, DIFFOUT_T11p, nSTATUS, Low_Speed   ; Reserved as secondary function ; ~ALTERA_nSTATUS~    ; Dual Purpose Pin ;
 ; H8       ; DIFFIO_RX_T11n, DIFFOUT_T11n, CONF_DONE, Low_Speed ; Reserved as secondary function ; ~ALTERA_CONF_DONE~  ; Dual Purpose Pin ;
 +----------+----------------------------------------------------+--------------------------------+---------------------+------------------+
@@ -394,12 +410,12 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
 ; 1A       ; 0 / 8 ( 0 % )    ; 2.5V          ; --           ;
-; 1B       ; 7 / 20 ( 35 % )  ; 2.5V          ; --           ;
+; 1B       ; 10 / 20 ( 50 % ) ; 2.5V          ; --           ;
 ; 2        ; 1 / 16 ( 6 % )   ; 2.5V          ; --           ;
-; 3        ; 0 / 34 ( 0 % )   ; 2.5V          ; --           ;
-; 5        ; 1 / 20 ( 5 % )   ; 2.5V          ; --           ;
-; 6        ; 12 / 32 ( 38 % ) ; 2.5V          ; --           ;
-; 8        ; 7 / 30 ( 23 % )  ; 2.5V          ; --           ;
+; 3        ; 2 / 34 ( 6 % )   ; 2.5V          ; --           ;
+; 5        ; 3 / 20 ( 15 % )  ; 2.5V          ; --           ;
+; 6        ; 22 / 32 ( 69 % ) ; 2.5V          ; --           ;
+; 8        ; 6 / 30 ( 20 % )  ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -416,7 +432,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; A6       ; 143        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A7       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A8       ; 133        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; A9       ; 131        ; 8        ; output_vector[3]                               ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; A9       ; 131        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A10      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A11      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -432,8 +448,8 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; B4       ; 153        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B5       ; 148        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; B7       ; 141        ; 8        ; output_vector[0]                               ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; B8       ; 136        ; 8        ; output_vector[1]                               ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; B7       ; 141        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; --       ; --           ;
+; B8       ; 136        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B9       ; 134        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B10      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B11      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -447,8 +463,8 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; C1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C2       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C3       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; C4       ; 152        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C5       ; 150        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; C4       ; 152        ; 8        ; output_vector[16]                              ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C5       ; 150        ; 8        ; output_vector[5]                               ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C6       ; 146        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C7       ; 149        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C8       ; 147        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -461,7 +477,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; C15      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C17      ; 129        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; C18      ; 123        ; 6        ; output_vector[4]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; C18      ; 123        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D2       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D3       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -476,8 +492,8 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; D12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D13      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D14      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; D15      ; 128        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; D16      ; 120        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; D15      ; 128        ; 6        ; output_vector[3]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; D16      ; 120        ; 6        ; output_vector[27]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; D17      ; 127        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D18      ; 119        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -495,9 +511,9 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; E13      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E14      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E15      ; 126        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; E16      ; 118        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; E17      ; 121        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; E18      ; 113        ; 6        ; output_vector[10]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E16      ; 118        ; 6        ; output_vector[21]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E17      ; 121        ; 6        ; output_vector[28]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E18      ; 113        ; 6        ; output_vector[31]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; F1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; F2       ; 7          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F3       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -512,10 +528,10 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; F12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; F13      ;            ;          ; VCCD_PLL2                                      ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; F14      ;            ; --       ; VCCA2                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; F15      ; 114        ; 6        ; output_vector[9]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F16      ; 117        ; 6        ; output_vector[16]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F15      ; 114        ; 6        ; output_vector[25]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F16      ; 117        ; 6        ; output_vector[30]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; F17      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; F18      ; 111        ; 6        ; output_vector[11]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F18      ; 111        ; 6        ; output_vector[29]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; G1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; G2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; G3       ; 5          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -526,14 +542,14 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; G8       ; 154        ; 8        ; ~ALTERA_nSTATUS~ / RESERVED_INPUT              ; input  ; 2.5 V Schmitt Trigger ;         ; Column I/O ; N               ; no       ; Off          ;
 ; G9       ; 142        ; 8        ; ~ALTERA_CONFIG_SEL~ / RESERVED_INPUT           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; G10      ; 132        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; G11      ; 122        ; 6        ; output_vector[8]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G11      ; 122        ; 6        ; output_vector[20]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; G12      ; 124        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G13      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; G14      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; G15      ; 116        ; 6        ; output_vector[14]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G16      ; 115        ; 6        ; output_vector[17]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G17      ; 109        ; 6        ; output_vector[6]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G18      ; 108        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; G15      ; 116        ; 6        ; input_vector[0]                                ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G16      ; 115        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; G17      ; 109        ; 6        ; output_vector[33]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G18      ; 108        ; 6        ; output_vector[19]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; H1       ; 11         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; H2       ; 9          ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; H3       ; 16         ; 1B       ; ~ALTERA_TDI~ / RESERVED_INPUT_WITH_WEAK_PULLUP ; input  ; 2.5 V Schmitt Trigger ;         ; Row I/O    ; N               ; no       ; On           ;
@@ -544,20 +560,20 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; H8       ; 156        ; 8        ; ~ALTERA_CONF_DONE~ / RESERVED_INPUT            ; input  ; 2.5 V Schmitt Trigger ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H9       ; 144        ; 8        ; ~ALTERA_nCONFIG~ / RESERVED_INPUT              ; input  ; 2.5 V Schmitt Trigger ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H10      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
-; H11      ; 110        ; 6        ; output_vector[5]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H12      ; 112        ; 6        ; output_vector[12]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; H11      ; 110        ; 6        ; output_vector[22]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; H12      ; 112        ; 6        ; output_vector[26]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; H13      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; H14      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; H15      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; H16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; H17      ; 107        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; H18      ; 106        ; 6        ; output_vector[15]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J1       ; 19         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; J2       ; 17         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; H17      ; 107        ; 6        ; output_vector[23]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; H18      ; 106        ; 6        ; output_vector[24]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J1       ; 19         ; 1B       ; output_vector[4]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J2       ; 17         ; 1B       ; output_vector[2]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J3       ; 13         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; --       ; --           ;
 ; J4       ; 15         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J5       ;            ; 1A, 1B   ; VCCIO1                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; J6       ; 20         ; 1B       ; input_vector[0]                                ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J6       ; 20         ; 1B       ; output_vector[7]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J7       ; 12         ; 1B       ; ~ALTERA_TMS~ / RESERVED_INPUT_WITH_WEAK_PULLUP ; input  ; 2.5 V Schmitt Trigger ;         ; Row I/O    ; N               ; no       ; On           ;
 ; J8       ; 14         ; 1B       ; ~ALTERA_TCK~ / RESERVED_INPUT                  ; input  ; 2.5 V Schmitt Trigger ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J9       ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -569,11 +585,11 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; J15      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J17      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; J18      ; 105        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; J18      ; 105        ; 6        ; output_vector[18]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K1       ; 23         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; K2       ; 21         ; 1B       ; output_vector[2]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K3       ; 26         ; 1B       ; output_vector[13]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K4       ; 24         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K2       ; 21         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K3       ; 26         ; 1B       ; output_vector[15]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K4       ; 24         ; 1B       ; output_vector[9]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K5       ;            ; 1A, 1B   ; VCCIO1                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; K6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; K7       ; 22         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -586,10 +602,10 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; K14      ;            ; 5        ; VCCIO5                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; K15      ; 92         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K16      ; 93         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; K17      ; 104        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; K18      ; 103        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K17      ; 104        ; 6        ; output_vector[6]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K18      ; 103        ; 6        ; output_vector[17]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L1       ; 25         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; L2       ; 27         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; L2       ; 27         ; 1B       ; output_vector[14]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L3       ; 28         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L4       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; L5       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
@@ -602,10 +618,10 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; L12      ; 86         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L13      ;            ; 5        ; VCCIO5                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; L14      ;            ; 5        ; VCCIO5                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; L15      ; 90         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; L16      ; 91         ; 5        ; output_vector[7]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L17      ; 102        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; L18      ; 101        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; L15      ; 90         ; 5        ; output_vector[10]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L16      ; 91         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; L17      ; 102        ; 6        ; output_vector[32]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L18      ; 101        ; 6        ; output_vector[12]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; M1       ; 29         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M2       ; 31         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M3       ; 30         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -614,7 +630,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; M6       ;            ; --       ; VCCA1                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; M7       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M8       ; 72         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; M9       ; 73         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; M9       ; 73         ; 3        ; output_vector[0]                               ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; M10      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M11      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -622,7 +638,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; M14      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M15      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; M17      ; 99         ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; M17      ; 99         ; 6        ; output_vector[8]                               ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; M18      ; 97         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N1       ; 33         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -659,7 +675,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; P15      ; 84         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P16      ; 83         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P17      ; 85         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; --       ; --           ;
-; P18      ; 96         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; P18      ; 96         ; 5        ; output_vector[13]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; R1       ; 37         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; --       ; --           ;
 ; R2       ; 39         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R3       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -677,7 +693,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; R15      ; 82         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R16      ; 81         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R17      ; 89         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; R18      ; 94         ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; R18      ; 94         ; 5        ; output_vector[11]                              ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; T1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; T2       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; T3       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -715,7 +731,7 @@ The pin-out file can be found in D:/iitb-cpu/output_files/cpu_16bit.pin.
 ; U17      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; U18      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; V1       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; V2       ; 47         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; V2       ; 47         ; 3        ; output_vector[1]                               ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; V3       ; 49         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V4       ; 51         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V5       ; 55         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -759,6 +775,22 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; output_vector[15] ; Incomplete set of assignments ;
 ; output_vector[16] ; Incomplete set of assignments ;
 ; output_vector[17] ; Incomplete set of assignments ;
+; output_vector[18] ; Incomplete set of assignments ;
+; output_vector[19] ; Incomplete set of assignments ;
+; output_vector[20] ; Incomplete set of assignments ;
+; output_vector[21] ; Incomplete set of assignments ;
+; output_vector[22] ; Incomplete set of assignments ;
+; output_vector[23] ; Incomplete set of assignments ;
+; output_vector[24] ; Incomplete set of assignments ;
+; output_vector[25] ; Incomplete set of assignments ;
+; output_vector[26] ; Incomplete set of assignments ;
+; output_vector[27] ; Incomplete set of assignments ;
+; output_vector[28] ; Incomplete set of assignments ;
+; output_vector[29] ; Incomplete set of assignments ;
+; output_vector[30] ; Incomplete set of assignments ;
+; output_vector[31] ; Incomplete set of assignments ;
+; output_vector[32] ; Incomplete set of assignments ;
+; output_vector[33] ; Incomplete set of assignments ;
 ; input_vector[1]   ; Incomplete set of assignments ;
 ; input_vector[0]   ; Incomplete set of assignments ;
 ; output_vector[0]  ; Missing location assignment   ;
@@ -779,6 +811,22 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; output_vector[15] ; Missing location assignment   ;
 ; output_vector[16] ; Missing location assignment   ;
 ; output_vector[17] ; Missing location assignment   ;
+; output_vector[18] ; Missing location assignment   ;
+; output_vector[19] ; Missing location assignment   ;
+; output_vector[20] ; Missing location assignment   ;
+; output_vector[21] ; Missing location assignment   ;
+; output_vector[22] ; Missing location assignment   ;
+; output_vector[23] ; Missing location assignment   ;
+; output_vector[24] ; Missing location assignment   ;
+; output_vector[25] ; Missing location assignment   ;
+; output_vector[26] ; Missing location assignment   ;
+; output_vector[27] ; Missing location assignment   ;
+; output_vector[28] ; Missing location assignment   ;
+; output_vector[29] ; Missing location assignment   ;
+; output_vector[30] ; Missing location assignment   ;
+; output_vector[31] ; Missing location assignment   ;
+; output_vector[32] ; Missing location assignment   ;
+; output_vector[33] ; Missing location assignment   ;
 ; input_vector[1]   ; Missing location assignment   ;
 ; input_vector[0]   ; Missing location assignment   ;
 +-------------------+-------------------------------+
@@ -789,20 +837,19 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-----------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-----------------------------------------------+---------------+--------------+
-; |DUT                       ; 1463 (1)    ; 759 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 20   ; 0            ; 704 (1)      ; 184 (0)           ; 575 (0)          ; 0          ; |DUT                                          ; DUT           ; work         ;
-;    |cpu:add_instance|      ; 1462 (49)   ; 759 (50)                  ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 703 (0)      ; 184 (11)          ; 575 (2)          ; 0          ; |DUT|cpu:add_instance                         ; cpu           ; work         ;
-;       |ALU:A|              ; 109 (109)   ; 53 (53)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 54 (54)      ; 9 (9)             ; 46 (46)          ; 0          ; |DUT|cpu:add_instance|ALU:A                   ; ALU           ; work         ;
-;       |RAM_65536X16:ram|   ; 925 (925)   ; 528 (528)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 374 (374)    ; 164 (164)         ; 387 (387)        ; 0          ; |DUT|cpu:add_instance|RAM_65536X16:ram        ; RAM_65536X16  ; work         ;
-;       |addSub16:adder|     ; 19 (19)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 18 (18)          ; 0          ; |DUT|cpu:add_instance|addSub16:adder          ; addSub16      ; work         ;
-;       |register_file:rf|   ; 402 (273)   ; 128 (0)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 274 (273)    ; 0 (0)             ; 128 (0)          ; 0          ; |DUT|cpu:add_instance|register_file:rf        ; register_file ; work         ;
-;          |reg:R0|          ; 17 (17)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R0 ; reg           ; work         ;
+; |DUT                       ; 1548 (1)    ; 765 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 36   ; 0            ; 783 (1)      ; 239 (0)           ; 526 (0)          ; 0          ; |DUT                                          ; DUT           ; work         ;
+;    |cpu:add_instance|      ; 1547 (56)   ; 765 (56)                  ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 782 (0)      ; 239 (3)           ; 526 (18)         ; 0          ; |DUT|cpu:add_instance                         ; cpu           ; work         ;
+;       |ALU:A|              ; 111 (111)   ; 53 (53)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 56 (56)      ; 12 (12)           ; 43 (43)          ; 0          ; |DUT|cpu:add_instance|ALU:A                   ; ALU           ; work         ;
+;       |RAM_65536X16:ram|   ; 985 (985)   ; 528 (528)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 435 (435)    ; 224 (224)         ; 326 (326)        ; 0          ; |DUT|cpu:add_instance|RAM_65536X16:ram        ; RAM_65536X16  ; work         ;
+;       |register_file:rf|   ; 435 (305)   ; 128 (0)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 291 (289)    ; 0 (0)             ; 144 (16)         ; 0          ; |DUT|cpu:add_instance|register_file:rf        ; register_file ; work         ;
+;          |reg:R0|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R0 ; reg           ; work         ;
 ;          |reg:R1|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R1 ; reg           ; work         ;
 ;          |reg:R2|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R2 ; reg           ; work         ;
 ;          |reg:R3|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R3 ; reg           ; work         ;
 ;          |reg:R4|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R4 ; reg           ; work         ;
-;          |reg:R5|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R5 ; reg           ; work         ;
+;          |reg:R5|          ; 17 (17)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R5 ; reg           ; work         ;
 ;          |reg:R6|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R6 ; reg           ; work         ;
-;          |reg:R7|          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R7 ; reg           ; work         ;
+;          |reg:R7|          ; 17 (17)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 16 (16)          ; 0          ; |DUT|cpu:add_instance|register_file:rf|reg:R7 ; reg           ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-----------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -830,6 +877,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; output_vector[15] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; output_vector[16] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; output_vector[17] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[18] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[19] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[20] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[21] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[22] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[23] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[24] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[25] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[26] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[27] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[28] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[29] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[30] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[31] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[32] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
+; output_vector[33] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; input_vector[1]   ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; input_vector[0]   ; Input    ; (6) 815 ps    ; --            ; --                    ; --  ; --   ;
 +-------------------+----------+---------------+---------------+-----------------------+-----+------+
@@ -842,7 +905,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------+-------------------+---------+
 ; input_vector[1]                                             ;                   ;         ;
 ; input_vector[0]                                             ;                   ;         ;
-;      - cpu:add_instance|register_file:rf|reg:R0|d_read[0]~0 ; 0                 ; 6       ;
+;      - cpu:add_instance|register_file:rf|reg:R7|store[14]~1 ; 0                 ; 6       ;
+;      - cpu:add_instance|register_file:rf|reg:R5|store[13]~1 ; 0                 ; 6       ;
 +-------------------------------------------------------------+-------------------+---------+
 
 
@@ -851,57 +915,58 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------+--------------------+---------+-------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                 ; Location           ; Fan-Out ; Usage                   ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------------------------------------+--------------------+---------+-------------------------+--------+----------------------+------------------+---------------------------+
-; cpu:add_instance|ALU:A|Equal0~0                      ; LCCOMB_X11_Y8_N2   ; 19      ; Sync. load              ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|ALU:A|Equal0~1                      ; LCCOMB_X11_Y8_N20  ; 8       ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|ALU:A|Equal0~6                      ; LCCOMB_X11_Y8_N6   ; 17      ; Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|ALU:A|mA_read[0]~8                  ; LCCOMB_X11_Y7_N16  ; 6       ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|ALU:A|mD_write[0]~19                ; LCCOMB_X14_Y9_N16  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|ALU:A|rfD3[0]~20                    ; LCCOMB_X11_Y8_N24  ; 16      ; Sync. load              ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|ALU:A|rfD3[0]~21                    ; LCCOMB_X12_Y10_N0  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~906       ; LCCOMB_X9_Y4_N24   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~908       ; LCCOMB_X9_Y5_N6    ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~909       ; LCCOMB_X9_Y5_N28   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~910       ; LCCOMB_X9_Y4_N2    ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~912       ; LCCOMB_X9_Y5_N14   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~914       ; LCCOMB_X2_Y5_N16   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~915       ; LCCOMB_X9_Y5_N20   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~916       ; LCCOMB_X9_Y5_N2    ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~918       ; LCCOMB_X2_Y5_N22   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~920       ; LCCOMB_X14_Y7_N12  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~921       ; LCCOMB_X14_Y7_N6   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~922       ; LCCOMB_X3_Y5_N18   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~924       ; LCCOMB_X12_Y8_N6   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~926       ; LCCOMB_X9_Y4_N16   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~927       ; LCCOMB_X14_Y8_N20  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~928       ; LCCOMB_X9_Y4_N26   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~929       ; LCCOMB_X14_Y8_N22  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~930       ; LCCOMB_X12_Y3_N24  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~931       ; LCCOMB_X14_Y7_N0   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~932       ; LCCOMB_X14_Y7_N26  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~933       ; LCCOMB_X14_Y8_N4   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~934       ; LCCOMB_X14_Y5_N14  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~935       ; LCCOMB_X14_Y5_N0   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~936       ; LCCOMB_X14_Y8_N14  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~937       ; LCCOMB_X14_Y8_N8   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~938       ; LCCOMB_X12_Y11_N28 ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~939       ; LCCOMB_X14_Y7_N16  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~940       ; LCCOMB_X14_Y7_N22  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~941       ; LCCOMB_X14_Y5_N10  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~942       ; LCCOMB_X14_Y3_N16  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~943       ; LCCOMB_X14_Y5_N24  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~944       ; LCCOMB_X9_Y4_N8    ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|RAM_65536X16:ram|ram_data~946       ; LCCOMB_X14_Y8_N10  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~0         ; LCCOMB_X17_Y7_N10  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK0            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~1         ; LCCOMB_X17_Y7_N22  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK5            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~2         ; LCCOMB_X17_Y7_N30  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~3         ; LCCOMB_X17_Y7_N16  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK8            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~4         ; LCCOMB_X17_Y7_N14  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK9            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~5         ; LCCOMB_X17_Y7_N12  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~6         ; LCCOMB_X17_Y7_N26  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK7            ; --                        ;
-; cpu:add_instance|register_file:rf|reg:R0|d_read[0]~0 ; LCCOMB_X12_Y11_N14 ; 128     ; Clock enable            ; no     ; --                   ; --               ; --                        ;
-; cpu:add_instance|rf_write_en                         ; FF_X12_Y11_N9      ; 129     ; Sync. clear             ; no     ; --                   ; --               ; --                        ;
-; input_vector[1]                                      ; PIN_K8             ; 3       ; Clock                   ; no     ; --                   ; --               ; --                        ;
-; input_vector[1]                                      ; PIN_K8             ; 757     ; Clock                   ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; cpu:add_instance|ALU:A|Equal0~0                      ; LCCOMB_X12_Y7_N30  ; 17      ; Sync. load              ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|ALU:A|Equal0~1                      ; LCCOMB_X12_Y8_N30  ; 7       ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|ALU:A|Equal0~4                      ; LCCOMB_X12_Y7_N20  ; 17      ; Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|ALU:A|mA_read[0]~12                 ; LCCOMB_X12_Y8_N16  ; 6       ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|ALU:A|mD_write[0]~19                ; LCCOMB_X12_Y7_N22  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|ALU:A|rfD3[15]~20                   ; LCCOMB_X11_Y10_N2  ; 16      ; Sync. load              ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|ALU:A|rfD3[15]~21                   ; LCCOMB_X12_Y8_N0   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~906       ; LCCOMB_X10_Y4_N22  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~908       ; LCCOMB_X14_Y5_N20  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~909       ; LCCOMB_X14_Y5_N30  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~910       ; LCCOMB_X10_Y4_N20  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~912       ; LCCOMB_X15_Y4_N26  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~914       ; LCCOMB_X15_Y6_N10  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~915       ; LCCOMB_X14_Y5_N8   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~916       ; LCCOMB_X14_Y5_N22  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~918       ; LCCOMB_X14_Y5_N28  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~920       ; LCCOMB_X14_Y8_N8   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~921       ; LCCOMB_X14_Y8_N30  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~922       ; LCCOMB_X14_Y7_N6   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~924       ; LCCOMB_X10_Y4_N14  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~926       ; LCCOMB_X10_Y4_N28  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~927       ; LCCOMB_X14_Y8_N24  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~928       ; LCCOMB_X10_Y4_N6   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~929       ; LCCOMB_X3_Y5_N24   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~930       ; LCCOMB_X15_Y4_N12  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~931       ; LCCOMB_X14_Y8_N10  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~932       ; LCCOMB_X10_Y4_N24  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~933       ; LCCOMB_X10_Y4_N2   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~934       ; LCCOMB_X10_Y4_N16  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~935       ; LCCOMB_X3_Y5_N26   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~936       ; LCCOMB_X10_Y4_N30  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~937       ; LCCOMB_X15_Y4_N6   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~938       ; LCCOMB_X3_Y5_N0    ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~939       ; LCCOMB_X14_Y8_N20  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~940       ; LCCOMB_X10_Y4_N4   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~941       ; LCCOMB_X10_Y4_N26  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~942       ; LCCOMB_X3_Y5_N18   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~943       ; LCCOMB_X3_Y5_N16   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~944       ; LCCOMB_X10_Y4_N8   ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|RAM_65536X16:ram|ram_data~946       ; LCCOMB_X14_Y8_N18  ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~0         ; LCCOMB_X17_Y6_N12  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK1            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~1         ; LCCOMB_X17_Y6_N14  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK9            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~2         ; LCCOMB_X17_Y6_N16  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~3         ; LCCOMB_X17_Y6_N22  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK8            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~4         ; LCCOMB_X17_Y6_N26  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~5         ; LCCOMB_X17_Y6_N8   ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK5            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~6         ; LCCOMB_X17_Y6_N24  ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK7            ; --                        ;
+; cpu:add_instance|register_file:rf|dw[7][1]~1         ; LCCOMB_X17_Y6_N2   ; 16      ; Latch enable            ; yes    ; Global Clock         ; GCLK0            ; --                        ;
+; cpu:add_instance|register_file:rf|reg:R5|store[13]~1 ; LCCOMB_X16_Y13_N0  ; 112     ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; cpu:add_instance|register_file:rf|reg:R7|store[14]~1 ; LCCOMB_X17_Y10_N26 ; 16      ; Clock enable            ; no     ; --                   ; --               ; --                        ;
+; input_vector[1]                                      ; PIN_K8             ; 4       ; Clock                   ; no     ; --                   ; --               ; --                        ;
+; input_vector[1]                                      ; PIN_K8             ; 762     ; Clock                   ; yes    ; Global Clock         ; GCLK3            ; --                        ;
 +------------------------------------------------------+--------------------+---------+-------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -910,14 +975,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name                                         ; Location          ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------------------------------------------+-------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; cpu:add_instance|register_file:rf|Decoder0~0 ; LCCOMB_X17_Y7_N10 ; 16      ; 0                                    ; Global Clock         ; GCLK0            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~1 ; LCCOMB_X17_Y7_N22 ; 16      ; 0                                    ; Global Clock         ; GCLK5            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~2 ; LCCOMB_X17_Y7_N30 ; 16      ; 0                                    ; Global Clock         ; GCLK4            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~3 ; LCCOMB_X17_Y7_N16 ; 16      ; 0                                    ; Global Clock         ; GCLK8            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~4 ; LCCOMB_X17_Y7_N14 ; 16      ; 0                                    ; Global Clock         ; GCLK9            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~5 ; LCCOMB_X17_Y7_N12 ; 16      ; 0                                    ; Global Clock         ; GCLK6            ; --                        ;
-; cpu:add_instance|register_file:rf|Decoder0~6 ; LCCOMB_X17_Y7_N26 ; 16      ; 0                                    ; Global Clock         ; GCLK7            ; --                        ;
-; input_vector[1]                              ; PIN_K8            ; 757     ; 115                                  ; Global Clock         ; GCLK3            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~0 ; LCCOMB_X17_Y6_N12 ; 16      ; 0                                    ; Global Clock         ; GCLK1            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~1 ; LCCOMB_X17_Y6_N14 ; 16      ; 0                                    ; Global Clock         ; GCLK9            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~2 ; LCCOMB_X17_Y6_N16 ; 16      ; 0                                    ; Global Clock         ; GCLK2            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~3 ; LCCOMB_X17_Y6_N22 ; 16      ; 0                                    ; Global Clock         ; GCLK8            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~4 ; LCCOMB_X17_Y6_N26 ; 16      ; 0                                    ; Global Clock         ; GCLK6            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~5 ; LCCOMB_X17_Y6_N8  ; 16      ; 0                                    ; Global Clock         ; GCLK5            ; --                        ;
+; cpu:add_instance|register_file:rf|Decoder0~6 ; LCCOMB_X17_Y6_N24 ; 16      ; 0                                    ; Global Clock         ; GCLK7            ; --                        ;
+; cpu:add_instance|register_file:rf|dw[7][1]~1 ; LCCOMB_X17_Y6_N2  ; 16      ; 0                                    ; Global Clock         ; GCLK0            ; --                        ;
+; input_vector[1]                              ; PIN_K8            ; 762     ; 62                                   ; Global Clock         ; GCLK3            ; --                        ;
 +----------------------------------------------+-------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -926,51 +992,51 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 2,686 / 9,335 ( 29 % )  ;
-; C16 interconnects     ; 10 / 576 ( 2 % )        ;
-; C4 interconnects      ; 1,465 / 8,640 ( 17 % )  ;
+; Block interconnects   ; 2,693 / 9,335 ( 29 % )  ;
+; C16 interconnects     ; 5 / 576 ( < 1 % )       ;
+; C4 interconnects      ; 1,497 / 8,640 ( 17 % )  ;
 ; Direct links          ; 283 / 9,335 ( 3 % )     ;
-; Global clocks         ; 8 / 10 ( 80 % )         ;
-; Local interconnects   ; 787 / 2,304 ( 34 % )    ;
-; R24 interconnects     ; 20 / 672 ( 3 % )        ;
-; R4 interconnects      ; 1,795 / 11,968 ( 15 % ) ;
+; Global clocks         ; 9 / 10 ( 90 % )         ;
+; Local interconnects   ; 831 / 2,304 ( 36 % )    ;
+; R24 interconnects     ; 27 / 672 ( 4 % )        ;
+; R4 interconnects      ; 1,805 / 11,968 ( 15 % ) ;
 +-----------------------+-------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 12.95) ; Number of LABs  (Total = 113) ;
+; Number of Logic Elements  (Average = 13.01) ; Number of LABs  (Total = 119) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 3                             ;
-; 2                                           ; 5                             ;
-; 3                                           ; 2                             ;
-; 4                                           ; 1                             ;
-; 5                                           ; 4                             ;
+; 1                                           ; 4                             ;
+; 2                                           ; 1                             ;
+; 3                                           ; 1                             ;
+; 4                                           ; 4                             ;
+; 5                                           ; 3                             ;
 ; 6                                           ; 2                             ;
 ; 7                                           ; 3                             ;
-; 8                                           ; 1                             ;
-; 9                                           ; 1                             ;
-; 10                                          ; 2                             ;
+; 8                                           ; 3                             ;
+; 9                                           ; 0                             ;
+; 10                                          ; 5                             ;
 ; 11                                          ; 3                             ;
 ; 12                                          ; 5                             ;
-; 13                                          ; 6                             ;
-; 14                                          ; 4                             ;
-; 15                                          ; 13                            ;
-; 16                                          ; 58                            ;
+; 13                                          ; 10                            ;
+; 14                                          ; 7                             ;
+; 15                                          ; 8                             ;
+; 16                                          ; 60                            ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 2.11) ; Number of LABs  (Total = 113) ;
+; LAB-wide Signals  (Average = 2.01) ; Number of LABs  (Total = 119) ;
 +------------------------------------+-------------------------------+
-; 1 Clock                            ; 110                           ;
-; 1 Clock enable                     ; 37                            ;
-; 1 Sync. clear                      ; 10                            ;
-; 1 Sync. load                       ; 16                            ;
-; 2 Clock enables                    ; 64                            ;
+; 1 Clock                            ; 115                           ;
+; 1 Clock enable                     ; 40                            ;
+; 1 Sync. clear                      ; 3                             ;
+; 1 Sync. load                       ; 13                            ;
+; 2 Clock enables                    ; 67                            ;
 ; 2 Clocks                           ; 1                             ;
 +------------------------------------+-------------------------------+
 
@@ -978,121 +1044,128 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 19.66) ; Number of LABs  (Total = 113) ;
+; Number of Signals Sourced  (Average = 19.44) ; Number of LABs  (Total = 119) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
-; 1                                            ; 1                             ;
-; 2                                            ; 3                             ;
-; 3                                            ; 4                             ;
+; 1                                            ; 0                             ;
+; 2                                            ; 4                             ;
+; 3                                            ; 1                             ;
 ; 4                                            ; 1                             ;
 ; 5                                            ; 0                             ;
-; 6                                            ; 3                             ;
-; 7                                            ; 2                             ;
-; 8                                            ; 1                             ;
+; 6                                            ; 4                             ;
+; 7                                            ; 1                             ;
+; 8                                            ; 2                             ;
 ; 9                                            ; 2                             ;
-; 10                                           ; 2                             ;
-; 11                                           ; 1                             ;
-; 12                                           ; 2                             ;
-; 13                                           ; 0                             ;
-; 14                                           ; 1                             ;
-; 15                                           ; 1                             ;
-; 16                                           ; 3                             ;
-; 17                                           ; 6                             ;
-; 18                                           ; 7                             ;
-; 19                                           ; 5                             ;
+; 10                                           ; 3                             ;
+; 11                                           ; 2                             ;
+; 12                                           ; 3                             ;
+; 13                                           ; 1                             ;
+; 14                                           ; 3                             ;
+; 15                                           ; 3                             ;
+; 16                                           ; 1                             ;
+; 17                                           ; 3                             ;
+; 18                                           ; 10                            ;
+; 19                                           ; 9                             ;
 ; 20                                           ; 10                            ;
 ; 21                                           ; 9                             ;
-; 22                                           ; 9                             ;
-; 23                                           ; 6                             ;
-; 24                                           ; 8                             ;
-; 25                                           ; 1                             ;
-; 26                                           ; 3                             ;
-; 27                                           ; 1                             ;
-; 28                                           ; 4                             ;
-; 29                                           ; 1                             ;
-; 30                                           ; 5                             ;
-; 31                                           ; 4                             ;
-; 32                                           ; 7                             ;
+; 22                                           ; 7                             ;
+; 23                                           ; 4                             ;
+; 24                                           ; 7                             ;
+; 25                                           ; 5                             ;
+; 26                                           ; 5                             ;
+; 27                                           ; 3                             ;
+; 28                                           ; 1                             ;
+; 29                                           ; 3                             ;
+; 30                                           ; 3                             ;
+; 31                                           ; 5                             ;
+; 32                                           ; 4                             ;
 +----------------------------------------------+-------------------------------+
 
 
 +----------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                          ;
 +--------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 10.02) ; Number of LABs  (Total = 113) ;
+; Number of Signals Sourced Out  (Average = 10.05) ; Number of LABs  (Total = 119) ;
 +--------------------------------------------------+-------------------------------+
 ; 0                                                ; 0                             ;
-; 1                                                ; 6                             ;
-; 2                                                ; 4                             ;
+; 1                                                ; 4                             ;
+; 2                                                ; 3                             ;
 ; 3                                                ; 5                             ;
-; 4                                                ; 12                            ;
-; 5                                                ; 11                            ;
+; 4                                                ; 13                            ;
+; 5                                                ; 16                            ;
 ; 6                                                ; 7                             ;
-; 7                                                ; 10                            ;
-; 8                                                ; 7                             ;
-; 9                                                ; 4                             ;
+; 7                                                ; 5                             ;
+; 8                                                ; 12                            ;
+; 9                                                ; 5                             ;
 ; 10                                               ; 5                             ;
-; 11                                               ; 3                             ;
+; 11                                               ; 5                             ;
 ; 12                                               ; 6                             ;
-; 13                                               ; 5                             ;
-; 14                                               ; 1                             ;
-; 15                                               ; 2                             ;
-; 16                                               ; 1                             ;
-; 17                                               ; 2                             ;
-; 18                                               ; 4                             ;
+; 13                                               ; 4                             ;
+; 14                                               ; 0                             ;
+; 15                                               ; 4                             ;
+; 16                                               ; 3                             ;
+; 17                                               ; 3                             ;
+; 18                                               ; 1                             ;
 ; 19                                               ; 1                             ;
-; 20                                               ; 1                             ;
-; 21                                               ; 2                             ;
+; 20                                               ; 2                             ;
+; 21                                               ; 4                             ;
 ; 22                                               ; 2                             ;
-; 23                                               ; 4                             ;
-; 24                                               ; 7                             ;
+; 23                                               ; 3                             ;
+; 24                                               ; 2                             ;
 ; 25                                               ; 1                             ;
+; 26                                               ; 1                             ;
+; 27                                               ; 0                             ;
+; 28                                               ; 1                             ;
+; 29                                               ; 0                             ;
+; 30                                               ; 0                             ;
+; 31                                               ; 0                             ;
+; 32                                               ; 1                             ;
 +--------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 21.41) ; Number of LABs  (Total = 113) ;
+; Number of Distinct Inputs  (Average = 20.88) ; Number of LABs  (Total = 119) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 0                             ;
 ; 2                                            ; 0                             ;
-; 3                                            ; 1                             ;
+; 3                                            ; 4                             ;
 ; 4                                            ; 0                             ;
-; 5                                            ; 4                             ;
-; 6                                            ; 3                             ;
+; 5                                            ; 0                             ;
+; 6                                            ; 1                             ;
 ; 7                                            ; 0                             ;
-; 8                                            ; 3                             ;
-; 9                                            ; 2                             ;
-; 10                                           ; 2                             ;
+; 8                                            ; 5                             ;
+; 9                                            ; 6                             ;
+; 10                                           ; 4                             ;
 ; 11                                           ; 3                             ;
 ; 12                                           ; 1                             ;
-; 13                                           ; 0                             ;
+; 13                                           ; 3                             ;
 ; 14                                           ; 5                             ;
-; 15                                           ; 4                             ;
+; 15                                           ; 5                             ;
 ; 16                                           ; 1                             ;
-; 17                                           ; 5                             ;
+; 17                                           ; 6                             ;
 ; 18                                           ; 2                             ;
-; 19                                           ; 6                             ;
-; 20                                           ; 4                             ;
-; 21                                           ; 6                             ;
-; 22                                           ; 8                             ;
-; 23                                           ; 4                             ;
-; 24                                           ; 5                             ;
-; 25                                           ; 6                             ;
+; 19                                           ; 10                            ;
+; 20                                           ; 1                             ;
+; 21                                           ; 9                             ;
+; 22                                           ; 2                             ;
+; 23                                           ; 5                             ;
+; 24                                           ; 3                             ;
+; 25                                           ; 4                             ;
 ; 26                                           ; 4                             ;
-; 27                                           ; 1                             ;
-; 28                                           ; 5                             ;
-; 29                                           ; 7                             ;
-; 30                                           ; 3                             ;
-; 31                                           ; 2                             ;
+; 27                                           ; 0                             ;
+; 28                                           ; 6                             ;
+; 29                                           ; 4                             ;
+; 30                                           ; 2                             ;
+; 31                                           ; 4                             ;
 ; 32                                           ; 2                             ;
-; 33                                           ; 1                             ;
-; 34                                           ; 3                             ;
-; 35                                           ; 5                             ;
-; 36                                           ; 2                             ;
-; 37                                           ; 2                             ;
+; 33                                           ; 6                             ;
+; 34                                           ; 4                             ;
+; 35                                           ; 3                             ;
+; 36                                           ; 3                             ;
+; 37                                           ; 1                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -1153,9 +1226,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 ; Pin/Rules          ; IO_000001    ; IO_000002    ; IO_000003    ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007    ; IO_000008    ; IO_000009 ; IO_000010 ; IO_000011    ; IO_000012    ; IO_000013    ; IO_000014    ; IO_000015    ; IO_000018    ; IO_000019    ; IO_000020    ; IO_000021    ; IO_000022    ; IO_000023    ; IO_000024    ; IO_000026    ; IO_000027    ; IO_000045    ; IO_000046    ; IO_000047    ; IO_000033 ; IO_000034    ; IO_000042    ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
-; Total Pass         ; 0            ; 0            ; 0            ; 0            ; 0            ; 20        ; 0            ; 0            ; 20        ; 20        ; 0            ; 18           ; 0            ; 0            ; 2            ; 0            ; 18           ; 2            ; 0            ; 0            ; 0            ; 18           ; 0            ; 0            ; 0            ; 0            ; 0            ; 20        ; 0            ; 0            ;
+; Total Pass         ; 0            ; 0            ; 0            ; 0            ; 0            ; 36        ; 0            ; 0            ; 36        ; 36        ; 0            ; 34           ; 0            ; 0            ; 2            ; 0            ; 34           ; 2            ; 0            ; 0            ; 0            ; 34           ; 0            ; 0            ; 0            ; 0            ; 0            ; 36        ; 0            ; 0            ;
 ; Total Unchecked    ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; Total Inapplicable ; 20           ; 20           ; 20           ; 20           ; 20           ; 0         ; 20           ; 20           ; 0         ; 0         ; 20           ; 2            ; 20           ; 20           ; 18           ; 20           ; 2            ; 18           ; 20           ; 20           ; 20           ; 2            ; 20           ; 20           ; 20           ; 20           ; 20           ; 0         ; 20           ; 20           ;
+; Total Inapplicable ; 36           ; 36           ; 36           ; 36           ; 36           ; 0         ; 36           ; 36           ; 0         ; 0         ; 36           ; 2            ; 36           ; 36           ; 34           ; 36           ; 2            ; 34           ; 36           ; 36           ; 36           ; 2            ; 36           ; 36           ; 36           ; 36           ; 36           ; 0         ; 36           ; 36           ;
 ; Total Fail         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
 ; output_vector[0]   ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; output_vector[1]   ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1175,6 +1248,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; output_vector[15]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; output_vector[16]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; output_vector[17]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[18]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[19]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[20]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[21]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[22]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[23]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[24]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[25]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[26]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[27]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[28]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[29]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[30]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[31]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[32]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; output_vector[33]  ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; input_vector[1]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; input_vector[0]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
@@ -1222,39 +1311,54 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+--------------------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s)           ; Delay Added in ns ;
 +-----------------+--------------------------------+-------------------+
-; input_vector[1] ; cpu:add_instance|ALU:A|rfA3[0] ; 126.8             ;
-; input_vector[1] ; input_vector[1]                ; 19.7              ;
+; input_vector[1] ; cpu:add_instance|ALU:A|rfA3[0] ; 80.4              ;
 +-----------------+--------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                             ;
-+---------------------------------+-----------------------------------------------------+-------------------+
-; Source Register                 ; Destination Register                                ; Delay Added in ns ;
-+---------------------------------+-----------------------------------------------------+-------------------+
-; cpu:add_instance|ALU:A|rfA3[0]  ; cpu:add_instance|register_file:rf|reg:R7|d_read[13] ; 2.367             ;
-; cpu:add_instance|ALU:A|rfD3[14] ; cpu:add_instance|register_file:rf|dw[4][14]         ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[13] ; cpu:add_instance|register_file:rf|dw[4][13]         ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[1]  ; cpu:add_instance|register_file:rf|dw[4][1]          ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[3]  ; cpu:add_instance|register_file:rf|dw[4][3]          ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[6]  ; cpu:add_instance|register_file:rf|dw[4][6]          ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[4]  ; cpu:add_instance|register_file:rf|dw[4][4]          ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[2]  ; cpu:add_instance|register_file:rf|dw[4][2]          ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[7]  ; cpu:add_instance|register_file:rf|dw[4][7]          ; 2.302             ;
-; cpu:add_instance|ALU:A|rfD3[9]  ; cpu:add_instance|register_file:rf|dw[4][9]          ; 2.298             ;
-; cpu:add_instance|ALU:A|rfD3[5]  ; cpu:add_instance|register_file:rf|dw[4][5]          ; 2.098             ;
-; cpu:add_instance|ALU:A|rfD3[11] ; cpu:add_instance|register_file:rf|dw[4][11]         ; 2.085             ;
-; cpu:add_instance|ALU:A|rfD3[8]  ; cpu:add_instance|register_file:rf|dw[4][8]          ; 2.059             ;
-; cpu:add_instance|ALU:A|rfD3[0]  ; cpu:add_instance|register_file:rf|dw[4][0]          ; 1.810             ;
-; cpu:add_instance|ALU:A|rfD3[12] ; cpu:add_instance|register_file:rf|dw[4][12]         ; 1.800             ;
-; cpu:add_instance|ALU:A|rfD3[15] ; cpu:add_instance|register_file:rf|dw[4][15]         ; 1.782             ;
-; cpu:add_instance|ALU:A|rfD3[10] ; cpu:add_instance|register_file:rf|dw[4][10]         ; 1.745             ;
-; cpu:add_instance|ALU:A|rfA3[1]  ; cpu:add_instance|register_file:rf|reg:R7|d_read[13] ; 1.255             ;
-; cpu:add_instance|ALU:A|rfA3[2]  ; cpu:add_instance|register_file:rf|reg:R7|d_read[13] ; 1.255             ;
-+---------------------------------+-----------------------------------------------------+-------------------+
-Note: This table only shows the top 19 path(s) that have the largest delay added for hold.
++---------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                     ;
++---------------------------------+---------------------------------------------+-------------------+
+; Source Register                 ; Destination Register                        ; Delay Added in ns ;
++---------------------------------+---------------------------------------------+-------------------+
+; cpu:add_instance|ALU:A|rfD3[13] ; cpu:add_instance|register_file:rf|dw[4][13] ; 1.831             ;
+; cpu:add_instance|ALU:A|rfD3[12] ; cpu:add_instance|register_file:rf|dw[4][12] ; 1.831             ;
+; cpu:add_instance|ALU:A|rfD3[15] ; cpu:add_instance|register_file:rf|dw[4][15] ; 1.831             ;
+; cpu:add_instance|ALU:A|rfD3[7]  ; cpu:add_instance|register_file:rf|dw[2][7]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[9]  ; cpu:add_instance|register_file:rf|dw[2][9]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[0]  ; cpu:add_instance|register_file:rf|dw[2][0]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[4]  ; cpu:add_instance|register_file:rf|dw[2][4]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[6]  ; cpu:add_instance|register_file:rf|dw[2][6]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[5]  ; cpu:add_instance|register_file:rf|dw[2][5]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[8]  ; cpu:add_instance|register_file:rf|dw[2][8]  ; 1.516             ;
+; cpu:add_instance|ALU:A|rfD3[14] ; cpu:add_instance|register_file:rf|dw[6][14] ; 1.439             ;
+; cpu:add_instance|ALU:A|rfD3[2]  ; cpu:add_instance|register_file:rf|dw[6][2]  ; 1.439             ;
+; cpu:add_instance|ALU:A|rfD3[10] ; cpu:add_instance|register_file:rf|dw[4][10] ; 1.313             ;
+; cpu:add_instance|ALU:A|rfD3[11] ; cpu:add_instance|register_file:rf|dw[4][11] ; 1.308             ;
+; cpu:add_instance|ALU:A|rfD3[1]  ; cpu:add_instance|register_file:rf|dw[0][1]  ; 1.199             ;
+; cpu:add_instance|ALU:A|rfD3[3]  ; cpu:add_instance|register_file:rf|dw[4][3]  ; 1.039             ;
+; cpu:add_instance|ALU:A|rfA3[0]  ; cpu:add_instance|register_file:rf|dw[2][15] ; 0.675             ;
+; cpu:add_instance|ALU:A|rfA3[2]  ; cpu:add_instance|register_file:rf|dw[2][15] ; 0.337             ;
+; cpu:add_instance|ALU:A|rfA3[1]  ; cpu:add_instance|register_file:rf|dw[2][15] ; 0.337             ;
+; cpu:add_instance|pc_w[14]       ; cpu:add_instance|register_file:rf|dw[7][14] ; 0.216             ;
+; cpu:add_instance|pc_write_en    ; cpu:add_instance|register_file:rf|dw[7][14] ; 0.216             ;
+; cpu:add_instance|pc_w[1]        ; cpu:add_instance|register_file:rf|dw[7][1]  ; 0.200             ;
+; cpu:add_instance|pc_w[2]        ; cpu:add_instance|register_file:rf|dw[7][2]  ; 0.200             ;
+; cpu:add_instance|pc_w[15]       ; cpu:add_instance|register_file:rf|dw[7][15] ; 0.200             ;
+; cpu:add_instance|pc_w[12]       ; cpu:add_instance|register_file:rf|dw[7][12] ; 0.198             ;
+; cpu:add_instance|pc_w[10]       ; cpu:add_instance|register_file:rf|dw[7][10] ; 0.197             ;
+; cpu:add_instance|pc_w[3]        ; cpu:add_instance|register_file:rf|dw[7][3]  ; 0.070             ;
+; cpu:add_instance|pc_w[6]        ; cpu:add_instance|register_file:rf|dw[7][6]  ; 0.070             ;
+; cpu:add_instance|pc_w[4]        ; cpu:add_instance|register_file:rf|dw[7][4]  ; 0.070             ;
+; cpu:add_instance|pc_w[0]        ; cpu:add_instance|register_file:rf|dw[7][0]  ; 0.070             ;
+; cpu:add_instance|pc_w[5]        ; cpu:add_instance|register_file:rf|dw[7][5]  ; 0.069             ;
+; cpu:add_instance|pc_w[13]       ; cpu:add_instance|register_file:rf|dw[7][13] ; 0.069             ;
+; cpu:add_instance|pc_w[8]        ; cpu:add_instance|register_file:rf|dw[7][8]  ; 0.068             ;
+; cpu:add_instance|pc_w[7]        ; cpu:add_instance|register_file:rf|dw[7][7]  ; 0.068             ;
+; cpu:add_instance|pc_w[9]        ; cpu:add_instance|register_file:rf|dw[7][9]  ; 0.054             ;
++---------------------------------+---------------------------------------------+-------------------+
+Note: This table only shows the top 35 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1282,8 +1386,8 @@ Info (12825): Data[1]/ASDO dual-purpose pin not reserved
 Info (12825): nCSO dual-purpose pin not reserved
 Info (12825): DCLK dual-purpose pin not reserved
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
-Critical Warning (169085): No exact pin location assignment(s) for 20 pins of 20 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
-Warning (335093): The Timing Analyzer is analyzing 112 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (169085): No exact pin location assignment(s) for 36 pins of 36 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
+Warning (335093): The Timing Analyzer is analyzing 128 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'cpu_16bit.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
@@ -1292,27 +1396,30 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176353): Automatically promoted node input_vector[1]~input (placed in PIN K8 (CLK1n, DIFFIO_RX_L16n, DIFFOUT_L16n, High_Speed)) File: D:/iitb-cpu/DUT.vhdl Line: 8
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node cpu:add_instance|ALU:A|rfA3[2] File: D:/iitb-cpu/alu_rij.vhdl Line: 59
-        Info (176357): Destination node cpu:add_instance|ALU:A|rfA3[1] File: D:/iitb-cpu/alu_rij.vhdl Line: 59
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~0  File: D:/iitb-cpu/register_file.vhdl Line: 30
+        Info (176357): Destination node cpu:add_instance|pc_write_en File: D:/iitb-cpu/cpu_16bit.vhdl Line: 69
+        Info (176357): Destination node cpu:add_instance|ALU:A|rfA3[2] File: D:/iitb-cpu/alu_rij.vhdl Line: 62
+        Info (176357): Destination node cpu:add_instance|ALU:A|rfA3[1] File: D:/iitb-cpu/alu_rij.vhdl Line: 62
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~0  File: D:/iitb-cpu/register_file.vhdl Line: 29
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~1  File: D:/iitb-cpu/register_file.vhdl Line: 30
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~1  File: D:/iitb-cpu/register_file.vhdl Line: 29
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~2  File: D:/iitb-cpu/register_file.vhdl Line: 30
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~2  File: D:/iitb-cpu/register_file.vhdl Line: 29
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~3  File: D:/iitb-cpu/register_file.vhdl Line: 30
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~3  File: D:/iitb-cpu/register_file.vhdl Line: 29
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~4  File: D:/iitb-cpu/register_file.vhdl Line: 30
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~4  File: D:/iitb-cpu/register_file.vhdl Line: 29
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~5  File: D:/iitb-cpu/register_file.vhdl Line: 30
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~5  File: D:/iitb-cpu/register_file.vhdl Line: 29
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~6  File: D:/iitb-cpu/register_file.vhdl Line: 30
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|Decoder0~6  File: D:/iitb-cpu/register_file.vhdl Line: 29
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+Info (176353): Automatically promoted node cpu:add_instance|register_file:rf|dw[7][1]~1  File: D:/iitb-cpu/register_file.vhdl Line: 27
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info (176211): Number of I/O pins in group: 19 (unused VREF, 2.5V VCCIO, 1 input, 18 output, 0 bidirectional)
+    Info (176211): Number of I/O pins in group: 35 (unused VREF, 2.5V VCCIO, 1 input, 34 output, 0 bidirectional)
         Info (176212): I/O standards used: 2.5 V.
 Info (176215): I/O bank details before I/O pin placement
     Info (176214): Statistics of I/O banks
@@ -1329,26 +1436,25 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:10
 Info (170193): Fitter routing operations beginning
-Info (170089): 1e+02 ns of routing delay (approximately 1.7% of available device routing delay) has been added to meet hold timing. For more information, refer to the Estimated Delay Added for Hold Timing section in the Fitter report.
-Info (170195): Router estimated average interconnect usage is 11% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 22% of the available device resources in the region that extends from location X9_Y0 to location X18_Y8
+Info (170195): Router estimated average interconnect usage is 12% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 24% of the available device resources in the region that extends from location X9_Y0 to location X18_Y8
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 1.14 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
+Info (11888): Total time spent on timing analysis during the Fitter is 2.07 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Info (144001): Generated suppressed messages file D:/iitb-cpu/output_files/cpu_16bit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 6147 megabytes
-    Info: Processing ended: Fri Nov 25 21:16:33 2022
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Peak virtual memory: 6149 megabytes
+    Info: Processing ended: Sun Nov 27 01:22:50 2022
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:56
 
 
 +----------------------------+
