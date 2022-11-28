@@ -88,12 +88,15 @@ architecture behave of fsm is
 		  ns <= S1;
 		when S7 =>
 		  ns <= S1;
+		  
+		when S8 =>
+		  ns <= S1;
 		 
 		when S9 =>
 		 
-		 if op_code = "0110" then
+		 if (op_code = "0110") then
 	     ns <= S10;
-		 elsif op_code ="0111" then
+		 elsif (op_code ="0111") then
 		  ns <= S13;
 		 else 
 		  ns <= S1;
@@ -109,7 +112,14 @@ architecture behave of fsm is
 	    ns <= S12;
 		
 	  when S12 =>
-	    ns <= S1;
+	    if (op_code = "0110")
+	     ns <= S10;
+		 elsif (op_code = "0111")
+		  ns <= S13;
+		 else 
+		  ns <= S1;
+		  
+		 end if ;
 		
 	  when S14 =>
 	    ns <= S15;
