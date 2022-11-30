@@ -40,12 +40,12 @@ architecture behave of ALU is
 
   signal t1, t2, t3, PC: STD_LOGIC_VECTOR(15 downto 0):=(others=>'0');
 
-  shared variable inst: STD_LOGIC_VECTOR(15 downto 0):=(others=>'0');
-  shared variable op_code:std_logic_vector(3 downto 0);
-  shared variable rA,rB,rC: std_logic_vector(3 downto 0);
+  signal inst: STD_LOGIC_VECTOR(15 downto 0):=(others=>'0');
+  signal op_code:std_logic_vector(3 downto 0);
+  signal rA,rB,rC: std_logic_vector(2 downto 0);
   shared variable cFlag, zFlag : std_logic;
-  shared variable imm_6 : std_logic_vector(5 downto 0);
-  shared variable imm_9 : std_logic_vector(8 downto 0);
+  signal imm_6 : std_logic_vector(5 downto 0);
+  signal imm_9 : std_logic_vector(8 downto 0);
 
   signal loopFlag:std_logic:='0';
 
@@ -59,9 +59,9 @@ architecture behave of ALU is
 		
         when S1 =>
                 mA_read<=PC;   --fetch instruction
-                inst:=mD_read;
+                inst<=mD_read;
 
-                PC <= add(PC,"0000000000000001"); --update PC
+                PC <= add(PC,"0000000000000001")(15 downto 0); --update PC
                 rfA3<="111";
                 rf_en<='1';
                 rfD3<=PC;
@@ -71,12 +71,12 @@ architecture behave of ALU is
                 i:=0;
                 
         when S2=>
-                op_code:=inst(15 downto 12);
-                rA := inst (12 downto 9);
-                rB := inst (8 downto 6);
-                rC := inst (5 downto 3);
-                imm_6 := inst (5 downto 0);
-                imm_9 := inst (8 downto 0);
+                op_code<=inst(15 downto 12);
+                rA <= inst (11 downto 9);
+                rB <= inst (8 downto 6);
+                rC <= inst (5 downto 3);
+                imm_6 <= inst (5 downto 0);
+                imm_9 <= inst (8 downto 0);
                 cFlag:=inst(1);
                 zFlag:=inst(0);
                 rfA1<=rA;
@@ -142,7 +142,7 @@ architecture behave of ALU is
                 end if;       
         when S12=>
                 if (imm_9(i)='1')then
-                  t1<=add(t1,"0000000000000001");
+                  t1<=add(t1,"0000000000000001")(15 downto 0);
                 end if;
                 i:=i-1;
         when S13=>
@@ -176,7 +176,7 @@ architecture behave of ALU is
                 rfD3<=t3;
                 rf_en<='0';
         when S16 =>
-                t:=add(t2, std_logic_vector(resize(unsigned(imm_6), 16)));
+                t:=add(t2, std_logic_vector(resize(unsigned(imm_6), 16)))(15 downto 0);
                 t3<=t;
                 if (t = "0000000000000000") then
                   zFlag := '1';
@@ -199,7 +199,7 @@ architecture behave of ALU is
 
         when S20 =>
                 if(t1=t2)then
-                  PC<=add(PC,std_logic_vector(resize(unsigned(imm_6),16)));
+                  PC<=add(PC,std_logic_vector(resize(unsigned(imm_6),16)))(15 downto 0);
                 end if;
 
 
