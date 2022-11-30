@@ -157,16 +157,18 @@ architecture behave of ALU is
                 end if; 
 
         when S14 =>
-                t2(15 downto 6)<=imm_6(5);
+		        for i in 6 to 15 loop
+                t2(i)<=imm_6(5);
+					 end loop ;
                 t2(5 downto 0)<=imm_6;
                 t:= add (t1, t2)(15 downto 0);
                 t3<=t;
                 if (t = "0000000000000000") then
-                  zFlag <= '1';
+                  zFlag := '1';
                 else
-                  zFlag <= '0';
+                  zFlag := '0';
                 end if;
-                cFlag<=add(t1,t2)(16);
+                cFlag:=add(t1,t2)(16);
 
         when S15=>
                 rfA3<=rA;
@@ -174,12 +176,12 @@ architecture behave of ALU is
                 rfD3<=t3;
                 rf_en<='0';
         when S16 =>
-                t:=add(t2,std_logic_vector(to_unsigned(imm_6,16)))(15 downto 0);
+                t:=add(t2, std_logic_vector(resize(unsigned(imm_6), 16)));
                 t3<=t;
                 if (t = "0000000000000000") then
-                  zFlag <= '1';
+                  zFlag := '1';
                 else
-                  zFlag <= '0';
+                  zFlag := '0';
                 end if;
         when S17=>
                 mA_read<=t3;
@@ -197,14 +199,14 @@ architecture behave of ALU is
 
         when S20 =>
                 if(t1=t2)then
-                  PC<=add(PC,unsigned(imm_6));
+                  PC<=add(PC,std_logic_vector(resize(unsigned(imm_6),16)));
                 end if;
 
 
         when S21=>
-                rf_A3<=rA;
+                rfA3<=rA;
                 rf_en<='1'; 
-                rf_D3<=PC;
+                rfD3<=PC;
                 rf_en<='0';
 
         when S22 =>
@@ -227,9 +229,9 @@ architecture behave of ALU is
         when S1 =>
                 nxt_state <= S2;
         when S2 =>
-                if ((op_code = "0000") and (cFlag and zFlag /='1')) then
+                if ((op_code = "0000") and (cFlag /='1' and zFlag /='1')) then
                   nxt_state <= S3;
-                elsif ((op_code = "0010") and (cFlag and zFlag /='1') ) then
+                elsif ((op_code = "0010") and (cFlag /= '1' and zFlag /='1') ) then
                   nxt_state <= S6;
                 elsif (op_code = "0011") then
                   nxt_state <= S8;
