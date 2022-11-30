@@ -41,11 +41,7 @@ architecture behave of ALU is
   signal t1, t2, t3, PC: STD_LOGIC_VECTOR(15 downto 0):=(others=>'0');
 
   signal inst: STD_LOGIC_VECTOR(15 downto 0):=(others=>'0');
-  signal op_code:std_logic_vector(3 downto 0);
-  signal rA,rB,rC: std_logic_vector(2 downto 0);
-  shared variable cFlag, zFlag : std_logic;
-  signal imm_6 : std_logic_vector(5 downto 0);
-  signal imm_9 : std_logic_vector(8 downto 0);
+  shared variable cFlag, zFlag : std_logic:='0';
 
   signal loopFlag:std_logic:='0';
 
@@ -69,20 +65,19 @@ architecture behave of ALU is
                 m_en<='0';
                 loopFlag<='0';
                 i:=0;
+					 
                 
         when S2=>
-                op_code<=inst(15 downto 12);
-                rA <= inst (11 downto 9);
-                rB <= inst (8 downto 6);
-                rC <= inst (5 downto 3);
-                imm_6 <= inst (5 downto 0);
-                imm_9 <= inst (8 downto 0);
                 cFlag:=inst(1);
                 zFlag:=inst(0);
-                rfA1<=rA;
+                rfA1<=inst(11 downto 9);
                 t1<=rfD1; --read instruction
-                rfA2<=rB;
+                rfA2<=inst(8 downto 6);
                 t2<=rfD2; --read instruction
+					 if ((inst(15 downto 12)="0000")or(inst(15 downto 12)="0010"))then
+						c_out<=cFlag;
+						z_out<=zFlag;
+					 end if;
                 
 
         when S3 =>
@@ -97,7 +92,7 @@ architecture behave of ALU is
                 
         when S4=>
                 rf_en<='1';
-                rfA3 <= rC ;
+                rfA3 <= inst(5 downto 3) ;
                 rfD3 <= t3 ;
                 rf_en<='0';
         when S5=>
@@ -115,15 +110,15 @@ architecture behave of ALU is
         when S7=>
                 z_out<=zFlag;
         when S8 =>
-                t3(15 downto 7) <= imm_9;
+                t3(15 downto 7) <= inst(8 downto 0);
                 t3 (6 downto 0) <= "0000000";
-                rfA3<=rA;
+                rfA3<=inst(11 downto 9);
                 rf_en<='1';
                 rfD3<=t3;
                 rf_en<='0';
 
         when S9=>
-                rfA1<=rA;
+                rfA1<=inst(11 downto 9);
                 t1<=rfD1;
                 i:=7;
                 loopFlag<='1';
@@ -131,7 +126,7 @@ architecture behave of ALU is
                 mA_read<=t1;
                 t2<=mD_read;
         when S11=>
-                if (imm_9(i)='1') then
+                if (inst(8 downto 0)(i)='1') then
                   rfA3<=std_logic_vector(to_unsigned(7-i,3));
                   rf_en<='1';
                   rfD3<=t2;
@@ -141,12 +136,12 @@ architecture behave of ALU is
                   loopFlag<='0';
                 end if;       
         when S12=>
-                if (imm_9(i)='1')then
+                if (inst(8 downto 0)(i)='1')then
                   t1<=add(t1,"0000000000000001")(15 downto 0);
                 end if;
                 i:=i-1;
         when S13=>
-                if (imm_9(i)='1') then
+                if (inst(8 downto 0)(i)='1') then
                   mA_write<=t1;
                   m_en<='1';
                   rfA2<=std_logic_vector(to_unsigned(7-i,3));
@@ -158,9 +153,9 @@ architecture behave of ALU is
 
         when S14 =>
 		        for i in 6 to 15 loop
-                t2(i)<=imm_6(5);
+                t2(i)<=inst(5 downto 0)(5);
 					 end loop ;
-                t2(5 downto 0)<=imm_6;
+                t2(5 downto 0)<=inst(5 downto 0);
                 t:= add (t1, t2)(15 downto 0);
                 t3<=t;
                 if (t = "0000000000000000") then
@@ -171,12 +166,12 @@ architecture behave of ALU is
                 cFlag:=add(t1,t2)(16);
 
         when S15=>
-                rfA3<=rA;
+                rfA3<=inst(11 downto 9);
                 rf_en<='1';
                 rfD3<=t3;
                 rf_en<='0';
         when S16 =>
-                t:=add(t2, std_logic_vector(resize(unsigned(imm_6), 16)))(15 downto 0);
+                t:=add(t2, std_logic_vector(resize(unsigned(inst(5 downto 0)), 16)))(15 downto 0);
                 t3<=t;
                 if (t = "0000000000000000") then
                   zFlag := '1';
@@ -187,7 +182,7 @@ architecture behave of ALU is
                 mA_read<=t3;
                 t1<=mD_read;
         when S18=>
-                rfA3<=rA;
+                rfA3<=inst(11 downto 9);
                 rf_en<='1';
                 rfD3<=t1;
                 rf_en<='0';
@@ -199,18 +194,18 @@ architecture behave of ALU is
 
         when S20 =>
                 if(t1=t2)then
-                  PC<=add(PC,std_logic_vector(resize(unsigned(imm_6),16)))(15 downto 0);
+                  PC<=add(PC,std_logic_vector(resize(unsigned(inst(5 downto 0)),16)))(15 downto 0);
                 end if;
 
 
         when S21=>
-                rfA3<=rA;
+                rfA3<=inst(11 downto 9);
                 rf_en<='1'; 
                 rfD3<=PC;
                 rf_en<='0';
 
         when S22 =>
-                PC<=STD_LOGIC_VECTOR(unsigned(PC) + unsigned(imm_6));
+                PC<=STD_LOGIC_VECTOR(unsigned(PC) + unsigned(inst(5 downto 0)));
 
         when S23 =>
                 PC<=t2;
@@ -229,21 +224,21 @@ architecture behave of ALU is
         when S1 =>
                 nxt_state <= S2;
         when S2 =>
-                if ((op_code = "0000") and (cFlag /='1' and zFlag /='1')) then
+                if ((inst(15 downto 12) = "0000") and (cFlag /='1' and zFlag /='1')) then
                   nxt_state <= S3;
-                elsif ((op_code = "0010") and (cFlag /= '1' and zFlag /='1') ) then
+                elsif ((inst(15 downto 12) = "0010") and (cFlag /= '1' and zFlag /='1') ) then
                   nxt_state <= S6;
-                elsif (op_code = "0011") then
+                elsif (inst(15 downto 12) = "0011") then
                   nxt_state <= S8;
-					 elsif (op_code = "0110" or op_code = "0111")then
+					 elsif (inst(15 downto 12) = "0110" or inst(15 downto 12) = "0111")then
                   nxt_state <= S9;
-                elsif (op_code = "0001") then
+                elsif (inst(15 downto 12) = "0001") then
                   nxt_state <= S14;
-					 elsif (op_code = "0100" or op_code = "0101") then
+					 elsif (inst(15 downto 12) = "0100" or inst(15 downto 12) = "0101") then
                   nxt_state <= S16;
-					 elsif (op_code = "1100") then
+					 elsif (inst(15 downto 12) = "1100") then
                   nxt_state <= S20;
-					 elsif (op_code = "1000" or op_code = "1001") then
+					 elsif (inst(15 downto 12) = "1000" or inst(15 downto 12) = "1001") then
                   nxt_state <= S21;
 					 else
 					   nxt_state <= S1;
@@ -257,9 +252,9 @@ architecture behave of ALU is
         
         when S4 =>
         
-          if (op_code = "0000")  then
+          if (inst(15 downto 12) = "0000")  then
           nxt_state <= S5;
-          elsif (op_code = "0010") then
+          elsif (inst(15 downto 12) = "0010") then
           nxt_state <= S7 ;
           else
           nxt_state <= S1;
@@ -277,9 +272,9 @@ architecture behave of ALU is
         
         when S9 =>
         
-          if (op_code = "0110") then
+          if (inst(15 downto 12) = "0110") then
             nxt_state <= S10;
-          elsif (op_code ="0111") then
+          elsif (inst(15 downto 12) ="0111") then
             nxt_state <= S13;
           else 
             nxt_state <= S1;
@@ -296,9 +291,9 @@ architecture behave of ALU is
         
         when S12 =>
         if(loopFlag='1')then
-          if (op_code = "0110")then
+          if (inst(15 downto 12) = "0110")then
             nxt_state <= S10;
-          elsif (op_code = "0111")then
+          elsif (inst(15 downto 12) = "0111")then
             nxt_state <= S13;
           end if;
         else 
@@ -313,9 +308,9 @@ architecture behave of ALU is
           nxt_state <= S5;
         
         when S16 =>
-          if (op_code = "0100") then
+          if (inst(15 downto 12) = "0100") then
           nxt_state <= S17;
-        elsif (op_code = "0101") then
+        elsif (inst(15 downto 12) = "0101") then
           nxt_state <= S19;
         else
           nxt_state <= S1;
@@ -335,9 +330,9 @@ architecture behave of ALU is
           nxt_state <= S1;
         
         when S21 =>
-          if (op_code="1000") then
+          if (inst(15 downto 12)="1000") then
             nxt_state <= S22;
-          elsif (op_code="1001") then
+          elsif (inst(15 downto 12)="1001") then
             nxt_state <=S23;
           else
             nxt_state<=S1;

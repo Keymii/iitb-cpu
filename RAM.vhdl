@@ -12,7 +12,11 @@ end RAM;
 
 architecture struct of RAM is
 	type memory is array(0 to 65535) of std_logic_vector(15 downto 0);
-	signal storage:memory:=(others=>(others=>'0'));
+	
+	signal storage:memory:=(
+		"0000001010010001","0100000000000000",others=>(others=>'0')
+	);
+	
 begin
 	D_read<=storage(to_integer(unsigned(A_read)));
 	ram_process:process(clk) is
