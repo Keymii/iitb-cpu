@@ -1,0 +1,265 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/iitb-cpu/simulation/modelsim
+Ealu
+Z1 w1669831010
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 3
+R0
+Z5 8D:/iitb-cpu/ALU.vhdl
+Z6 FD:/iitb-cpu/ALU.vhdl
+l0
+L5 1
+VAgz0`;:>I;f:jOc:n?@f?1
+!s100 DUHkP[EJzOJT8?A<gfAQV3
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1669831657
+!i10b 1
+Z9 !s108 1669831657.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|D:/iitb-cpu/ALU.vhdl|
+Z11 !s107 D:/iitb-cpu/ALU.vhdl|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehave
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 Agz0`;:>I;f:jOc:n?@f?1
+!i122 3
+l48
+L19 333
+VcdCO0EmTS:Efzl<m0`=:k2
+!s100 ^hT0RDGANCn[2zD<4YQMP3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ecpu
+Z14 w1669828544
+R2
+R3
+R4
+!i122 4
+R0
+Z15 8D:/iitb-cpu/cpu.vhdl
+Z16 FD:/iitb-cpu/cpu.vhdl
+l0
+L5 1
+Vko6U75Ii^_;9:CAj@SAg>0
+!s100 >J>V4>J@^XM5lMfi4egef2
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|D:/iitb-cpu/cpu.vhdl|
+Z18 !s107 D:/iitb-cpu/cpu.vhdl|
+!i113 1
+R12
+R13
+Astruct
+R2
+R3
+R4
+DEx4 work 3 cpu 0 22 ko6U75Ii^_;9:CAj@SAg>0
+!i122 4
+l41
+L9 40
+VHQDZ`jgNmUcEd?_[=RR^V0
+!s100 mFjfczFLk_fR2Ti_@cHbU1
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Edut
+Z19 w1669830216
+R3
+R4
+!i122 0
+R0
+Z20 8D:/iitb-cpu/DUT.vhdl
+Z21 FD:/iitb-cpu/DUT.vhdl
+l0
+L7 1
+VaG1<_]D7XeOE3@PUj]h^C3
+!s100 `7Ra84S^kDALk3O=kb?=W2
+R7
+31
+R8
+!i10b 1
+R9
+Z22 !s90 -reportprogress|300|-93|-work|work|D:/iitb-cpu/DUT.vhdl|
+Z23 !s107 D:/iitb-cpu/DUT.vhdl|
+!i113 1
+R12
+R13
+Adutwrap
+R3
+R4
+DEx4 work 3 dut 0 22 aG1<_]D7XeOE3@PUj]h^C3
+!i122 0
+l16
+L12 18
+VUZB_TIco__OA@]ozC]jXg0
+!s100 [k8`WV[Ygz7HQ7Od[@QCh1
+R7
+31
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 1
+R12
+R13
+Eram
+Z24 w1669831617
+R2
+R3
+R4
+!i122 2
+R0
+Z25 8D:/iitb-cpu/RAM.vhdl
+Z26 FD:/iitb-cpu/RAM.vhdl
+l0
+L5 1
+V65neQChKbTaX4JA>3UeD73
+!s100 _YY0f0Q=;IK=QUa9Ak_NG3
+R7
+31
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-93|-work|work|D:/iitb-cpu/RAM.vhdl|
+Z28 !s107 D:/iitb-cpu/RAM.vhdl|
+!i113 1
+R12
+R13
+Astruct
+R2
+R3
+R4
+DEx4 work 3 ram 0 22 65neQChKbTaX4JA>3UeD73
+!i122 2
+l20
+L13 18
+VZU;AP2WeVSk>@e;0F]g<d3
+!s100 ?cQPB1dzRIj14]bD3<_223
+R7
+31
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 1
+R12
+R13
+Eregister_file
+Z29 w1669635784
+R2
+R3
+R4
+!i122 1
+R0
+Z30 8D:/iitb-cpu/register_file.vhdl
+Z31 FD:/iitb-cpu/register_file.vhdl
+l0
+L5 1
+V3d8G9?C^c:ohRazT0=Nil0
+!s100 <lc6MoD2:hTz@zoLQ<8BH3
+R7
+31
+R8
+!i10b 1
+R9
+Z32 !s90 -reportprogress|300|-93|-work|work|D:/iitb-cpu/register_file.vhdl|
+Z33 !s107 D:/iitb-cpu/register_file.vhdl|
+!i113 1
+R12
+R13
+Astruct
+R2
+R3
+R4
+DEx4 work 13 register_file 0 22 3d8G9?C^c:ohRazT0=Nil0
+!i122 1
+l17
+L14 15
+V8J5KLf<SJZ0jJHi0T^chF2
+!s100 >@VB;LjbWCKzo@fDSo>?O0
+R7
+31
+R8
+!i10b 1
+R9
+R32
+R33
+!i113 1
+R12
+R13
+Etestbench
+Z34 w1669830219
+R4
+R3
+!i122 5
+R0
+Z35 8D:/iitb-cpu/Testbench.vhdl
+Z36 FD:/iitb-cpu/Testbench.vhdl
+l0
+L7 1
+V]iKK_Z9L:G9B:i8c]3eFH0
+!s100 bWf8kl8zb90X@P1m>V^K20
+R7
+31
+R8
+!i10b 1
+R9
+Z37 !s90 -reportprogress|300|-93|-work|work|D:/iitb-cpu/Testbench.vhdl|
+!s107 D:/iitb-cpu/Testbench.vhdl|
+!i113 1
+R12
+R13
+Abehave
+R4
+R3
+DEx4 work 9 testbench 0 22 ]iKK_Z9L:G9B:i8c]3eFH0
+!i122 5
+l69
+L9 132
+V]fEkd67<fbJYMXhzgTO;A3
+!s100 DBAf?4UlX^?Xno0Ff1:6`1
+R7
+31
+R8
+!i10b 1
+R9
+R37
+Z38 !s107 D:/iitb-cpu/Testbench.vhdl|
+!i113 1
+R12
+R13

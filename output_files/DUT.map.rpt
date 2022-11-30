@@ -1,5 +1,5 @@
-Analysis & Synthesis report for DUT
-Wed Nov 30 22:51:08 2022
+Analysis & Elaboration report for DUT
+Wed Nov 30 23:37:08 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,12 +7,10 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Multiplexer Restructuring Statistics (Restructuring Performed)
-  6. Elapsed Time Per Partition
-  7. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Analysis & Elaboration Messages
 
 
 
@@ -37,12 +35,12 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Nov 30 22:51:08 2022           ;
+; Analysis & Elaboration Status      ; Successful - Wed Nov 30 23:37:08 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; DUT                                         ;
-; Top-level Entity Name              ; cpu                                         ;
+; Top-level Entity Name              ; DUT                                         ;
 ; Family                             ; MAX 10                                      ;
 ; Total logic elements               ; N/A until Partition Merge                   ;
 ;     Total combinational functions  ; N/A until Partition Merge                   ;
@@ -58,13 +56,29 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
+; Analysis & Elaboration Settings                                                                            ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                           ; 10M08DAF484C8G     ;                    ;
-; Top-level entity name                                            ; cpu                ; DUT                ;
+; Device                                                           ; 10M08SCE144A7G     ;                    ;
+; Top-level entity name                                            ; DUT                ; DUT                ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -144,58 +158,22 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 12          ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector128  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector211  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector116  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector98   ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector185  ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector172  ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |cpu|ALU:alu1|Selector193  ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |cpu|ALU:alu1|Selector69   ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; No         ; |cpu|ALU:alu1|Selector85   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Nov 30 22:50:57 2022
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c DUT
+    Info: Processing started: Wed Nov 30 23:36:58 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c DUT --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file testbench.vhdl
+    Info (12022): Found design unit 1: Testbench-Behave File: D:/iitb-cpu/Testbench.vhdl Line: 9
+    Info (12023): Found entity 1: Testbench File: D:/iitb-cpu/Testbench.vhdl Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file dut.vhdl
+    Info (12022): Found design unit 1: DUT-DutWrap File: D:/iitb-cpu/DUT.vhdl Line: 12
+    Info (12023): Found entity 1: DUT File: D:/iitb-cpu/DUT.vhdl Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file register_file.vhdl
     Info (12022): Found design unit 1: register_file-struct File: D:/iitb-cpu/register_file.vhdl Line: 14
     Info (12023): Found entity 1: register_file File: D:/iitb-cpu/register_file.vhdl Line: 5
@@ -208,373 +186,331 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhdl
     Info (12022): Found design unit 1: cpu-struct File: D:/iitb-cpu/cpu.vhdl Line: 9
     Info (12023): Found entity 1: cpu File: D:/iitb-cpu/cpu.vhdl Line: 5
-Info (12127): Elaborating entity "cpu" for the top level hierarchy
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu1" File: D:/iitb-cpu/cpu.vhdl Line: 42
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(58): signal "cs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 58
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(61): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 61
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(62): signal "mD_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 62
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(64): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 64
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(67): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 67
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(74): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 74
+Info (12127): Elaborating entity "DUT" for the top level hierarchy
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:add_instance" File: D:/iitb-cpu/DUT.vhdl Line: 20
+Info (12128): Elaborating entity "ALU" for hierarchy "cpu:add_instance|ALU:alu1" File: D:/iitb-cpu/cpu.vhdl Line: 42
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(54): signal "cs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 54
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(57): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 57
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(58): signal "mD_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 58
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(60): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 60
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(63): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 63
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(71): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 71
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(72): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 72
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(73): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 73
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(74): signal "rfD1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 74
 Warning (10492): VHDL Process Statement warning at ALU.vhdl(75): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 75
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(76): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 76
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(76): signal "rfD2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 76
 Warning (10492): VHDL Process Statement warning at ALU.vhdl(77): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 77
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(78): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 78
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(79): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 79
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(80): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 80
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(81): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 81
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(82): signal "rA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 82
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(83): signal "rfD1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 83
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(84): signal "rB" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 84
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(85): signal "rfD2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 85
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(89): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 89
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(89): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 89
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(96): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 96
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(96): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 96
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(100): signal "rC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 100
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(101): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 101
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(108): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 108
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(108): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 108
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(118): signal "imm_9" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 118
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(120): signal "rA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 120
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(122): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 122
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(126): signal "rA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 126
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(127): signal "rfD1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 127
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(131): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 131
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(132): signal "mD_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 132
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(134): signal "imm_9" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 134
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(137): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 137
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(144): signal "imm_9" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 144
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(84): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 84
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(84): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 84
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(91): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 91
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(91): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 91
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(95): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 95
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(96): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 96
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(103): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 103
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(103): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 103
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(113): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 113
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(115): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 115
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(117): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 117
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(121): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 121
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(122): signal "rfD1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 122
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(126): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 126
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(127): signal "mD_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 127
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(129): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 129
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(132): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 132
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(139): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 139
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(140): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 140
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(144): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 144
 Warning (10492): VHDL Process Statement warning at ALU.vhdl(145): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 145
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(149): signal "imm_9" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 149
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(150): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 150
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(153): signal "rfD2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 153
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(161): signal "imm_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 161
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(163): signal "imm_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 163
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(164): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 164
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(164): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 164
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(171): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 171
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(171): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 171
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(174): signal "rA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 174
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(176): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 176
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(179): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 179
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(179): signal "imm_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 179
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(187): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 187
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(188): signal "mD_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 188
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(190): signal "rA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 190
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(148): signal "rfD2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 148
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(156): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 156
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(158): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 158
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(159): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 159
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(159): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 159
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(166): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 166
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(166): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 166
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(169): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 169
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(171): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 171
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(174): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 174
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(174): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 174
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(182): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 182
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(183): signal "mD_read" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 183
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(185): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 185
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(187): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 187
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(191): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 191
 Warning (10492): VHDL Process Statement warning at ALU.vhdl(192): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 192
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(196): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 196
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(197): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 197
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(201): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 201
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(201): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 201
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(202): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 202
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(202): signal "imm_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 202
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(207): signal "rA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 207
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(209): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 209
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(213): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 213
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(213): signal "imm_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 213
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(216): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 216
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(221): signal "nxt_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 221
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "mA_read", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "inst", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rfA3", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rf_en", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rfD3", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "m_en", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "loopFlag", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "i", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "op_code", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rA", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rB", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rC", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "imm_6", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "imm_9", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "cFlag", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "zFlag", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rfA1", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "t1", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "rfA2", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "t2", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "t3", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "c_out", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "z_out", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "mA_write", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(53): inferring latch(es) for signal or variable "mD_write", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 53
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(226): signal "cs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 226
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(232): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 232
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(234): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 234
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(236): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 236
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(238): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 238
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(240): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 240
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(242): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 242
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(244): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 244
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(246): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 246
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(260): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 260
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(262): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 262
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(280): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 280
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(282): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 282
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(298): signal "loopFlag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 298
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(299): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 299
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(301): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 301
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(316): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 316
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(318): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 318
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(338): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 338
-Warning (10492): VHDL Process Statement warning at ALU.vhdl(340): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 340
-Warning (10631): VHDL Process Statement warning at ALU.vhdl(224): inferring latch(es) for signal or variable "nxt_state", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S23" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S22" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S21" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S20" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S19" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S18" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S17" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S16" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S15" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S14" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S13" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S12" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S11" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S10" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S9" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S8" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S7" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S6" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S5" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S4" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S3" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S2" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "nxt_state.S1" at ALU.vhdl(224) File: D:/iitb-cpu/ALU.vhdl Line: 224
-Info (10041): Inferred latch for "mD_write[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mD_write[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_write[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "z_out" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "c_out" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t3[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t2[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA2[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA2[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA2[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "t1[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA1[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA1[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA1[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "zFlag" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "cFlag" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_9[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_6[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_6[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_6[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_6[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_6[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "imm_6[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rC[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rC[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rC[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rB[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rB[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rB[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rA[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rA[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rA[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "op_code[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "op_code[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "op_code[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "op_code[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[16]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[17]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[18]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[19]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[20]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[21]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[22]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[23]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[24]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[25]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[26]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[27]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[28]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[29]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[30]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "alu_proc:i[31]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "loopFlag" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "m_en" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfD3[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rf_en" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA3[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA3[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "rfA3[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "PC[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "inst[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[0]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[1]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[2]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[3]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[4]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[5]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[6]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[7]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[8]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[9]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[10]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[11]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[12]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[13]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[14]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (10041): Inferred latch for "mA_read[15]" at ALU.vhdl(53) File: D:/iitb-cpu/ALU.vhdl Line: 53
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:mem" File: D:/iitb-cpu/cpu.vhdl Line: 44
-Info (12128): Elaborating entity "register_file" for hierarchy "register_file:rf" File: D:/iitb-cpu/cpu.vhdl Line: 45
-Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "RAM:mem|storage" is uninferred due to asynchronous read logic File: D:/iitb-cpu/RAM.vhdl Line: 15
-    Info (276004): RAM logic "register_file:rf|R" is uninferred due to inappropriate RAM size File: D:/iitb-cpu/register_file.vhdl Line: 16
-Error (276003): Cannot convert all sets of registers into RAM megafunctions when creating nodes. The resulting number of registers remaining in design exceeds the number of registers in the device or the number specified by the assignment max_number_of_registers_from_uninferred_rams. This can cause longer compilation time or result in insufficient memory to complete Analysis and Synthesis
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 113 warnings
-    Error: Peak virtual memory: 4800 megabytes
-    Error: Processing ended: Wed Nov 30 22:51:08 2022
-    Error: Elapsed time: 00:00:11
-    Error: Total CPU time (on all processors): 00:00:23
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(196): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 196
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(196): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 196
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(197): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 197
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(197): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 197
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(202): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 202
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(204): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 204
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(208): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 208
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(208): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 208
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(211): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 211
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(216): signal "nxt_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 216
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "mA_read", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "inst", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "rfA3", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "rf_en", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "rfD3", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "m_en", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "loopFlag", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "i", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "cFlag", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "zFlag", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "rfA1", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "t1", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "rfA2", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "t2", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "c_out", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "z_out", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "t3", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "mA_write", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(49): inferring latch(es) for signal or variable "mD_write", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 49
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(221): signal "cs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 221
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(227): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 227
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(229): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 229
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(231): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 231
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(233): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 233
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(235): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 235
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(237): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 237
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(239): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 239
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(241): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 241
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(255): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 255
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(257): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 257
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(275): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 275
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(277): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 277
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(293): signal "loopFlag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 293
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(294): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 294
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(296): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 296
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(311): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 311
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(313): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 313
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(333): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 333
+Warning (10492): VHDL Process Statement warning at ALU.vhdl(335): signal "inst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/iitb-cpu/ALU.vhdl Line: 335
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(219): inferring latch(es) for signal or variable "nxt_state", which holds its previous value in one or more paths through the process File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S23" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S22" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S21" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S20" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S19" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S18" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S17" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S16" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S15" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S14" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S13" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S12" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S11" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S10" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S9" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S8" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S7" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S6" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S5" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S4" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S3" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S2" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "nxt_state.S1" at ALU.vhdl(219) File: D:/iitb-cpu/ALU.vhdl Line: 219
+Info (10041): Inferred latch for "mD_write[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mD_write[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_write[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t3[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "z_out" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "c_out" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t2[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA2[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA2[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA2[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "t1[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA1[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA1[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA1[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "zFlag" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "cFlag" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[16]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[17]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[18]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[19]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[20]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[21]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[22]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[23]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[24]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[25]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[26]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[27]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[28]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[29]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[30]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "alu_proc:i[31]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "loopFlag" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "m_en" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfD3[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rf_en" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA3[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA3[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "rfA3[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "PC[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "inst[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[0]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[1]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[2]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[3]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[4]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[5]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[6]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[7]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[8]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[9]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[10]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[11]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[12]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[13]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[14]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (10041): Inferred latch for "mA_read[15]" at ALU.vhdl(49) File: D:/iitb-cpu/ALU.vhdl Line: 49
+Info (12128): Elaborating entity "RAM" for hierarchy "cpu:add_instance|RAM:mem" File: D:/iitb-cpu/cpu.vhdl Line: 44
+Info (12128): Elaborating entity "register_file" for hierarchy "cpu:add_instance|register_file:rf" File: D:/iitb-cpu/cpu.vhdl Line: 45
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 4783 megabytes
+    Info: Processing ended: Wed Nov 30 23:37:08 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 
