@@ -1,38 +1,155 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use ieee.NUMERIC_STD.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-entity ALU is 
- port 	(T1, T2, SE9, SE6, R7_in, PC_in: in  STD_LOGIC_VECTOR(15 downto 0); 
-         opcode: in  STD_LOGIC_VECTOR(3 downto 0);  -- 1 input 4-bit for selecting function
-         CZ: in STD_LOGIC_VECTOR(1 downto 0);  -- condition check
-         T3, R7_out, PC_out: out  STD_LOGIC_VECTOR(15 downto 0); -- 1 output 8-bit 
-			
-         flag_out: in std_logic_vector(1 downto 0);
-         flag_in: out std_logic_vector(1 downto 0);
-			
-         State: in std_logic_vector(4 downto 0);
-         clk: in std_logic);
+entity ALU is
+  port (cs: IN STD_LOGIC_VECTOR(4 downto 0);
+        op_code: IN STD_LOGIC_VECTOR(3 downto 0);
+        
+        t1: IN STD_LOGIC_VECTOR(15 downto 0);
+        t2: IN STD_LOGIC_VECTOR(15 downto 0);
+        
+        PC: IN STD_LOGIC_VECTOR(15 downto 0);
+        t3: OUT STD_LOGIC_VECTOR(15 downto 0);
+        c_out: OUT STD_LOGIC; 
+        z_out: OUT STD_LOGIC; 
+        ALU_temp_z : OUT STD_LOGIC);
+end ALU;
 
 architecture behave of ALU is
+  constant S1: STD_LOGIC_VECTOR(4 downto 0) := "00001";
+  constant S3: STD_LOGIC_VECTOR(4 downto 0) := "00011";
+  constant S31: STD_LOGIC_VECTOR(4 downto 0) := "00100";
+  constant S4: STD_LOGIC_VECTOR(4 downto 0) := "00101";
+  constant S9: STD_LOGIC_VECTOR(4 downto 0) := "01100";
+  constant S12: STD_LOGIC_VECTOR(4 downto 0) := "01110";
+  constant S14: STD_LOGIC_VECTOR(4 downto 0) := "10000";
+  constant S15: STD_LOGIC_VECTOR(4 downto 0) := "10001";
+  constant SZ: STD_LOGIC_VECTOR(4 downto 0) := "10010";
+  
+  begin
+    process (cs, op_code, PC, t1, t2)
+	 variable temp_answer: STD_LOGIC_VECTOR(15 downto 0);
+    begin
+      case current_state is
+		
+        when S1 =>
+                t3 <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned(one));
+                c_out <= '0'; --dont care
+                c_en <= '0';
+                Z_out <= '0'; --dont care
+                z_en <= '0';
+                ALU_temp_z <= '0';
+        
+       
+               
 
-signal rA,rB,rC: std_logic_vector(3 downto 0);
-signal cFlag, zFlag : std_logic;
-signal imm_6 : std_logic_vector(5 downto 0);
-signal imm_9 : std_logic_vector(8 downto 0);
-
-begin
-   process(T1, T2, PC_in, R7_in, opcode, CZ, flag_out, SE6, SE9, State)
-      begin
-         if(clk'event and(clk='1')) then
-            case(State) is
-               when "00001" =>
-                  pc<=std_logic_vector(unsigned(pc)+unsigned("0000000000000001"),16);
-               when "00010" =>      
-                  case(opcode) is
-                     when "0000" =>
-					       		
-	                
-end ALU;			
+      
+        when S3 =>
+              
+                T3 <= add(t1,t2);
+                t:= add(t1,t2);
+                Z_en <= '1';
+                if t = zero then
+                  Z_out <= '1';
+					 else
+                  Z_out <= '0';
+                end if;
+			
+                C_en <= '1';
+                C_out <=
+                ALU_temp_z <= '0';
+  
+        when S6 =>
+		  
+                t3 <= t1 nand t2;
+               
+                t := t1 nand t2;
+					 
+					
+                Z_en<= '1';
+                if t = zero then
+                  Z_out <= '1';
+                else
+                  Z_out <= '0';
+                end if;
+					  C_en <=  '0' ;
+					  C_out <= '0';
+                
+                ALU_temp_z <= '0';
+             
+				 
+		  when S8 =>
+				 
+				 t3 [] <=
+				 t3 [] <=
+				 C_en <= '0' ;
+				 Z_en <= '0' ;
+				 
+				 
+		
+		 when S14 =>
+		   
+			  t3 <= Add (t1, t2);
+			  C_en <= '1' ;
+			  Z_en <= '1' ;
+			  
+			  t <= Add(t1,t2);
+			  
+			  if t = zero then
+                  Z_out <= '1';
+                else
+                  Z_out <= '0';
+                end if;
+			  
+				 C_out <= 
+				
+			
+	   when S16 =>
+		   
+			  t3 <= Add (t1, t2);
+			  C_en <= '0' ;
+			  
+			  
+			if (op_code = "0100") then
+			  Z_en <= '1' ;
+			  
+			  t <= Add(t1,t2);
+			  
+			  if t = zero then
+                  Z_out <= '1';
+                else
+                  Z_out <= '0';
+                end if;
+			else 
+			  Z_en <= '0' ;
+			  
+				 	
+		when S20 =>
+          if (t1=t2) then
+			   t3  <= Add (PC +imm) ;
+			 else 
+			   t3 <= PC;
+				
+			 end if ;
+			  C_en <= '0' ;
+			  Z_en <= '0' ;
+			  
+			  
+		when S22 =>
+		  t3 <= Pc +imm ;
+		  
+		   C_en <= '0' ;
+		   Z_en <= '0' ;
+		  
+		 when S24 =>
+		  t3 <= t2 ;
+			
+	 	   C_en <= '0' ;
+			Z_en <= '0' ;
+				
+			 
+				 
+    end process;
+end behave;			
 			
