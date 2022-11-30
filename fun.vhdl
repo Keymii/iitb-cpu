@@ -10,16 +10,16 @@ function Add(A: in std_logic_vector(15 downto 0);
 				-- Declare "sum" and "carry" variable
 				variable sum: std_logic_vector (16 downto 0) := (others => '0');
 				variable carry: std_logic := '0';
-				variable : std_logic_vector(3 downto 0) := (others => '0');
-				
+								
 				begin
-				 for i in 0 to 3 loop
+				 for i in 0 to 15 loop
 				   sum (i) := A(i) xor  B(i) xor carry ;
 					carry := (A(i) and B(i)) or (B(i) and carry) or (carry and A(i));
 					
 				end loop ;
 				  sum (16) = carry;
+
 				
 			 
 			return sum;
-		end Add;
+end Add;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DUT
-Tue Nov 29 12:52:07 2022
+Wed Nov 30 21:30:00 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,10 +37,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Nov 29 12:52:07 2022           ;
+; Analysis & Synthesis Status        ; Failed - Wed Nov 30 21:30:00 2022           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; DUT                                         ;
-; Top-level Entity Name              ; DUT                                         ;
+; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; MAX 10                                      ;
 ; Total logic elements               ; N/A until Partition Merge                   ;
 ;     Total combinational functions  ; N/A until Partition Merge                   ;
@@ -62,7 +62,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M08DAF484C8G     ;                    ;
-; Top-level entity name                                            ; DUT                ; DUT                ;
+; Top-level entity name                                            ; cpu                ; DUT                ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -147,8 +147,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -164,32 +164,27 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Nov 29 12:51:54 2022
+    Info: Processing started: Wed Nov 30 21:29:54 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c DUT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file register_file.vhdl
-    Info (12022): Found design unit 1: register_file-struct File: C:/Users/Akki/Pictures/ccccpppuuuu/register_file.vhdl Line: 14
-    Info (12023): Found entity 1: register_file File: C:/Users/Akki/Pictures/ccccpppuuuu/register_file.vhdl Line: 5
+    Info (12022): Found design unit 1: register_file-struct File: D:/iitb-cpu/register_file.vhdl Line: 14
+    Info (12023): Found entity 1: register_file File: D:/iitb-cpu/register_file.vhdl Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ram.vhdl
-    Info (12022): Found design unit 1: RAM-struct File: C:/Users/Akki/Pictures/ccccpppuuuu/RAM.vhdl Line: 13
-    Info (12023): Found entity 1: RAM File: C:/Users/Akki/Pictures/ccccpppuuuu/RAM.vhdl Line: 5
-Error (10500): VHDL syntax error at ALU.vhdl(16) near text "architecture";  expecting "end", or "begin", or a declaration statement File: C:/Users/Akki/Pictures/ccccpppuuuu/ALU.vhdl Line: 16
-Error (10500): VHDL syntax error at ALU.vhdl(34) near text "ALU";  expecting "case" File: C:/Users/Akki/Pictures/ccccpppuuuu/ALU.vhdl Line: 34
-Info (12021): Found 0 design units, including 0 entities, in source file alu.vhdl
-Error (10500): VHDL syntax error at nsFSMLogic.vhdl(116) near text "ns";  expecting "then" File: C:/Users/Akki/Pictures/ccccpppuuuu/nsFSMLogic.vhdl Line: 116
-Error (10500): VHDL syntax error at nsFSMLogic.vhdl(117) near text "elsif";  expecting "end", or "(", or an identifier ("elsif" is a reserved keyword), or a sequential statement File: C:/Users/Akki/Pictures/ccccpppuuuu/nsFSMLogic.vhdl Line: 117
-Error (10500): VHDL syntax error at nsFSMLogic.vhdl(118) near text "ns";  expecting ":=", or "<=" File: C:/Users/Akki/Pictures/ccccpppuuuu/nsFSMLogic.vhdl Line: 118
-Error (10500): VHDL syntax error at nsFSMLogic.vhdl(119) near text "else";  expecting "end", or "(", or an identifier ("else" is a reserved keyword), or a sequential statement File: C:/Users/Akki/Pictures/ccccpppuuuu/nsFSMLogic.vhdl Line: 119
-Error (10500): VHDL syntax error at nsFSMLogic.vhdl(122) near text "if";  expecting "case" File: C:/Users/Akki/Pictures/ccccpppuuuu/nsFSMLogic.vhdl Line: 122
-Error (10500): VHDL syntax error at nsFSMLogic.vhdl(167) near text "process";  expecting "case" File: C:/Users/Akki/Pictures/ccccpppuuuu/nsFSMLogic.vhdl Line: 167
-Info (12021): Found 0 design units, including 0 entities, in source file nsfsmlogic.vhdl
-Error (10500): VHDL syntax error at fun.vhdl(7) near text "function";  expecting "entity", or "architecture", or "use", or "library", or "package", or "configuration" File: C:/Users/Akki/Pictures/ccccpppuuuu/fun.vhdl Line: 7
-Info (12021): Found 0 design units, including 0 entities, in source file fun.vhdl
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 9 errors, 1 warning
-    Error: Peak virtual memory: 4777 megabytes
-    Error: Processing ended: Tue Nov 29 12:52:07 2022
-    Error: Elapsed time: 00:00:13
-    Error: Total CPU time (on all processors): 00:00:31
+    Info (12022): Found design unit 1: RAM-struct File: D:/iitb-cpu/RAM.vhdl Line: 13
+    Info (12023): Found entity 1: RAM File: D:/iitb-cpu/RAM.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhdl
+    Info (12022): Found design unit 1: ALU-behave File: D:/iitb-cpu/ALU.vhdl Line: 19
+    Info (12023): Found entity 1: ALU File: D:/iitb-cpu/ALU.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhdl
+    Info (12022): Found design unit 1: cpu-struct File: D:/iitb-cpu/cpu.vhdl Line: 9
+    Info (12023): Found entity 1: cpu File: D:/iitb-cpu/cpu.vhdl Line: 5
+Error (10526): VHDL Signal Assignment Statement error at ALU.vhdl(145): Signal Assignment Statement must use <= to assign value to signal "t1" File: D:/iitb-cpu/ALU.vhdl Line: 145
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
+    Error: Peak virtual memory: 4778 megabytes
+    Error: Processing ended: Wed Nov 30 21:30:00 2022
+    Error: Elapsed time: 00:00:06
+    Error: Total CPU time (on all processors): 00:00:14
 
 

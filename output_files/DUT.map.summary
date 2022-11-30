@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Failed - Tue Nov 29 12:52:07 2022
+Analysis & Synthesis Status : Failed - Wed Nov 30 21:30:00 2022
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : DUT
-Top-level Entity Name : DUT
+Top-level Entity Name : cpu
 Family : MAX 10
 Total logic elements : N/A until Partition Merge
     Total combinational functions : N/A until Partition Merge

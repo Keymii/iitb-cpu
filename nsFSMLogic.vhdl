@@ -6,8 +6,7 @@ entity fsm is
         op_code: IN STD_LOGIC_VECTOR(3 downto 0);
         
         C, Z: IN STD_LOGIC;
-		rf_en,m_en: out std_logic;
-        ns: OUT STD_LOGIC_VECTOR(4 downto 0));
+        nxt_state: OUT STD_LOGIC_VECTOR(4 downto 0));
 end fsm;
 
 architecture behave of fsm is
@@ -38,137 +37,7 @@ architecture behave of fsm is
   constant S24: std_logic_vector(4 downto 0) := "11000";
   constant S25: std_logic_vector(4 downto 0) := "11001";
    begin
-    process (cs, op_code) --many more
-    begin
-      case cs is
-        --when S0 =>
-        --    ns <= S1;
-        when S1 =>
-					 rf_en<='0';
-					 m_en<='0';
-                ns <= S2;
-        when S2 =>
-                if (op_code = "0000") then
-                  ns <= S3;
-                elsif (op_code = "0010") then
-                  ns <= S6;
-                elsif (op_code = "0011") then
-                  ns <= S8;
-					 elsif (op_code = "0110" or op_code = "0111")then
-                  ns <= S9;
-                elsif (op_code = "0001") then
-                  ns <= S14;
-					 elsif (op_code = "0100" or op_code = "0101") then
-                  ns <= S16;
-					 elsif (op_code = "1100") then
-                  ns <= S20;
-					 elsif (op_code = "1000") then
-                  ns <= S22;
-					 elsif (op_code = "1001") then
-                  ns <= S24;
-					 else
-					   ns <= S1;
-				    
-					 end if;
-		when S3 =>
-		 ns <= S4;
-		when S6 =>
-		 ns <= S4;
-		 
-		
-		when S4 =>
-		
-		  if (op_code = "0000")  then
-		   ns <= S5;
-		  elsif (op_code = "0010") then
-		   ns <= S7 ;
-		  else
-		   ns <= S1;
-			
-		  end if ;
-		  
-		  
-		when S5 =>
-		  ns <= S1;
-		when S7 =>
-		  ns <= S1;
-		  
-		when S8 =>
-		  ns <= S1;
-		 
-		when S9 =>
-		 
-		 if (op_code = "0110") then
-	     ns <= S10;
-		 elsif (op_code ="0111") then
-		  ns <= S13;
-		 else 
-		  ns <= S1;
-		 
-		end if; 
-		
-	  when S10 =>
-	    ns <= S11;
-		
-	  when S11 =>
-	    ns <= S12;
-	  when S13 =>
-	    ns <= S12;
-		
-	  when S12 =>
-	    if (op_code = "0110")
-	     ns <= S10;
-		 elsif (op_code = "0111")
-		  ns <= S13;
-		 else 
-		  ns <= S1;
-		  
-		 end if ;
-		
-	  when S14 =>
-	    ns <= S15;
-		
-	  when S15 =>
-	    ns <= S5;
-		
-	  when S16 =>
-	    if (op_code = "0100") then
-		   ns <= S17;
-		 elsif (op_code = "0101") then
-		   ns <= S19;
-		 else
-		   ns <= S1;
-		 
-		 end if;
-		 
-	  when S17 =>
-	    ns <= S18;
-	 
-	  when S19 =>
-	    ns <= S1;
-		 
-	  when S18 =>
-	    ns <= S7;
-		 
-	  when S20 =>
-	    ns <= S21;
-		
-	  when S21 =>
-	    ns <= S1;
-		 
-	   when S22 =>
-		 ns <= S23;
-		 
-		when S23 =>
-		 ns <= S1;
-		 
-		when S24 =>
-		 ns <= S25;
-		 
-		when S25 =>
-		 ns <= S1;
-		 
-   end process ;
+    
 end behave ;		 
 		 
 	    
